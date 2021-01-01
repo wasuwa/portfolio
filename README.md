@@ -1,24 +1,30 @@
-# README
+# 記事投稿サービスです
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ブログ系の記事投稿サービスです。
+世の中に意見を持っている高校生向けに開発しました。
 
-Things you may want to cover:
+## 機能一覧
 
-* Ruby version
+- 記事一覧表示機能
+- 記事詳細表示機能
+- 記事投稿機能
+- 記事削除機能
+- 記事編集機能
+- ユーザー登録機能
+- ユーザログイン機能
+- ユーザログアウト機能
+- パスワード再設定機能
+- アカウントメール認証機能
+- Cookie機能
+- お気に入り機能
+- 画像アップロード機能 (AWSのS3)
+- ページネーション機能
+- 単体・統合テスト機能 （RSpec）
 
-* System dependencies
+## 使用している技術一覧
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- HTML
+- CSS / SCSS
+- Ruby / Rails
+- Git
+- heroku
