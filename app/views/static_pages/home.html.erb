@@ -1,68 +1,55 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Web制作に関するスキルをまとめたポートフォリオとなります。Webサイト作成だけでなく、コーディングやライティング、WordPressサイトの保守管理といったお仕事も受けているので、興味のある方はご相談ください。">
-    <link rel="canonical" href="https://baru-portfolio.net/">
-    <link rel="icon" href="<?php bloginfo('template_url'); ?>/img/favicon.ico" sizes="48x48" type="image/x-ico">
-    <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('template_url'); ?>/img/phone_icon.jpg">
-    <meta name="msapplication-TileImage" content="<?php bloginfo('template_url'); ?>/img/visual.jpg">
-    <meta name="msapplication-TileColor" content="#000000">
-    <title>Baru Portfolio</title>
-    <meta property="og:url" content="https://baru-portfolio.net/">
-    <meta property="og:title" content="Baru Portfolio">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="Web制作に関するスキルをまとめたポートフォリオとなります。Webサイト作成だけでなく、コーディングやライティング、WordPressサイトの保守管理といったお仕事も受けているので、興味のある方はご相談ください。">
-    <meta property="og:image" content="<?php bloginfo('template_url'); ?>/img/visual.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@Baru_blog">
-    <meta property="og:site_name" content="Baru Portfolio">
-    <meta property="og:locale" content="ja_JP">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-</head>
-<body>
+<!-- ヘッダー -->
+<header class="header">
+    <div class="header__wrapper">
+        <a class="header__title" href="">
+            <h1 class="header__hssb"><span class="header__hssb--blue">H</span>SSB</h1>
+            <p class="header__title--sub">高校生の意見発信ブログ</p>
+        </a>
+        <nav>
+            <ul class="header__ul">
+                <li class="header__ul--list">
+                    <a>ホーム</a>
+                </li>
+                <li class="header__ul--list">
+                    <a>ブログを書く</a>
+                </li>
+                <li class="header__ul--list">
+                    <a>お気に入り</a>
+                </li>
+                <li class="header__ul--list">
+                    <a>記事を読む</a>
+                </li>
+            </ul>
+        </nav>
+        <a class="header__profile">
+            <%= image_tag "default_icon.jpg", class: 'header__profile--img' %>
+        </a>
+        <div class="header__triangle"></div>
+    </div>
+</header>
 
-    <!-- ヘッダー -->
-    <header class="header">
-        <div class="header__wrapper">
-            <a class="header__title" href="">
-                <h1 class="header__hssb"><span class="header__hssb--blue">H</span>SSB</h1>
-                <p class="header__title--sub">高校生の意見発信ブログ</p>
-            </a>
-            <nav>
-                <ul class="header__ul">
-                    <li class="header__ul--list">
-                        <a>ホーム</a>
-                    </li>
-                    <li class="header__ul--list">
-                        <a>ブログを書く</a>
-                    </li>
-                    <li class="header__ul--list">
-                        <a>お気に入り</a>
-                    </li>
-                    <li class="header__ul--list">
-                        <a>記事を読む</a>
-                    </li>
-                </ul>
-            </nav>
-            <a class="header__profile">
-                <%= image_tag "default_icon.jpg", class: 'header__profile--img' %>
-            </a>
-            <div class="header__triangle"></div>
+<!-- メイン -->
+<main>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
         </div>
-    </header>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</main>
 
-    <!-- メイン -->
-    <main>
+<!-- フッター -->
+<footer>
 
-    </main>
+</footer>
 
-    <!-- フッター -->
-    <footer>
-
-    </footer>
-</body>
-</html>
+<!-- TOPページ限定のJavaScript -->
+<%= javascript_pack_tag 'top_js/application' %>
