@@ -1,50 +1,52 @@
-body {
-    background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
-    padding: 0;
-  }
-
-  .swiper-container {
+.swiper-container {
     width: 100%;
-    height: 300px;
-    margin: 20px auto;
-  }
-
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-  }
-
-  .append-buttons {
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  .append-buttons a {
-    display: inline-block;
-    border: 1px solid #007aff;
-    color: #007aff;
-    text-decoration: none;
-    padding: 4px 10px;
-    border-radius: 4px;
-    margin: 0 10px;
-    font-size: 13px;
-  }
+    height: 350px;
+    margin: 10px auto 0;
+    .swiper-slide {
+        text-align: center;
+        background: #fff;
+        &__wrapper {
+            padding: 0 60px;
+            &--name {
+                font-size: 18px;
+                line-height: 18px;
+                margin: 80px 0 20px;
+            }
+            &--title {
+                font-size: 22px;
+                line-height: 30px;
+                margin-bottom: 40px;
+            }
+            &--button {
+                @include button($width: 200px, $height: 50px, $radius: 5px,)
+            }
+        }
+    }
+    .swiper-button-next {
+        @include swiper_arrow;
+        right: 0;
+    }
+    .swiper-button-prev {
+        @include swiper_arrow;
+        left: 0;
+    }
+}
+.swiper-pagination {
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    background: white;
+    &-bullet {
+        margin-top: 15px;
+        width: 10px;
+        height: 10px;
+        background: #ddd;
+        opacity: 1;
+        &:nth-of-type(2) {
+            margin: 0 30px;
+        }
+    }
+    &-bullet-active {
+        background: #64BCFC;
+    }
+}
