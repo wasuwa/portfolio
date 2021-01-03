@@ -22,7 +22,7 @@
             </ul>
         </nav>
         <a class="header__profile">
-            <%= image_tag "default_icon.jpg", class: 'header__profile--img' %>
+            <%= image_tag "default_icon.jpg", class: "header__profile--img" %>
         </a>
         <div class="header__triangle"></div>
     </div>
@@ -34,34 +34,146 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <div class="swiper-slide__wrapper">
+                <article class="swiper-slide__wrapper">
                     <p class="swiper-slide__wrapper--name">taro</p>
                     <h2 class="swiper-slide__wrapper--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h2>
                     <button type="button" class="swiper-slide__wrapper--button">もっと読む</button>
-                </div>
+                </article>
             </div>
             <div class="swiper-slide">
-                <div class="swiper-slide__wrapper">
+                <article class="swiper-slide__wrapper">
                     <p class="swiper-slide__wrapper--name">taro</p>
                     <h2 class="swiper-slide__wrapper--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h2>
                     <button type="button" class="swiper-slide__wrapper--button">もっと読む</button>
-                </div>
+                </article>
             </div>
             <div class="swiper-slide">
-                <div class="swiper-slide__wrapper">
+                <article class="swiper-slide__wrapper">
                     <p class="swiper-slide__wrapper--name">taro</p>
                     <h2 class="swiper-slide__wrapper--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h2>
                     <button type="button" class="swiper-slide__wrapper--button">もっと読む</button>
-                </div>
+                </article>
             </div>
-            
         </div>
-        <!-- Add Arrows -->
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
     </div>
-    <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
+    <!-- 新着記事 -->
+    <div class="new-article">
+        <div class="new-article__title">
+            <span class="new-article__title--line"></span>
+            <h2 class="new-article__title--text">新着記事</h2>
+            <span class="new-article__title--line"></span>
+        </div>
+        <div class="new-article__wrapper">
+            <article class="article_items">
+                <div class="article_items__image">
+                    <div class="article_items__wrapper">
+                        <time class="article_items__wrapper--time">3分前</time>
+                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                    </div>
+                </div>
+                <div class="article_items__text">
+                    <h3 class="article_items__text--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h3>
+                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                    <span class="article_items__text--name">taro / 高校2年生</span>
+                </div>
+            </article>
+            <article class="article_items">
+                <div class="article_items__image">
+                    <div class="article_items__wrapper">
+                        <time class="article_items__wrapper--time">3分前</time>
+                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                    </div>
+                </div>
+                <div class="article_items__text">
+                    <h3 class="article_items__text--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h3>
+                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                    <span class="article_items__text--name">taro / 高校2年生</span>
+                </div>
+            </article>
+            <article class="article_items">
+                <div class="article_items__image">
+                    <div class="article_items__wrapper">
+                        <time class="article_items__wrapper--time">3分前</time>
+                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                    </div>
+                </div>
+                <div class="article_items__text">
+                    <h3 class="article_items__text--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h3>
+                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                    <span class="article_items__text--name">taro / 高校2年生</span>
+                </div>
+            </article>
+            <article class="article_items">
+                <div class="article_items__image">
+                    <div class="article_items__wrapper">
+                        <time class="article_items__wrapper--time">3分前</time>
+                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                    </div>
+                </div>
+                <div class="article_items__text">
+                    <h3 class="article_items__text--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h3>
+                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                    <span class="article_items__text--name">taro / 高校2年生</span>
+                </div>
+            </article>
+            <article class="article_items">
+                <div class="article_items__image">
+                    <div class="article_items__wrapper">
+                        <time class="article_items__wrapper--time">3分前</time>
+                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                    </div>
+                </div>
+                <div class="article_items__text">
+                    <h3 class="article_items__text--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h3>
+                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                    <span class="article_items__text--name">taro / 高校2年生</span>
+                </div>
+            </article>
+            <article class="article_items">
+                <div class="article_items__image">
+                    <div class="article_items__wrapper">
+                        <time class="article_items__wrapper--time">3分前</time>
+                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                    </div>
+                </div>
+                <div class="article_items__text">
+                    <h3 class="article_items__text--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h3>
+                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                    <span class="article_items__text--name">taro / 高校2年生</span>
+                </div>
+            </article>
+            <article class="article_items">
+                <div class="article_items__image">
+                    <div class="article_items__wrapper">
+                        <time class="article_items__wrapper--time">3分前</time>
+                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                    </div>
+                </div>
+                <div class="article_items__text">
+                    <h3 class="article_items__text--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h3>
+                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                    <span class="article_items__text--name">taro / 高校2年生</span>
+                </div>
+            </article>
+            <article class="article_items">
+                <div class="article_items__image">
+                    <div class="article_items__wrapper">
+                        <time class="article_items__wrapper--time">3分前</time>
+                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                    </div>
+                </div>
+                <div class="article_items__text">
+                    <h3 class="article_items__text--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h3>
+                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                    <span class="article_items__text--name">taro / 高校2年生</span>
+                </div>
+            </article>
+        </div>
+        <button type="button" class="new-article__button">もっとみる</button>
+    <div>
 </main>
 
 <!-- フッター -->

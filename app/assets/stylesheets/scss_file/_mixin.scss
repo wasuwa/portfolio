@@ -9,7 +9,7 @@
             letter-spacing: 0;
             margin-bottom: 2px;
             &--blue {
-                color: #64BCFC;
+                color: $main_blue;
             }
         }
         &--sub {
@@ -32,11 +32,84 @@
     }
 }
 
-@mixin button($background: #64BCFC,  $width: 400px, $radius: 25px, $height: 60px, $color: white) {
+@mixin button($background: $main_blue,  $width: 400px, $radius: 25px, $height: 60px, $color: white) {
     width: $width;
     height: $height;
     background: $background;
     border-radius: $radius;
     color: $color;
     letter-spacing: 1px;
+    display: block;
+    margin: 0 auto;
+}
+
+@mixin line_title($width: 100px) {
+    &__title {
+        display: flex;
+        justify-content: center;
+        &--text {
+            font-size: 24px;
+            line-height: 24px;
+            margin: 0 35px;
+        }
+        &--line {
+            width: $width;
+            height: 1px;
+            background: $main_blue;
+            display: block;
+            align-self: center;
+        }
+    }
+}
+
+@mixin article {
+    max-width: 500px;
+    height: 99.51%;
+    display: flex;
+    background: white;
+    &__image {
+        width: 40%;
+        position: relative;
+        .article_items__wrapper {
+            height: 100%;
+            background: image-url('no_img.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-size: 200px 100%;
+            &--time {
+                font-size: 12px;
+                color: white;
+                background: $sub_blue;
+                padding: 2px 10px 4px;
+                border-radius: 0px 0px 5px 0px;
+            }
+            &--star {
+                width: 35px;
+                height: 35px;
+                position: absolute;
+                bottom: 20px;
+                left: 15px;
+            }
+        }
+    }
+    &__text {
+        width: 60%;
+        padding: 30px 20px;
+        box-sizing: border-box;
+        &--title {
+            margin-bottom: 15px;
+        }
+        &--overview {
+            font-size: 12px;
+            color: #aeaeae;
+            line-height: 17px;
+            margin-bottom: 15px;
+        }
+        &--name {
+            font-size: 12px;
+            color: $main_blue;
+            line-height: 17px;
+        }
+    }        
 }

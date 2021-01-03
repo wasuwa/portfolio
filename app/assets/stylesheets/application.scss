@@ -22,9 +22,14 @@
 // 全体の指定
 @import "scss_file/body";
 
+// 変数
+@import "scss_file/variable";
+
 // mixin
 @import "scss_file/mixin";
 
 // scssファイル
 @import "scss_file/header";
-@import "scss_file/swiper"
+@import "scss_file/swiper";
+@import "scss_file/new-article";
+@import "scss_file/article_items"

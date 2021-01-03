@@ -1,7 +1,7 @@
 .swiper-container {
     width: 100%;
     height: 350px;
-    margin: 10px auto 0;
+    margin: 10px auto 50px;
     .swiper-slide {
         text-align: center;
         background: #fff;
@@ -34,7 +34,7 @@
 .swiper-pagination {
     width: 100%;
     height: 40px;
-    margin-top: 10px;
+    margin-top: -40px;
     background: white;
     &-bullet {
         margin-top: 15px;
@@ -47,6 +47,6 @@
         }
     }
     &-bullet-active {
-        background: #64BCFC;
+        background: $main_blue;
     }
 }

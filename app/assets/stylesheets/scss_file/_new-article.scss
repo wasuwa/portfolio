@@ -1,0 +1,18 @@
+.new-article {
+    max-width: 1020px;
+    padding: 50px 30px 100px;
+    margin: 0 auto;
+    @include line_title;
+    &__title {
+        margin-bottom: 50px;
+    }
+    &__wrapper {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 30px;
+    }
+    &__button {
+        @include button($background: white,  $width: 500px, $radius: 5px, $height: 50px, $color: #333);
+    }
+}
