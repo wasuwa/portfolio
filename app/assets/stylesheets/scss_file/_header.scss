@@ -2,7 +2,6 @@
     background: white;
     height: 70px;
     &__wrapper {
-        @include title_logo;
         max-width: 1080px;
         height: 100%;
         padding: 0 60px;

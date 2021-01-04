@@ -1,24 +1,3 @@
-@mixin title_logo($color: #333) {
-    .header__title {
-        .header__hssb {
-            font-size: 24px;
-            line-height: 18px;
-            color: $color;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            letter-spacing: 0;
-            margin-bottom: 2px;
-            &--blue {
-                color: $main_blue;
-            }
-        }
-        &--sub {
-            font-size: 10px;
-            line-height: 10px;
-        }
-    }
-}
-
 @mixin swiper_arrow {
     width: 80px;
     height: 100%;
