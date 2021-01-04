@@ -24,7 +24,7 @@
         <a class="header__profile">
             <%= image_tag "default_icon.jpg", class: "header__profile--img" %>
         </a>
-        <div class="header__triangle"></div>
+        <div class="header__triangle" id="header__triangle_id"></div>
         <!-- ハンバーガーメニュー -->
         <nav class="hamburger_nav" id="hamburger_nav_id">
             <ul>
@@ -47,7 +47,7 @@
                     <a href="" class="hamburger_nav__list--link">アカウント設定</a>
                 </li>
                 <li class="hamburger_nav__list">
-                    <a href="" class="hamburger_nav__list--link">ログアウト</a>
+                    <a href="" class="hamburger_nav__list--link hamburger_nav__list--logout">ログアウト</a>
                 </li>
             </ul>
         </nav>
@@ -57,6 +57,19 @@
             <span class="hamburger_btn__line"></span>
         </div>
         <div class="hamburger_bg" id="hamburger_bg_id"></div>
+    </div>
+     <div class="header__click_menu" id="header__click_menu_id">
+        <ul>
+            <li>
+                <a class="header__click_menu--link">マイブログ</a>
+            </li>
+            <li>
+                <a class="header__click_menu--link">アカウントの設定</a>
+            </li>
+            <li>
+                <a class="header__click_menu--link header__click_menu--logout">ログアウト</a>
+            </li>
+        </ul>
     </div>
 </header>
 

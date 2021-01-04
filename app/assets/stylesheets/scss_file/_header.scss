@@ -38,6 +38,35 @@
             border-top: 7px solid #D8D8D8;
         }
     }
+    &__click_menu {
+        max-width: 250px;
+        height: 152px;
+        background: white;
+        margin: 0 30px 0 auto;
+        position: relative;
+        z-index: 50;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        display: none;
+        &--link {
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+            box-sizing: border-box;
+            text-align: center;
+            &:hover {
+                background-color: #eee;
+            }
+        }
+        &--logout {
+            border: none;
+            color: #E25959;
+        }
+    }
+    .open_menu {
+        display: block;
+    }
 }
 
 @include bp_md {
