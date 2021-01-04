@@ -173,30 +173,32 @@
             </article>
         </div>
         <button type="button" class="new-article__button">もっとみる</button>
-    <div>
+    </div>
     <!-- cta -->
     <div class="cta">
-        <a class="cta__items">
-            <%= image_tag "cta_icon_write", class: "cta__items--icon" %>
-            <h2 class="cta__items--title">ブログを書く</h2>
-            <p class="cta__items--text">自分の意見をブログに書き、意見を発信してみよう</p>
-        </a>
-        <a class="cta__items">
-            <%= image_tag "cta_icon_read", class: "cta__items--icon" %>
-            <h2 class="cta__items--title">他の人の記事を<br>読む</h2>
-            <p class="cta__items--text">他の人の記事を読み、価値観をアップデートしよう</p>
-        </a>
-        <a class="cta__items">
-            <%= image_tag "cta_icon_favorite", class: "cta__items--icon" %>
-            <h2 class="cta__items--title">お気に入りを<br>見る</h2>
-            <p class="cta__items--text">過去に登録した、お気に入りの記事を読み返そう</p>
-        </a>
+        <div class="cta__wrapper">
+            <a class="cta__items">
+                <%= image_tag "cta_icon_write", class: "cta__items--icon" %>
+                <h2 class="cta__items--title">ブログを書く</h2>
+                <p class="cta__items--text">自分の意見を発信してみよう</p>
+            </a>
+            <a class="cta__items">
+                <%= image_tag "cta_icon_read", class: "cta__items--icon" %>
+                <h2 class="cta__items--title">他の人の記事を<br>読む</h2>
+                <p class="cta__items--text">価値観をアップデートしよう</p>
+            </a>
+            <a class="cta__items">
+                <%= image_tag "cta_icon_favorite", class: "cta__items--icon" %>
+                <h2 class="cta__items--title">お気に入りを<br>見る</h2>
+                <p class="cta__items--text">お気に入りの記事を読み返そう</p>
+            </a>
+        </div>
     </div>
 </main>
 
 <!-- フッター -->
 <footer>
-
+    
 </footer>
 
 <!-- TOPページ限定のJavaScript -->
