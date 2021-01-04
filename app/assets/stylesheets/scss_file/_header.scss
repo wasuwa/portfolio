@@ -39,3 +39,19 @@
         }
     }
 }
+
+@include bp_md {
+    .header {
+        &__wrapper {
+            .header__ul {
+                display: none;
+            }
+            .header__profile {
+                display: none;
+            }
+            .header__triangle {
+                display: none;
+            }
+        }
+    }
+}

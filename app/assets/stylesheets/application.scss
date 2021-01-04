@@ -25,12 +25,16 @@
 // mixin
 @import "scss_file/mixin";
 
+// ブレイクポイント
+@import "scss_file/responsive";
+
 // 全体の指定
 @import "scss_file/body";
 
 // scssファイル
 @import "scss_file/header";
 @import "scss_file/main_logo";
+@import "scss_file/hamburger";
 @import "scss_file/swiper";
 @import "scss_file/new-article";
 @import "scss_file/article_items";
