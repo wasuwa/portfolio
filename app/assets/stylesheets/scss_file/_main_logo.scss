@@ -16,3 +16,16 @@
         line-height: 10px;
     }
 }
+
+@include bp_sm {
+    .main_logo {
+        &__hssb {
+            font-size: 20px;
+            line-height: 14px;
+            margin: 0;
+        }
+        &__sub {
+            display: none;
+        }
+    }
+}

@@ -9,6 +9,9 @@
     &::after {
         color: white;
     }
+    @include bp_sm {
+        width: 50px;
+    }
 }
 
 @mixin button($background: $main_blue,  $width: 400px, $radius: 25px, $height: 60px, $color: white) {
@@ -41,7 +44,7 @@
     }
 }
 
-@mixin article($width: 500px, $height: 99.51%, $image_width: 40%, $text_width: 60%, $title_size: 14px, $title_line: 20px, $title_mg: 15px, $overview_size: 12px, $overview_mg: 15px, $line: 17px, $name_size: 12px, $img_size: 200px 100%, $text_pading: 30px 20px, $icon_size: 35px) {
+@mixin article($width: 500px, $height: 99.51%, $image_width: 40%, $text_width: 60%, $title_size: 14px, $title_line: 20px, $title_mg: 15px, $overview_size: 12px, $overview_mg: 15px, $line: 17px, $name_size: 12px, $img_size: 200px 100%, $text_padding: 30px 20px, $icon_size: 35px) {
     max-width: $width;
     height: $height;
     display: flex;
@@ -77,7 +80,7 @@
     }
     &__text {
         width: $text_width;
-        padding: $text_pading;
+        padding: $text_padding;
         box-sizing: border-box;
         &--title {
             margin-bottom: $title_mg;

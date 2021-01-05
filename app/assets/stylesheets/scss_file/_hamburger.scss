@@ -1,9 +1,9 @@
 /* ハンバーガーボタン */
 .hamburger_nav {
     position: fixed;
-    right: -320px;
+    right: -300px;
     top: 0;
-    width: 300px;
+    width: 280px;
     height: 100vh;
     padding-top: 40px;
     background-color: #fff;
@@ -69,5 +69,17 @@
 @include bp_md {
     .hamburger_btn {
         display: block;
+    }
+}
+
+@include bp_sm {
+    .hamburger_btn {
+        width: 25px;
+        &__line {
+            width: 25px;
+            &:not(:last-child) {
+                margin-bottom: 7px;
+            }
+        }
     }
 }
