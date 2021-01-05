@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
   end
-  def settings
+  def account_setting
   end
 end

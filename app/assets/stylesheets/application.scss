@@ -14,29 +14,32 @@
  */
 
 // リセットCSS
-@import "scss_file/reset";
+@import "primary/reset";
 
 // Googleフォント
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap');
 
 // 変数
-@import "scss_file/variable";
+@import "primary/variable";
 
 // mixin
-@import "scss_file/mixin";
+@import "primary/mixin";
 
 // ブレイクポイント
-@import "scss_file/responsive";
+@import "primary/responsive";
 
 // 全体の指定
-@import "scss_file/body";
+@import "primary/body";
 
-// scssファイル
-@import "scss_file/header";
-@import "scss_file/main_logo";
-@import "scss_file/hamburger";
-@import "scss_file/swiper";
-@import "scss_file/new-article";
-@import "scss_file/article_items";
-@import "scss_file/cta";
-@import "scss_file/footer";
+// home
+@import "home/header";
+@import "home/main_logo";
+@import "home/hamburger";
+@import "home/swiper";
+@import "home/new-article";
+@import "home/article_items";
+@import "home/cta";
+@import "home/footer";
+
+// account_setting
+@import "account_setting/account_setting"
