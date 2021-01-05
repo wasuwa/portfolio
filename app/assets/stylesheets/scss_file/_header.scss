@@ -36,6 +36,7 @@
             border-left: 7px solid transparent;
             border-right: 7px solid transparent;
             border-top: 7px solid #D8D8D8;
+            cursor: pointer;
         }
     }
     &__click_menu {
@@ -47,7 +48,9 @@
         z-index: 50;
         border: 1px solid #ddd;
         border-radius: 5px;
-        display: none;
+        opacity: 0;
+        transition-property: opacity; 
+        transition-duration: .1s;
         &--link {
             display: block;
             width: 100%;
@@ -65,7 +68,7 @@
         }
     }
     .open_menu {
-        display: block;
+        opacity: 1;
     }
 }
 
