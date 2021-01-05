@@ -1,77 +1,5 @@
 <!-- ヘッダー -->
-<header class="header">
-    <div class="header__wrapper">
-        <a class="main_logo" href="">
-            <h1 class="main_logo__hssb"><span class="main_logo__hssb--blue">H</span>SSB</h1>
-            <p class="main_logo__sub">高校生の意見発信ブログ</p>
-        </a>
-        <nav>
-            <ul class="header__ul">
-                <li class="header__ul--list">
-                    <a>ホーム</a>
-                </li>
-                <li class="header__ul--list">
-                    <a>ブログを書く</a>
-                </li>
-                <li class="header__ul--list">
-                    <a>お気に入り</a>
-                </li>
-                <li class="header__ul--list">
-                    <a>記事を読む</a>
-                </li>
-            </ul>
-        </nav>
-        <a class="header__profile">
-            <%= image_tag "default_icon.jpg", class: "header__profile--img" %>
-        </a>
-        <div class="header__triangle" id="header__triangle_id"></div>
-        <!-- ハンバーガーメニュー -->
-        <nav class="hamburger_nav" id="hamburger_nav_id">
-            <ul>
-                <li class="hamburger_nav__list">
-                    <a href="" class="hamburger_nav__list--link">ホーム</a>
-                </li>
-                <li class="hamburger_nav__list">
-                    <a href="" class="hamburger_nav__list--link">ブログを書く</a>
-                </li>
-                <li class="hamburger_nav__list">
-                    <a href="" class="hamburger_nav__list--link">お気に入り</a>
-                </li>
-                <li class="hamburger_nav__list">
-                    <a href="" class="hamburger_nav__list--link">記事を読む</a>
-                </li>
-                <li class="hamburger_nav__list">
-                    <a href="" class="hamburger_nav__list--link">マイブログ</a>
-                </li>
-                <li class="hamburger_nav__list">
-                    <a href="" class="hamburger_nav__list--link">アカウント設定</a>
-                </li>
-                <li class="hamburger_nav__list">
-                    <a href="" class="hamburger_nav__list--link hamburger_nav__list--logout">ログアウト</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="hamburger_btn" id="hamburger_btn_id">
-            <span class="hamburger_btn__line"></span>
-            <span class="hamburger_btn__line"></span>
-            <span class="hamburger_btn__line"></span>
-        </div>
-        <div class="hamburger_bg" id="hamburger_bg_id"></div>
-    </div>
-     <div class="header__click_menu" id="header__click_menu_id">
-        <ul>
-            <li>
-                <a class="header__click_menu--link">マイブログ</a>
-            </li>
-            <li>
-                <a class="header__click_menu--link">アカウントの設定</a>
-            </li>
-            <li>
-                <a class="header__click_menu--link header__click_menu--logout">ログアウト</a>
-            </li>
-        </ul>
-    </div>
-</header>
+<%= render 'render/header' %>
 
 <!-- メイン -->
 <main>
@@ -242,12 +170,7 @@
 </main>
 
 <!-- フッター -->
-<footer class="footer">
-    <a class="main_logo" href="">
-        <h1 class="main_logo__hssb">HSSB</h1>
-        <p class="main_logo__sub">高校生の意見発信ブログ</p>
-    </a>
-</footer>
+<%= render 'render/footer' %>
 
-<!-- TOPページ限定のJavaScript -->
+<!-- TOPページのJS -->
 <%= javascript_pack_tag 'top_js/application' %>
