@@ -14,3 +14,9 @@
         }
     }
 }
+
+@include bp_md {
+    .footer {
+        padding: 0 30px;
+    }
+}

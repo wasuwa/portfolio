@@ -41,13 +41,13 @@
     }
 }
 
-@mixin article {
-    max-width: 500px;
-    height: 99.51%;
+@mixin article($width: 500px, $height: 99.51%, $image_width: 40%, $text_width: 60%, $title_size: 14px, $title_line: 20px, $title_mg: 15px, $overview_size: 12px, $overview_mg: 15px, $line: 17px, $name_size: 12px, $img_size: 200px 100%, $text_pading: 30px 20px, $icon_size: 35px) {
+    max-width: $width;
+    height: $height;
     display: flex;
     background: white;
     &__image {
-        width: 40%;
+        width: $image_width;
         position: relative;
         .article_items__wrapper {
             height: 100%;
@@ -55,17 +55,20 @@
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            background-size: 200px 100%;
+            background-size: $img_size;
+            position: relative;
             &--time {
                 font-size: 12px;
                 color: white;
                 background: $sub_blue;
                 padding: 2px 10px 4px;
                 border-radius: 0px 0px 5px 0px;
+                position: absolute;
+                top: 0;
             }
             &--star {
-                width: 35px;
-                height: 35px;
+                width: $icon_size;
+                height: $icon_size;
                 position: absolute;
                 bottom: 20px;
                 left: 15px;
@@ -73,22 +76,24 @@
         }
     }
     &__text {
-        width: 60%;
-        padding: 30px 20px;
+        width: $text_width;
+        padding: $text_pading;
         box-sizing: border-box;
         &--title {
-            margin-bottom: 15px;
+            margin-bottom: $title_mg;
+            font-size: $title_size;
+            line-height: $title_line;
         }
         &--overview {
-            font-size: 12px;
+            font-size: $overview_size;
             color: #aeaeae;
-            line-height: 17px;
-            margin-bottom: 15px;
+            line-height: $line;
+            margin-bottom: $overview_mg;
         }
         &--name {
-            font-size: 12px;
+            font-size: $name_size;
             color: $main_blue;
-            line-height: 17px;
+            line-height: $line;
         }
     }        
 }
