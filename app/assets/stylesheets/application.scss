@@ -29,17 +29,17 @@
 @import "primary/responsive";
 
 // 全体の指定
-@import "primary/body";
+@import "body/body";
+@import "body/header";
+@import "body/footer";
 
 // home
-@import "home/header";
 @import "home/main_logo";
 @import "home/hamburger";
 @import "home/swiper";
 @import "home/new-article";
 @import "home/article_items";
 @import "home/cta";
-@import "home/footer";
 
 // account_setting
-@import "account_setting/account_setting"
+@import "account_setting/account_setting";

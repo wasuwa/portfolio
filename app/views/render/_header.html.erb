@@ -7,7 +7,7 @@
         <nav>
             <ul class="header__ul">
                 <li class="header__ul--list">
-                    <a>ホーム</a>
+                    <%= link_to "ホーム", "/", class: "header__ul--list" %>
                 </li>
                 <li class="header__ul--list">
                     <a>ブログを書く</a>
@@ -28,7 +28,7 @@
         <nav class="hamburger_nav" id="hamburger_nav_id">
             <ul>
                 <li class="hamburger_nav__list">
-                    <a href="" class="hamburger_nav__list--link">ホーム</a>
+                    <%= link_to "ホーム", "/", class: "hamburger_nav__list--link" %>
                 </li>
                 <li class="hamburger_nav__list">
                     <a href="" class="hamburger_nav__list--link">ブログを書く</a>
@@ -43,7 +43,7 @@
                     <a href="" class="hamburger_nav__list--link">マイブログ</a>
                 </li>
                 <li class="hamburger_nav__list">
-                    <a href="" class="hamburger_nav__list--link">アカウント設定</a>
+                    <%= link_to "アカウントの設定", "/account_setting", class: "hamburger_nav__list--link" %>
                 </li>
                 <li class="hamburger_nav__list">
                     <a href="" class="hamburger_nav__list--link hamburger_nav__list--logout">ログアウト</a>
@@ -63,7 +63,7 @@
                 <a class="header__click_menu--link">マイブログ</a>
             </li>
             <li>
-                <a class="header__click_menu--link">アカウントの設定</a>
+                <%= link_to "アカウントの設定", "/account_setting", class: "header__click_menu--link" %>
             </li>
             <li>
                 <a class="header__click_menu--link header__click_menu--logout">ログアウト</a>

@@ -100,3 +100,15 @@
         }
     }        
 }
+
+@mixin profile_icon($width: 32px) {
+    width: $width;
+    height: $width;
+    border: 4px solid $main_blue;
+    border-radius: 50%;
+    &--img {
+        width: $width;
+        height: $width;
+        border-radius: 50%;
+    }
+}
