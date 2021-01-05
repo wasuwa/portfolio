@@ -3,4 +3,6 @@ class StaticPagesController < ApplicationController
   end
   def account_setting
   end
+  def password_setting
+  end
 end
