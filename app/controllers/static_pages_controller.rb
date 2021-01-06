@@ -11,4 +11,6 @@ class StaticPagesController < ApplicationController
   end
   def email
   end
+  def profile
+  end
 end

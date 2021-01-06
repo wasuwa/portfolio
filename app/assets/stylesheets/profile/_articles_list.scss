@@ -1,0 +1,28 @@
+.articles_list {
+    @include line_title($width: 50px, $margin: 0 20px);
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 30px;
+    &__title {
+        justify-content: flex-start;
+        margin-bottom: 40px;
+    }
+    .article_items {
+        @include article($width: 880px, $height: 300px, $image_width: 300px, $text_width: 580px, $title_size: 18px, $title_line: 27px, $title_mg: 20px, $overview_size: 14px, $line: 20px, $name_size: 14px, $img_size: 300px 100%, $text_padding: 40px 30px, $icon_size: 40px);
+        line-height: 29px;
+        position: relative;
+        &__button {
+            position: absolute;
+            bottom: 40px;
+            right: 30px;
+            &--edit {
+                border: 1px solid #ddd;
+                
+            }
+            &--delete {
+                border: 1px solid #ddd;
+                margin-left: 20px;
+            }
+        }
+    }
+}
