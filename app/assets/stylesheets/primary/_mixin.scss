@@ -17,6 +17,7 @@
 @mixin button($background: $main_blue,  $width: 400px, $radius: 25px, $height: 60px, $color: white) {
     width: $width;
     height: $height;
+    border: none;
     background: $background;
     border-radius: $radius;
     color: $color;

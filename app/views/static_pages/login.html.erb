@@ -1,0 +1,26 @@
+<!-- ヘッダー -->
+<%= render 'render/header' %>
+
+<!-- メイン -->
+<main>
+    <section class="settings">
+        <div class="settings__wrapper">
+            <%= image_tag "fox_icon.jpg", class: "settings__img" %>
+            <h2 class="settings__wrapper--title">HSSBアカウントでログイン</h2>
+            <form class="settings__form">
+                <input type="email" name="login_email" placeholder="example@gmail.com" class="settings__form--input_sign">
+                <input type="password" name="login_password" placeholder="パスワード" class="settings__form--input_sign">
+                <input type="submit" value="ログイン" name="login_btn" class="settings__form--button_sign">
+            </form>
+            <%= link_to "/sign_up", class: "settings__link" do %>
+                登録していない方は<span class="settings__link--blue">こちら</span>
+            <% end %>
+            <%= link_to "/password_setting", class: "settings__link" do %>
+                パスワードを忘れた方は<span class="settings__link--blue">こちら</span>
+            <% end %>
+        </div>
+    </section>
+</main>
+
+<!-- フッター -->
+<%= render 'render/footer' %>

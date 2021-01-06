@@ -1,0 +1,24 @@
+<!-- ヘッダー -->
+<%= render 'render/header' %>
+
+<!-- メイン -->
+<main>
+    <section class="settings">
+        <div class="settings__wrapper">
+            <%= image_tag "elephant_icon.jpg", class: "settings__img" %>
+            <h2 class="settings__wrapper--title">ブログ生活をスタートしよう</h2>
+            <form class="settings__form">
+                <input type="text" name="signup_name" placeholder="お名前" class="settings__form--input_sign">
+                <input type="email" name="signup_mail" placeholder="メールアドレス" class="settings__form--input_sign">
+                <input type="password" name="signup_password" placeholder="パスワード（6文字以上）" class="settings__form--input_sign">
+                <input type="submit" value="新規登録" name="signup_btn" class="settings__form--button_sign">
+            </form>
+            <%= link_to "/login", class: "settings__link" do %>
+                すでに登録済みの方は<span class="settings__link--blue">こちら</span>
+            <% end %>
+        </div>
+    </section>
+</main>
+
+<!-- フッター -->
+<%= render 'render/footer' %>

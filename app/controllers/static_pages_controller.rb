@@ -5,4 +5,10 @@ class StaticPagesController < ApplicationController
   end
   def password_setting
   end
+  def login
+  end
+  def sign_up
+  end
+  def email
+  end
 end
