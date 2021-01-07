@@ -108,6 +108,16 @@
             color: $main_blue;
             line-height: $line;
         }
+        &--grade {
+            display: inline;
+        }
+    }
+    @include bp_sm {
+        &__text {
+            &--grade {
+                display: none;
+            }
+        }
     }
 }
 
