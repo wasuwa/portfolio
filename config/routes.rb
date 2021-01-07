@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
-  get '/account_setting', to: 'static_pages#account_setting', as: 'account_setting'
-  get '/password_setting', to: 'static_pages#password_setting', as: 'passoword_setting'
-  get '/login', to: 'static_pages#login', as: 'login'
-  get '/sign_up', to: 'static_pages#sign_up', as: 'sign_up'
-  get '/email', to: 'static_pages#email', as: 'email'
-  get '/profile', to: 'static_pages#profile', as: 'profile'
-  get '/other_profile', to: 'static_pages#other_profile', as: 'other_profile'
-  # as: は目印のようなもの。link_toなどでURLを書く際に便利
+  get '/account_setting', to: 'static_pages#account_setting'
+  get '/password_setting', to: 'static_pages#password_setting'
+  get '/login', to: 'static_pages#login'
+  get '/sign_up', to: 'static_pages#sign_up'
+  get '/email', to: 'static_pages#email'
+  get '/profile', to: 'static_pages#profile'
+  get '/other_profile', to: 'static_pages#other_profile'
 end

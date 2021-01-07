@@ -40,7 +40,7 @@
                     <a href="" class="hamburger_nav__list--link">記事を読む</a>
                 </li>
                 <li class="hamburger_nav__list">
-                    <a href="" class="hamburger_nav__list--link">マイブログ</a>
+                    <%= link_to "マイブログ", "/profile", class: "hamburger_nav__list--link" %>
                 </li>
                 <li class="hamburger_nav__list">
                     <%= link_to "アカウントの設定", "/account_setting", class: "hamburger_nav__list--link" %>
@@ -60,7 +60,7 @@
      <div class="header__click_menu" id="header__click_menu_id">
         <ul>
             <li>
-                <a class="header__click_menu--link">マイブログ</a>
+                <%= link_to "マイブログ", "/profile", class: "header__click_menu--link" %>
             </li>
             <li>
                 <%= link_to "アカウントの設定", "/account_setting", class: "header__click_menu--link" %>
