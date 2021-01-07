@@ -19,4 +19,6 @@ class StaticPagesController < ApplicationController
   end
   def favorite_list
   end
+  def article_details
+  end
 end
