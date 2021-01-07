@@ -13,7 +13,7 @@
                     <a>ブログを書く</a>
                 </li>
                 <li class="header__ul--list">
-                    <a>お気に入り</a>
+                    <%= link_to "お気に入り", "/new_articles_list" %>
                 </li>
                 <li class="header__ul--list">
                     <a>記事を読む</a>
@@ -34,7 +34,7 @@
                     <a href="" class="hamburger_nav__list--link">ブログを書く</a>
                 </li>
                 <li class="hamburger_nav__list">
-                    <a href="" class="hamburger_nav__list--link">お気に入り</a>
+                    <%= link_to "お気に入り", "/new_articles_list", class: "hamburger_nav__list--link" %>
                 </li>
                 <li class="hamburger_nav__list">
                     <a href="" class="hamburger_nav__list--link">記事を読む</a>

@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/email', to: 'static_pages#email'
   get '/profile', to: 'static_pages#profile'
   get '/other_profile', to: 'static_pages#other_profile'
+  get '/other_profile', to: 'static_pages#other_profile'
+  get '/new_articles_list', to: 'static_pages#new_articles_list'
 end

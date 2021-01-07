@@ -15,4 +15,6 @@ class StaticPagesController < ApplicationController
   end
   def other_profile
   end
+  def new_articles_list
+  end
 end
