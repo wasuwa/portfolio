@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get '/sign_up', to: 'static_pages#sign_up', as: 'sign_up'
   get '/email', to: 'static_pages#email', as: 'email'
   get '/profile', to: 'static_pages#profile', as: 'profile'
+  get '/other_profile', to: 'static_pages#other_profile', as: 'other_profile'
   # as: は目印のようなもの。link_toなどでURLを書く際に便利
 end

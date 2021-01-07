@@ -13,4 +13,6 @@ class StaticPagesController < ApplicationController
   end
   def profile
   end
+  def other_profile
+  end
 end
