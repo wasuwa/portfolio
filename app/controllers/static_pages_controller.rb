@@ -17,4 +17,6 @@ class StaticPagesController < ApplicationController
   end
   def new_articles_list
   end
+  def favorite_list
+  end
 end

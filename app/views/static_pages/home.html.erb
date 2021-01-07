@@ -153,22 +153,22 @@
                 </div>
             </article>
         </div>
-        <button type="button" class="new-article__button">もっとみる</button>
+        <button type="button" class="new-article__button" onclick="location.href='/new_articles'">もっとみる</button>
     </div>
     <!-- cta -->
     <div class="cta">
         <div class="cta__wrapper">
-            <%= link_to "/new_articles_list", class: "cta__items" do %>
+            <%= link_to "/", class: "cta__items" do %>
                 <%= image_tag "cta_icon_write", class: "cta__items--icon" %>
                 <h2 class="cta__items--title">自分の記事を書く</h2>
                 <p class="cta__items--text">自分の意見を発信してみよう</p>
             <% end %>
-            <%= link_to "/new_articles_list", class: "cta__items" do %>
+            <%= link_to "/new_articles", class: "cta__items" do %>
                 <%= image_tag "cta_icon_read", class: "cta__items--icon" %>
                 <h2 class="cta__items--title">もっと記事を読む</h2>
                 <p class="cta__items--text">価値観をアップデートしよう</p>
             <% end %>
-            <%= link_to "/new_articles_list", class: "cta__items" do %>
+            <%= link_to "/favorite", class: "cta__items" do %>
                 <%= image_tag "cta_icon_favorite", class: "cta__items--icon" %>
                 <h2 class="cta__items--title">お気に入りを見る</h2>
                 <p class="cta__items--text">お気に入りの記事を読み返そう</p>
