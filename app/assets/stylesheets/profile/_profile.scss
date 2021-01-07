@@ -49,6 +49,7 @@
 
 @include bp_sm {
     .profile {
+        margin-bottom: 30px;
         &__wrapper {
             padding: 80px 0px 40px;
             .profile__circle {

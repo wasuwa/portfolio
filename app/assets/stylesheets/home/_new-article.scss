@@ -33,12 +33,5 @@
         &__button {
             @include button($background: white,  $width: 260px, $radius: 5px, $height: 50px, $color: $text_color);
         }
-        &__title {
-            &--text {
-                font-size: 20px;
-                line-height: 20px;
-                margin: 0 20px;
-            }
-        }
     }
 }

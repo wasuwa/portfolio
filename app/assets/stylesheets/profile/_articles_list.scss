@@ -1,7 +1,7 @@
 .articles_list {
     @include line_title($width: 50px, $margin: 0 20px);
     max-width: 880px;
-    margin: 0 auto;
+    margin: 0 auto 100px;
     padding: 0 30px;
     &__title {
         justify-content: flex-start;
@@ -11,17 +11,67 @@
         @include article($width: 880px, $height: 300px, $image_width: 300px, $text_width: 580px, $title_size: 18px, $title_line: 27px, $title_mg: 20px, $overview_size: 14px, $line: 20px, $name_size: 14px, $img_size: 300px 100%, $text_padding: 40px 30px, $icon_size: 40px);
         line-height: 29px;
         position: relative;
+        margin-bottom: 30px;
         &__button {
             position: absolute;
-            bottom: 40px;
+            bottom: 44px;
             right: 30px;
             &--edit {
                 border: 1px solid #ddd;
-                
+                padding: 10px 18px;
+                border-radius: 5px;
+                box-sizing: border-box;
             }
             &--delete {
                 border: 1px solid #ddd;
                 margin-left: 20px;
+                padding: 10px 18px;
+                color: #F64C44;
+                border-radius: 5px;
+            }
+        }
+        &:last-of-type {
+            margin-bottom: 60px;
+        }
+    }
+}
+
+@include bp_md {
+    .articles_list {
+        margin: 0 auto 50px;
+        .article_items {
+            @include article($width: 880px, $height: 300px, $image_width: 300px, $text_width: 580px, $title_size: 18px, $title_line: 27px, $title_mg: 20px, $overview_size: 14px, $line: 20px, $name_size: 14px, $img_size: 300px 100%, $text_padding: 30px, $icon_size: 40px);
+            &__button {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@include bp_sm {
+    .articles_list {
+        &__title {
+            margin-bottom: 30px;
+            &--line {
+                width: 40px;
+            }
+            &--text {
+                margin: 15px;
+            }
+        }
+        .article_items {
+            @include article($height: 200px, $image_width: 40%, $text_padding: 20px);
+            &__button {
+                bottom: 20px;
+                right: 20px;
+                font-size: 10px;
+                &--edit {
+                    padding: 5px 9px;
+                }
+                &--delete {
+                    margin-left: 10px;
+                    padding: 5px 9px;
+                }
             }
         }
     }
