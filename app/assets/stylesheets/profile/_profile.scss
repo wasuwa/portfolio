@@ -1,17 +1,17 @@
 .profile {
     max-width: 600px;
-    margin: 142px auto 100px;
+    margin: 162px auto 100px;
     position: relative;
     padding: 0 30px;
     &__wrapper {
         background: white;
-        padding: 140px 0px 60px;
+        padding: 98px 0px 60px;
         border-radius: 10px 10px 0 0;
         border: 1px solid #ddd;
         .profile__circle {
             @include profile_icon($width: 120px);
             position: absolute;
-            top: -42px;
+            top: -62px;
             left: 0;
             right: 0;
             margin: auto;
@@ -30,11 +30,12 @@
 
 @include bp_md {
     .profile {
-        margin: 92px auto 50px;
+        margin: 112px auto 50px;
         &__wrapper {
-            padding: 100px 0px 40px;
+            padding: 80px 0px 40px;
             .profile__circle {
                 @include profile_icon($width: 100px);
+                top: -55px;
             }
             .profile__name {
                 font-size: 24px;
@@ -51,9 +52,10 @@
 @include bp_sm {
     .profile {
         &__wrapper {
-            padding: 80px 0px 40px;
+            padding: 70px 0px 40px;
             .profile__circle {
                 @include profile_icon($width: 80px);
+                top: -45px;
             }
             .profile__name {
                 font-size: 20px;
