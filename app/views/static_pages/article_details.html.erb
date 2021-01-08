@@ -3,9 +3,21 @@
 
 <!-- メイン -->
 <main>
-    <!-- パンくずリスト -->
-    <% breadcrumb :article_details, @article_details %>
-    <%= breadcrumbs separator: " &rsaquo; " %>
+    <section class="article_details">
+        <!-- パンくずリスト -->
+        <% breadcrumb :article_details, @article_details %>
+        <%= breadcrumbs separator: " &rsaquo; " %>
+        <div class="article_details__wrapper">
+            <time class="article_details__wrapper--time">3分前</time>
+            <%= link_tag "/profile", class: "article_details__wrapper--name" %>
+            <h2 class="article_details__wrapper--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h2>
+            <div class="article_details__wrapper--img"></div>
+            <div class="article_details__text_area">
+                <p class="article_details__text_area--text">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの毎日更新をしていきます。<br><br>どうかよろしくお願いいたします。<br><br>ちなみにですが、好きな食べ物はお寿司で、嫌いな食べ物はステーキ。（嘘、ステーキも好き）<br><br>頑張るぞ！人生！<br><br>絶対に頑張る！！！！！！</p>
+            </div>
+        </div>
+        <button type="button" class="article_details__button" onclick="location.href='/new_articles'">もっとみる</button>
+    </section>
 </main>
 
 <!-- フッター -->
