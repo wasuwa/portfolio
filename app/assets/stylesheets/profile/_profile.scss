@@ -27,6 +27,11 @@
         }
     }
 }
+.articles_list_details {
+    &:last-child {
+        margin-bottom: 0 !important;
+    }
+}
 
 @include bp_md {
     .profile {

@@ -23,6 +23,7 @@
             &--title {
                 margin-top: 20px;
                 font-size: 20px;
+                line-height: 25px;
             }
         }
         &--img {
@@ -39,5 +40,68 @@
     }
     &__button {
         @include button;
+    }
+}
+
+@include bp_md {
+    .article_details {
+        margin: 40px auto 110px;
+        &__wrapper {
+            .article_details__main {
+                padding: 30px;
+                &--time {
+                }
+                &--name {
+                }
+                &--title {
+                }
+            }
+            &--img {
+                height: 400px;
+            }
+            .article_details__text_area {
+                padding: 30px;
+            }
+        }
+        &__button {
+        }
+    }
+}
+
+@include bp_sm {
+    .article_details {
+        margin: 30px auto 110px;
+        &__pankuzu {
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        &__wrapper {
+            margin-bottom: 30px;
+            .article_details__main {
+                padding: 30px;
+                &--time {
+                    font-size: 12px;
+                    padding: 3px 15px;
+                    margin-right: 10px;
+                }
+                &--name {
+                    font-size: 12px;
+                }
+                &--title {
+                    font-size: 17px;
+                    line-height: 23px;
+                    margin-top: 15px;
+                }
+            }
+            &--img {
+                height: 250px;
+            }
+            .article_details__text_area {
+                padding: 30px;
+            }
+        }
+        &__button {
+            @include button($width: 250px, $height: 50px);
+        }
     }
 }

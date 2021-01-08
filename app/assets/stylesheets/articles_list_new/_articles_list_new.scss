@@ -4,6 +4,11 @@
         justify-content: center;
     }
 }
+.articles_list_details {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
 
 @include bp_md {
     .articles_list_new {
