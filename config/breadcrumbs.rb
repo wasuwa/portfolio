@@ -2,52 +2,52 @@ crumb :root do
   link "ホーム", root_path
 end
 
-crumb :account_setting do
+crumb :account_setting do |account_setting|
   link "アカウントの設定", account_setting_path
   parent :root
 end
 
-crumb :password_setting do
+crumb :password_setting do |password_setting|
   link "パスワードの設定", password_setting_path
   parent :root
 end
 
-crumb :login do
+crumb :login do |login|
   link "ログイン", login_path
   parent :root
 end
 
-crumb :sign_up do
+crumb :sign_up do |sign_up|
   link "新規登録", sign_up_path
   parent :root
 end
 
-crumb :email do
+crumb :email do |email|
   link "メール認証", email_path
   parent :root
 end
 
-crumb :profile do
+crumb :profile do |profile|
   link "ユーザー名", profile_path
   parent :root
 end
 
-crumb :article_details do
-  link "記事タイトル", article_details_path
+crumb :article_details do |article_details|
+  link "記事タイトル", '/profile/article_details'
   parent :profile
 end
 
-crumb :other_profile do
+crumb :other_profile do |other_profile|
   link "ユーザー名（他人）", other_profile_path
   parent :root
 end
 
-crumb :new_articles_list do
+crumb :new_articles_list do |new_articles_list|
   link "新着記事", new_articles_list_path
   parent :root
 end
 
-crumb :favorite_list do
+crumb :favorite_list do |favorite_list|
   link "お気に入り", favorite_list_path
   parent :root
 end
