@@ -57,6 +57,9 @@
             &--img {
                 height: 400px;
             }
+            &--textarea {
+                padding: 20px;
+            }
         }
     }
 }
@@ -67,12 +70,13 @@
             &--label {
                 font-size: 14px;
                 display: block;
+                margin-bottom: 10px;
             }
             &--title {
                 margin-bottom: 40px;
             }
             &--img_select {
-                margin-left: 0 auto;
+                margin: 10px 0;
             }
             &--img {
                 height: 250px;
