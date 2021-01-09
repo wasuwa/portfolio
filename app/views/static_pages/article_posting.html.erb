@@ -1,0 +1,22 @@
+<!-- ヘッダー -->
+<%= render 'render/header' %>
+
+<!-- メイン -->
+<main>
+    <div class="article_posting">
+        <form class="article_posting__form">
+            <label for="title" class="article_posting__form--label">タイトル</label>
+            <input type="text" id="title" name="article_title" class="article_posting__form--title">
+            <label for="img" class="article_posting__form--label">アイキャッチ画像</label>
+            <input type="file" accept="image/png, image/jpeg" id="img" name="article_img" class="article_posting__form--img">
+            <div class=""></div>
+            <label for="textarea" class="article_posting__form--label">本文</label>
+            <textarea id="textarea" name="article_textarea"  placeholder="ここに本文を書いてください"></textarea>
+            <input type="submit" value="投稿する" name="article_posting_btn" class="">
+            <!-- 更新時と投稿時でボタンは分ける -->
+        </form>
+    </div>
+</main>
+
+<!-- フッター -->
+<%= render 'render/footer' %>

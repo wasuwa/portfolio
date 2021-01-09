@@ -37,6 +37,11 @@ crumb :article_details do |article_details|
   parent :profile
 end
 
+crumb :article_posting do |article_posting|
+  link "記事投稿", article_posting_path
+  parent :profile, profile
+end
+
 crumb :other_profile do |other_profile|
   link "ユーザー名（他人）", other_profile_path
   parent :root
