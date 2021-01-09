@@ -97,6 +97,12 @@
             font-size: $title_size;
             line-height: $title_line;
         }
+        &--title_hover {
+            &:hover {
+                color: $main_blue;
+                transition: all .3s;
+            }
+        }
         &--overview {
             font-size: $overview_size;
             color: #aeaeae;

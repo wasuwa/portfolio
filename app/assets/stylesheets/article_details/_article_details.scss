@@ -49,12 +49,6 @@
         &__wrapper {
             .article_details__main {
                 padding: 30px;
-                &--time {
-                }
-                &--name {
-                }
-                &--title {
-                }
             }
             &--img {
                 height: 400px;
@@ -62,8 +56,6 @@
             .article_details__text_area {
                 padding: 30px;
             }
-        }
-        &__button {
         }
     }
 }

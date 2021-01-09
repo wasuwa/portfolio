@@ -21,4 +21,6 @@ class StaticPagesController < ApplicationController
   end
   def article_details
   end
+  def my_article_details
+  end
 end

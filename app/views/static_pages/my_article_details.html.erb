@@ -10,7 +10,7 @@
         <div class="article_details__wrapper">
         <div class="article_details__main">
             <time class="article_details__main--time">3分前</time>
-            <%= link_to "ゆうた / 高校1年生", "/profile", class: "article_details__main--name" %>
+            <%= link_to "taro / 高校2年生", "/profile", class: "article_details__main--name" %>
             <h2 class="article_details__main--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h2>
         </div>
             <div class="article_details__wrapper--img"></div>
@@ -18,7 +18,7 @@
                 <p class="article_details__text_area--text">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの毎日更新をしていきます。<br><br>どうかよろしくお願いいたします。<br><br>ちなみにですが、好きな食べ物はお寿司で、嫌いな食べ物はステーキ。（嘘、ステーキも好き）<br><br>頑張るぞ！人生！<br><br>絶対に頑張る！！！！！！</p>
             </div>
         </div>
-        <button type="button" class="article_details__button" onclick="location.href='/new_articles'">もっとみる</button>
+        <button type="button" class="article_details__button" onclick="location.href='/new_articles'">記事を編集する</button>
     </section>
     <!-- プロフィール -->
      <section class="profile profile_details">
@@ -26,8 +26,8 @@
             <div class="profile__circle">
                 <%= image_tag "default_icon.jpg", class: "profile__circle--img" %>
             </div>
-            <h2 class="profile__name">ゆうた / 高校1年生</h2>
-            <button type="button" class="profile__button">プロフィールをみる</button>
+            <h2 class="profile__name">taro / 高校2年生</h2>
+            <button type="button" class="profile__button">プロフィールを編集する</button>
         </div>
     </section>
     <!-- 記事一覧 -->
@@ -49,8 +49,8 @@
                     <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/article_details", class: "article_items__text--title_hover" %>
                 </h3>
                 <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
-                <%= link_to "ゆうた", "/other_profile", class: "article_items__text--name" %>
-                <%= link_to " / 高校1年生", "/other_profile", class: "article_items__text--name article_items__text--grade" %>
+                <%= link_to "taro", "/other_profile", class: "article_items__text--name" %>
+                <%= link_to " / 高校2年生", "/other_profile", class: "article_items__text--name article_items__text--grade" %>
             </div>
         </article>
         <article class="article_items articles_list_details">
@@ -65,8 +65,8 @@
                     <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/article_details", class: "article_items__text--title_hover" %>
                 </h3>
                 <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
-                <%= link_to "ゆうた", "/other_profile", class: "article_items__text--name" %>
-                <%= link_to " / 高校1年生", "/other_profile", class: "article_items__text--name article_items__text--grade" %>
+                <%= link_to "taro", "/other_profile", class: "article_items__text--name" %>
+                <%= link_to " / 高校2年生", "/other_profile", class: "article_items__text--name article_items__text--grade" %>
             </div>
         </article>
         <article class="article_items articles_list_details">
@@ -81,8 +81,8 @@
                     <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/article_details", class: "article_items__text--title_hover" %>
                 </h3>
                 <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
-                <%= link_to "ゆうた", "/other_profile", class: "article_items__text--name" %>
-                <%= link_to " / 高校1年生", "/other_profile", class: "article_items__text--name article_items__text--grade" %>
+                <%= link_to "taro", "/other_profile", class: "article_items__text--name" %>
+                <%= link_to " / 高校2年生", "/other_profile", class: "article_items__text--name article_items__text--grade" %>
             </div>
         </article>
     </div>
