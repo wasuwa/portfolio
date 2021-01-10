@@ -7,22 +7,22 @@
         <nav>
             <ul class="header__ul">
                 <li class="header__ul--list">
-                    <%= link_to "ホーム", "/", class: "header__ul--list" %>
+                    <%= link_to "ホーム", "/", class: "header__ul--list_link" %>
                 </li>
                 <li class="header__ul--list">
-                    <a>ブログを書く</a>
+                    <%= link_to "ブログを書く", "/profile/article_posting", class: "header__ul--list_link" %>
                 </li>
                 <li class="header__ul--list">
-                    <%= link_to "お気に入り", "/favorite" %>
+                    <%= link_to "お気に入り", "/favorite", class: "header__ul--list_link" %>
                 </li>
                 <li class="header__ul--list">
-                    <%= link_to "新着記事", "/new_articles" %>
+                    <%= link_to "新着記事", "/new_articles", class: "header__ul--list_link" %>
                 </li>
             </ul>
         </nav>
-        <a class="header__profile">
+        <%= link_to "/profile", class: "header__profile" do %>
             <%= image_tag "default_icon.jpg", class: "header__profile--img" %>
-        </a>
+        <% end %>
         <div class="header__triangle" id="header__triangle_id"></div>
         <!-- ハンバーガーメニュー -->
         <nav class="hamburger_nav" id="hamburger_nav_id">
@@ -31,7 +31,7 @@
                     <%= link_to "ホーム", "/", class: "hamburger_nav__list--link" %>
                 </li>
                 <li class="hamburger_nav__list">
-                    <a href="" class="hamburger_nav__list--link">ブログを書く</a>
+                    <%= link_to "ブログを書く", "/profile/article_posting", class: "hamburger_nav__list--link" %>
                 </li>
                 <li class="hamburger_nav__list">
                     <%= link_to "お気に入り", "/favorite", class: "hamburger_nav__list--link" %>
