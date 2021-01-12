@@ -36,6 +36,10 @@ gem 'gretel', '4.2.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # テストツール、RSpecの導入
+  gem 'rspec-rails', '~> 3.6'
+  # RSpecの高速化
+  gem 'spring-commands-rspec'
 end
 
 group :development do
