@@ -6,7 +6,8 @@ RSpec.describe User, type: :model do
       name: "example",
       email: "example@example.com",
       password: "password",
-      password_confirmation: "password"
+      password_confirmation: "password",
+      grade: 2
     )
   }
 
@@ -24,6 +25,10 @@ RSpec.describe User, type: :model do
     end
     it 'no password' do
       user.password = user.password_confirmation = ""
+      expect(user).to be_invalid
+    end
+    it 'no grade' do
+      user.grade = ""
       expect(user).to be_invalid
     end
   end
@@ -66,6 +71,21 @@ RSpec.describe User, type: :model do
     end
     it '5 characters' do
       user.password = user.password_confirmation = "a" * 5
+      expect(user).to be_invalid
+    end
+  end
+  
+  context 'grade is 1 or more and 3 or less' do
+    it '1' do
+      user.grade = 1
+      expect(user).to be_valid
+    end
+    it '3' do
+      user.grade = 3
+      expect(user).to be_valid
+    end
+    it '4' do
+      user.grade = 4
       expect(user).to be_invalid
     end
   end
