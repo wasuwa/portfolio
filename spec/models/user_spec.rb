@@ -22,7 +22,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context "when user's email needs to be unique" do
+  context "email needs to be unique" do
     it 'valid' do
       duplicate_user = user.dup
       duplicate_user.email = user.email.upcase
@@ -31,7 +31,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'name length' do
+  context 'name can be up to 8 characters in length' do
     it '8 characters' do
       user.name = 'a' * 8
       expect(user).to be_valid
@@ -42,7 +42,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'email length' do
+  context 'Email length up to 255 characters' do
     it '255 characters' do
       user.email = 'a' * 243 + '@example.com'
       expect(user).to be_valid
@@ -50,6 +50,31 @@ RSpec.describe User, type: :model do
     it '256 characters' do
       user.email = 'a' * 244 + '@example.com'
       expect(user).to be_invalid
+    end
+  end
+
+  context 'when email format is invalid' do
+    it 'valid' do
+      valid_emails = %w[user@example.com USER@example.COM U_S-ER@foo.bar.jp aiueo.kaki@foo.org abc+dfg@baz.blog]
+      valid_emails.each do |emails|
+        user.email = emails
+        expect(user).to be_valid
+      end
+    end
+    it 'invalid' do
+      valid_emails = %w[user@example,com USERexample.COM U_S-ER@foo. aiueo.kaki@fo_o.org abc+dfg@baz+bazz.blog user@user..com]
+      valid_emails.each do |emails|
+        user.email = emails
+        expect(user).to be_invalid
+      end
+    end
+  end
+
+  context 'if the email is saved in lowercase' do
+    it 'valid' do
+      user.email = 'aaa@FOobar.cOM'
+      user.save!
+      expect(user.email).to eq 'aaa@foobar.com'
     end
   end
 end
