@@ -7,8 +7,6 @@ class StaticPagesController < ApplicationController
   end
   def login
   end
-  def sign_up
-  end
   def email
   end
   def profile
