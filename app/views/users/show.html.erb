@@ -9,7 +9,10 @@
             <div class="profile__circle">
                 <%= image_tag "default_icon.jpg", class: "profile__circle--img" %>
             </div>
-            <h2 class="profile__name">taro<span class="profile__name--grade"> / </span><br class="profile__name--grade_br">高校2年生</h2>
+            <h2 class="profile__name">
+                <%= @user.name %>
+                <span class="profile__name--grade"> / </span><br class="profile__name--grade_br">高校2年生
+            </h2>
             <button type="button" class="profile__button">ブログを書く</button>
         </div>
     </section>
