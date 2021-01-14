@@ -4,7 +4,9 @@ RSpec.describe User, type: :model do
   let(:user) {
     User.new(
       name: "example",
-      email: "example@example.com"
+      email: "example@example.com",
+      password: "password",
+      password_confirmation: "password"
     )
   }
 
@@ -18,6 +20,10 @@ RSpec.describe User, type: :model do
     end
     it 'no email' do
       user.email = ""
+      expect(user).to be_invalid
+    end
+    it 'no password' do
+      user.password = user.password_confirmation = ""
       expect(user).to be_invalid
     end
   end
@@ -49,6 +55,17 @@ RSpec.describe User, type: :model do
     end
     it '256 characters' do
       user.email = 'a' * 244 + '@example.com'
+      expect(user).to be_invalid
+    end
+  end
+
+  context 'Password length is 6 characters or more' do
+    it '6 characters' do
+      user.password = user.password_confirmation = "a" * 6
+      expect(user).to be_valid
+    end
+    it '5 characters' do
+      user.password = user.password_confirmation = "a" * 5
       expect(user).to be_invalid
     end
   end
