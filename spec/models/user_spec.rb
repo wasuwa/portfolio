@@ -27,8 +27,8 @@ RSpec.describe User, type: :model do
       user.password = user.password_confirmation = ""
       expect(user).to be_invalid
     end
-    it 'no grade' do
-      user.grade = ""
+    it 'grade is a letter' do
+      user.grade = "a"
       expect(user).to be_invalid
     end
   end
