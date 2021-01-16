@@ -10,12 +10,21 @@
             <h2 class="settings__wrapper--title">ブログ生活をスタートしよう</h2>
             <%= form_with(model: @user, local: true, class: "settings__form") do |f| %>
                 <% if @user.errors.include?(:name) %>
-                    <p><%= @user.errors.full_messages_for(:name) %></p>
+                    <p class="settings__form--errors"><%= @user.errors.full_messages_for(:name).first %></p>
                 <% end %>
                 <%= f.text_field :name, class: "settings__form--input_sign",
                  placeholder: "お名前" %>
+                 <% if @user.errors.include?(:email) %>
+                    <p class="settings__form--errors"><%= @user.errors.full_messages_for(:email).first %></p>
+                <% end %>
                 <%= f.email_field :email, class: "settings__form--input_sign", placeholder: "メールアドレス" %>
+                <% if @user.errors.include?(:password) %>
+                    <p class="settings__form--errors"><%= @user.errors.full_messages_for(:password).first %></p>
+                <% end %>
                 <%= f.password_field :password, class: "settings__form--input_sign", placeholder: "パスワード（6文字以上）" %>
+                <% if @user.errors.include?(:password_confirmation) %>
+                    <p class="settings__form--errors"><%= @user.errors.full_messages_for(:password_confirmation).first %></p>
+                <% end %>
                 <%= f.password_field :password_confirmation, class: "settings__form--input_sign", placeholder: "パスワードの確認" %>
                 <%= f.submit "新規登録", class: "settings__form--button_sign" %>
             <% end %>
