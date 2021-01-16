@@ -1,200 +1,190 @@
-<!-- ヘッダー -->
-<%= render 'shared/header' %>
-
-<!-- メイン -->
-<main>
-    <!-- Swiper -->
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <article class="swiper-slide__wrapper">
-                    <p class="swiper-slide__wrapper--name">taro</p>
-                    <h2 class="swiper-slide__wrapper--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h2>
-                    <button type="button" class="swiper-slide__wrapper--button" onclick="location.href='/profile/my_article_details'">もっと読む</button>
-                </article>
-            </div>
-            <div class="swiper-slide">
-                <article class="swiper-slide__wrapper">
-                    <p class="swiper-slide__wrapper--name">taro</p>
-                    <h2 class="swiper-slide__wrapper--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h2>
-                    <button type="button" class="swiper-slide__wrapper--button" onclick="location.href='/profile/my_article_details'">もっと読む</button>
-                </article>
-            </div>
-            <div class="swiper-slide">
-                <article class="swiper-slide__wrapper">
-                    <p class="swiper-slide__wrapper--name">taro</p>
-                    <h2 class="swiper-slide__wrapper--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h2>
-                    <button type="button" class="swiper-slide__wrapper--button" onclick="location.href='/profile/my_article_details'">もっと読む</button>
-                </article>
-            </div>
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-    <div class="swiper-pagination"></div>
-    <!-- 新着記事 -->
-    <div class="new-article">
-        <div class="new-article__title">
-            <span class="new-article__title--line"></span>
-            <h2 class="new-article__title--text">新着記事</h2>
-            <span class="new-article__title--line"></span>
-        </div>
-        <div class="new-article__wrapper">
-            <article class="article_items">
-                <div class="article_items__image">
-                    <div class="article_items__wrapper">
-                        <time class="article_items__wrapper--time">3分前</time>
-                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
-                    </div>
-                </div>
-                <div class="article_items__text">
-                    <h3 class="article_items__text--title">
-                        <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
-                    </h3>
-                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
-                    <%= link_to "taro", "/profile", class: "article_items__text--name" %>
-                    <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
-                </div>
-            </article>
-            <article class="article_items">
-                <div class="article_items__image">
-                    <div class="article_items__wrapper">
-                        <time class="article_items__wrapper--time">3分前</time>
-                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
-                    </div>
-                </div>
-                <div class="article_items__text">
-                    <h3 class="article_items__text--title">
-                        <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
-                    </h3>
-                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
-                    <%= link_to "taro", "/profile", class: "article_items__text--name" %>
-                    <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
-                </div>
-            </article>
-            <article class="article_items">
-                <div class="article_items__image">
-                    <div class="article_items__wrapper">
-                        <time class="article_items__wrapper--time">3分前</time>
-                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
-                    </div>
-                </div>
-                <div class="article_items__text">
-                    <h3 class="article_items__text--title">
-                        <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
-                    </h3>
-                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
-                    <%= link_to "taro", "/profile", class: "article_items__text--name" %>
-                    <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
-                </div>
-            </article>
-            <article class="article_items">
-                <div class="article_items__image">
-                    <div class="article_items__wrapper">
-                        <time class="article_items__wrapper--time">3分前</time>
-                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
-                    </div>
-                </div>
-                <div class="article_items__text">
-                    <h3 class="article_items__text--title">
-                        <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
-                    </h3>
-                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
-                    <%= link_to "taro", "/profile", class: "article_items__text--name" %>
-                    <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
-                </div>
-            </article>
-            <article class="article_items">
-                <div class="article_items__image">
-                    <div class="article_items__wrapper">
-                        <time class="article_items__wrapper--time">3分前</time>
-                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
-                    </div>
-                </div>
-                <div class="article_items__text">
-                    <h3 class="article_items__text--title">
-                        <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
-                    </h3>
-                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
-                    <%= link_to "taro", "/profile", class: "article_items__text--name" %>
-                    <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
-                </div>
-            </article>
-            <article class="article_items">
-                <div class="article_items__image">
-                    <div class="article_items__wrapper">
-                        <time class="article_items__wrapper--time">3分前</time>
-                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
-                    </div>
-                </div>
-                <div class="article_items__text">
-                    <h3 class="article_items__text--title">
-                        <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
-                    </h3>
-                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
-                    <%= link_to "taro", "/profile", class: "article_items__text--name" %>
-                    <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
-                </div>
-            </article>
-            <article class="article_items">
-                <div class="article_items__image">
-                    <div class="article_items__wrapper">
-                        <time class="article_items__wrapper--time">3分前</time>
-                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
-                    </div>
-                </div>
-                <div class="article_items__text">
-                    <h3 class="article_items__text--title">
-                        <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
-                    </h3>
-                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
-                    <%= link_to "taro", "/profile", class: "article_items__text--name" %>
-                    <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
-                </div>
-            </article>
-            <article class="article_items">
-                <div class="article_items__image">
-                    <div class="article_items__wrapper">
-                        <time class="article_items__wrapper--time">3分前</time>
-                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
-                    </div>
-                </div>
-                <div class="article_items__text">
-                    <h3 class="article_items__text--title">
-                        <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
-                    </h3>
-                    <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
-                    <%= link_to "taro", "/profile", class: "article_items__text--name" %>
-                    <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
-                </div>
+<!-- Swiper -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <article class="swiper-slide__wrapper">
+                <p class="swiper-slide__wrapper--name">taro</p>
+                <h2 class="swiper-slide__wrapper--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h2>
+                <button type="button" class="swiper-slide__wrapper--button" onclick="location.href='/profile/my_article_details'">もっと読む</button>
             </article>
         </div>
-        <button type="button" class="new-article__button" onclick="location.href='/new_articles'">もっとみる</button>
-    </div>
-    <!-- cta -->
-    <div class="cta">
-        <div class="cta__wrapper">
-            <%= link_to "/profile/article_posting", class: "cta__items" do %>
-                <%= image_tag "cta_icon_write", class: "cta__items--icon" %>
-                <h2 class="cta__items--title">自分の記事を書く</h2>
-                <p class="cta__items--text">自分の意見を発信してみよう</p>
-            <% end %>
-            <%= link_to "/new_articles", class: "cta__items" do %>
-                <%= image_tag "cta_icon_read", class: "cta__items--icon" %>
-                <h2 class="cta__items--title">もっと記事を読む</h2>
-                <p class="cta__items--text">価値観をアップデートしよう</p>
-            <% end %>
-            <%= link_to "/favorite", class: "cta__items" do %>
-                <%= image_tag "cta_icon_favorite", class: "cta__items--icon" %>
-                <h2 class="cta__items--title">お気に入りを見る</h2>
-                <p class="cta__items--text">お気に入りの記事を読み返そう</p>
-            <% end %>
+        <div class="swiper-slide">
+            <article class="swiper-slide__wrapper">
+                <p class="swiper-slide__wrapper--name">taro</p>
+                <h2 class="swiper-slide__wrapper--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h2>
+                <button type="button" class="swiper-slide__wrapper--button" onclick="location.href='/profile/my_article_details'">もっと読む</button>
+            </article>
+        </div>
+        <div class="swiper-slide">
+            <article class="swiper-slide__wrapper">
+                <p class="swiper-slide__wrapper--name">taro</p>
+                <h2 class="swiper-slide__wrapper--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h2>
+                <button type="button" class="swiper-slide__wrapper--button" onclick="location.href='/profile/my_article_details'">もっと読む</button>
+            </article>
         </div>
     </div>
-</main>
-
-<!-- フッター -->
-<%= render 'shared/footer' %>
-
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+<div class="swiper-pagination"></div>
+<!-- 新着記事 -->
+<div class="new-article">
+    <div class="new-article__title">
+        <span class="new-article__title--line"></span>
+        <h2 class="new-article__title--text">新着記事</h2>
+        <span class="new-article__title--line"></span>
+    </div>
+    <div class="new-article__wrapper">
+        <article class="article_items">
+            <div class="article_items__image">
+                <div class="article_items__wrapper">
+                    <time class="article_items__wrapper--time">3分前</time>
+                    <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                </div>
+            </div>
+            <div class="article_items__text">
+                <h3 class="article_items__text--title">
+                    <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
+                </h3>
+                <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                <%= link_to "taro", "/profile", class: "article_items__text--name" %>
+                <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
+            </div>
+        </article>
+        <article class="article_items">
+            <div class="article_items__image">
+                <div class="article_items__wrapper">
+                    <time class="article_items__wrapper--time">3分前</time>
+                    <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                </div>
+            </div>
+            <div class="article_items__text">
+                <h3 class="article_items__text--title">
+                    <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
+                </h3>
+                <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                <%= link_to "taro", "/profile", class: "article_items__text--name" %>
+                <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
+            </div>
+        </article>
+        <article class="article_items">
+            <div class="article_items__image">
+                <div class="article_items__wrapper">
+                    <time class="article_items__wrapper--time">3分前</time>
+                    <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                </div>
+            </div>
+            <div class="article_items__text">
+                <h3 class="article_items__text--title">
+                    <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
+                </h3>
+                <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                <%= link_to "taro", "/profile", class: "article_items__text--name" %>
+                <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
+            </div>
+        </article>
+        <article class="article_items">
+            <div class="article_items__image">
+                <div class="article_items__wrapper">
+                    <time class="article_items__wrapper--time">3分前</time>
+                    <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                </div>
+            </div>
+            <div class="article_items__text">
+                <h3 class="article_items__text--title">
+                    <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
+                </h3>
+                <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                <%= link_to "taro", "/profile", class: "article_items__text--name" %>
+                <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
+            </div>
+        </article>
+        <article class="article_items">
+            <div class="article_items__image">
+                <div class="article_items__wrapper">
+                    <time class="article_items__wrapper--time">3分前</time>
+                    <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                </div>
+            </div>
+            <div class="article_items__text">
+                <h3 class="article_items__text--title">
+                    <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
+                </h3>
+                <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                <%= link_to "taro", "/profile", class: "article_items__text--name" %>
+                <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
+            </div>
+        </article>
+        <article class="article_items">
+            <div class="article_items__image">
+                <div class="article_items__wrapper">
+                    <time class="article_items__wrapper--time">3分前</time>
+                    <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                </div>
+            </div>
+            <div class="article_items__text">
+                <h3 class="article_items__text--title">
+                    <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
+                </h3>
+                <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                <%= link_to "taro", "/profile", class: "article_items__text--name" %>
+                <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
+            </div>
+        </article>
+        <article class="article_items">
+            <div class="article_items__image">
+                <div class="article_items__wrapper">
+                    <time class="article_items__wrapper--time">3分前</time>
+                    <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                </div>
+            </div>
+            <div class="article_items__text">
+                <h3 class="article_items__text--title">
+                    <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
+                </h3>
+                <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                <%= link_to "taro", "/profile", class: "article_items__text--name" %>
+                <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
+            </div>
+        </article>
+        <article class="article_items">
+            <div class="article_items__image">
+                <div class="article_items__wrapper">
+                    <time class="article_items__wrapper--time">3分前</time>
+                    <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                </div>
+            </div>
+            <div class="article_items__text">
+                <h3 class="article_items__text--title">
+                    <%= link_to "高校生です。HSSBでブログを始めました。毎日更新していきます。", "/profile/my_article_details", class: "article_items__text--title_hover" %>
+                </h3>
+                <p class="article_items__text--overview">どうも、高校3年生のtaroです。好きな食べ物は焼肉で、好きな飲み物はコカ・コーラです。今日からHSSBでブログの...</p>
+                <%= link_to "taro", "/profile", class: "article_items__text--name" %>
+                <%= link_to " / 高校2年生", "/profile", class: "article_items__text--name article_items__text--grade" %>
+            </div>
+        </article>
+    </div>
+    <button type="button" class="new-article__button" onclick="location.href='/new_articles'">もっとみる</button>
+</div>
+<!-- cta -->
+<div class="cta">
+    <div class="cta__wrapper">
+        <%= link_to "/profile/article_posting", class: "cta__items" do %>
+            <%= image_tag "cta_icon_write", class: "cta__items--icon" %>
+            <h2 class="cta__items--title">自分の記事を書く</h2>
+            <p class="cta__items--text">自分の意見を発信してみよう</p>
+        <% end %>
+        <%= link_to "/new_articles", class: "cta__items" do %>
+            <%= image_tag "cta_icon_read", class: "cta__items--icon" %>
+            <h2 class="cta__items--title">もっと記事を読む</h2>
+            <p class="cta__items--text">価値観をアップデートしよう</p>
+        <% end %>
+        <%= link_to "/favorite", class: "cta__items" do %>
+            <%= image_tag "cta_icon_favorite", class: "cta__items--icon" %>
+            <h2 class="cta__items--title">お気に入りを見る</h2>
+            <p class="cta__items--text">お気に入りの記事を読み返そう</p>
+        <% end %>
+    </div>
+</div>
 <!-- TOPページのJS -->
 <%= javascript_pack_tag 'top_js/application' %>

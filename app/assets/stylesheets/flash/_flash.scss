@@ -1,0 +1,17 @@
+.flash {
+    display: block;
+    width: 100%;
+    height: 50px;
+    color: white;
+    background: $main_blue;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 50px;
+}
+
+@include bp_sm {
+    .flash {
+        height: 40px;
+        line-height: 40px;
+    }
+}

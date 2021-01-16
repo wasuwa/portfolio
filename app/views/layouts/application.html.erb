@@ -36,10 +36,13 @@
     <!-- ヘッダー -->
     <%= render 'shared/header' %>
     <!-- flashメッセージ -->
-    <% flash.each do |message| %>
-      <p class="flash"><%= message %></p>
+    <% if flash[:success] %>
+      <p class="flash"><%= flash[:success] %></p>
     <% end %>
-    <%= yield %>
+    <!-- main -->
+    <main>
+      <%= yield %>
+    </main>
     <!-- フッター -->
     <%= render 'shared/footer' %>
   </body>
