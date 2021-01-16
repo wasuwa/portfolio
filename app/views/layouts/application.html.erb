@@ -33,6 +33,14 @@
   </head>
 
   <body>
+    <!-- ヘッダー -->
+    <%= render 'shared/header' %>
+    <!-- flashメッセージ -->
+    <% flash.each do |message| %>
+      <p class="flash"><%= message %></p>
+    <% end %>
     <%= yield %>
+    <!-- フッター -->
+    <%= render 'shared/footer' %>
   </body>
 </html>

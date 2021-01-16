@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "users/new.html.erb", type: :feature do
     let(:user_valid) {
-        User.count(
+        User.create(
           name: "example",
           email: "example@example.com",
           password: "password",
@@ -22,7 +22,11 @@ RSpec.describe "users/new.html.erb", type: :feature do
                 fill_in 'user_password', with: user_invalid.password
                 fill_in 'user_password_confirmation', with: user_invalid.password_confirmation
                 click_on '新規登録'
+                expect(current_path).to eq users_path
                 expect(user_invalid.errors).to be_added(:name, :blank)
+                expect(user_invalid.errors).to be_added(:email, :blank)
+                expect(user_invalid.errors).to be_added(:password, :blank)
+                expect(user_invalid.errors).to be_added(:password_confirmation, :blank)
             end
         end
     end
