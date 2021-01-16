@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let(:user) {
-    User.new(
+    User.create(
       name: "example",
       email: "example@example.com",
       password: "password",
