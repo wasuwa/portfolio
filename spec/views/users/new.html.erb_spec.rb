@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe "users/new.html.erb", type: :feature do
+
     let(:user_valid) {
-        User.create(
-          name: "example",
-          email: "example@example.com",
-          password: "password",
-          password_confirmation: "password",
-          grade: 2
+        User.new(
+            name: "valid",
+            email: "valid@valid.com",
+            password: "password",
+            password_confirmation: "password"
         )
     }
 
@@ -15,6 +15,16 @@ RSpec.describe "users/new.html.erb", type: :feature do
 
     describe 'signup' do
         context 'send invalid information' do
+            it 'valid' do
+                visit new_user_path
+                fill_in 'user_name', with: user_valid.name
+                fill_in 'user_email', with: user_valid.email
+                fill_in 'user_password', with: user_valid.password
+                fill_in 'user_password_confirmation', with: user_valid.password_confirmation
+                click_on '新規登録'
+                expect(page).to have_content '新規登録が完了しました'
+                expect(page).to have_content 'valid / 高校 ? 年生'
+            end
             it 'invalid' do
                 visit new_user_path
                 fill_in 'user_name', with: user_invalid.name
