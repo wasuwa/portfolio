@@ -36,8 +36,8 @@
     <!-- ヘッダー -->
     <%= render 'shared/header' %>
     <!-- flashメッセージ -->
-    <% if flash[:success] %>
-      <p class="flash"><%= flash[:success] %></p>
+    <% flash.each do |message_class, message| %>
+      <p class="flash flash_<%= message_class %>"><%= message %></p>
     <% end %>
     <!-- main -->
     <main>

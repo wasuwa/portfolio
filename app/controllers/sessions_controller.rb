@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:sessions][:password])
 
     else
-      
+      flash[:danger] = 'ログインに失敗しました'
     end
   end
 
