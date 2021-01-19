@@ -9,9 +9,6 @@ class StaticPagesController < ApplicationController
   def password_setting
   end
 
-  def login
-  end
-
   def email
   end
 
