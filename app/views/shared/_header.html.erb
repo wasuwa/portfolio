@@ -4,70 +4,77 @@
             <h1 class="main_logo__hssb"><span class="main_logo__hssb--blue">H</span>SSB</h1>
             <p class="main_logo__sub">高校生の意見発信ブログ</p>
         <% end %>
-        <nav>
-            <ul class="header__ul">
-                <li class="header__ul--list">
-                    <%= link_to "ホーム", "/", class: "header__ul--list_link" %>
-                </li>
-                <li class="header__ul--list">
-                    <%= link_to "ブログを書く", "/profile/article_posting", class: "header__ul--list_link" %>
-                </li>
-                <li class="header__ul--list">
-                    <%= link_to "お気に入り", "/favorite", class: "header__ul--list_link" %>
-                </li>
-                <li class="header__ul--list">
-                    <%= link_to "新着記事", "/new_articles", class: "header__ul--list_link" %>
-                </li>
-            </ul>
-        </nav>
-        <%= link_to "/profile", class: "header__profile" do %>
-            <%= image_tag "default_icon.jpg", class: "header__profile--img" %>
-        <% end %>
-        <div class="header__triangle" id="header__triangle_id"></div>
-        <!-- ハンバーガーメニュー -->
-        <nav class="hamburger_nav" id="hamburger_nav_id">
-            <ul>
-                <li class="hamburger_nav__list">
-                    <%= link_to "ホーム", "/", class: "hamburger_nav__list--link" %>
-                </li>
-                <li class="hamburger_nav__list">
-                    <%= link_to "ブログを書く", "/profile/article_posting", class: "hamburger_nav__list--link" %>
-                </li>
-                <li class="hamburger_nav__list">
-                    <%= link_to "お気に入り", "/favorite", class: "hamburger_nav__list--link" %>
-                </li>
-                <li class="hamburger_nav__list">
-                    <%= link_to "新着記事", "/new_articles", class: "hamburger_nav__list--link" %>
-                </li>
-                <li class="hamburger_nav__list">
-                    <%= link_to "マイブログ", "/profile", class: "hamburger_nav__list--link" %>
-                </li>
-                <li class="hamburger_nav__list">
-                    <%= link_to "アカウントの設定", "/account_setting", class: "hamburger_nav__list--link" %>
-                </li>
-                <li class="hamburger_nav__list">
-                    <a href="" class="hamburger_nav__list--link hamburger_nav__list--logout">ログアウト</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="hamburger_btn" id="hamburger_btn_id">
-            <span class="hamburger_btn__line"></span>
-            <span class="hamburger_btn__line"></span>
-            <span class="hamburger_btn__line"></span>
+        <% if logged_in? %>
+            <nav>
+                <ul class="header__ul">
+                    <li class="header__ul--list">
+                        <%= link_to "ホーム", "/", class: "header__ul--list_link" %>
+                    </li>
+                    <li class="header__ul--list">
+                        <%= link_to "ブログを書く", "/profile/article_posting", class: "header__ul--list_link" %>
+                    </li>
+                    <li class="header__ul--list">
+                        <%= link_to "お気に入り", "/favorite", class: "header__ul--list_link" %>
+                    </li>
+                    <li class="header__ul--list">
+                        <%= link_to "新着記事", "/new_articles", class: "header__ul--list_link" %>
+                    </li>
+                </ul>
+            </nav>
+            <%= link_to "/profile", class: "header__profile" do %>
+                <%= image_tag "default_icon.jpg", class: "header__profile--img" %>
+            <% end %>
+            <div class="header__triangle" id="header__triangle_id"></div>
+            <!-- ハンバーガーメニュー -->
+            <nav class="hamburger_nav" id="hamburger_nav_id">
+                <ul>
+                    <li class="hamburger_nav__list">
+                        <%= link_to "ホーム", "/", class: "hamburger_nav__list--link" %>
+                    </li>
+                    <li class="hamburger_nav__list">
+                        <%= link_to "ブログを書く", "/profile/article_posting", class: "hamburger_nav__list--link" %>
+                    </li>
+                    <li class="hamburger_nav__list">
+                        <%= link_to "お気に入り", "/favorite", class: "hamburger_nav__list--link" %>
+                    </li>
+                    <li class="hamburger_nav__list">
+                        <%= link_to "新着記事", "/new_articles", class: "hamburger_nav__list--link" %>
+                    </li>
+                    <li class="hamburger_nav__list">
+                        <%= link_to "マイブログ", current_user, class: "hamburger_nav__list--link" %>
+                    </li>
+                    <li class="hamburger_nav__list">
+                        <%= link_to "アカウントの設定", "/account_setting", class: "hamburger_nav__list--link" %>
+                    </li>
+                    <li class="hamburger_nav__list">
+                        <a href="" class="hamburger_nav__list--link hamburger_nav__list--logout">ログアウト</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hamburger_btn" id="hamburger_btn_id">
+                <span class="hamburger_btn__line"></span>
+                <span class="hamburger_btn__line"></span>
+                <span class="hamburger_btn__line"></span>
+            </div>
+            <div class="hamburger_bg" id="hamburger_bg_id"></div>
         </div>
-        <div class="hamburger_bg" id="hamburger_bg_id"></div>
-    </div>
-     <div class="header__click_menu" id="header__click_menu_id">
-        <ul>
-            <li>
-                <%= link_to "マイブログ", "/profile", class: "header__click_menu--link" %>
-            </li>
-            <li>
-                <%= link_to "アカウントの設定", "/account_setting", class: "header__click_menu--link" %>
-            </li>
-            <li>
-                <a class="header__click_menu--link header__click_menu--logout">ログアウト</a>
-            </li>
-        </ul>
-    </div>
+        <div class="header__click_menu" id="header__click_menu_id">
+            <ul>
+                <li>
+                    <%= link_to "マイブログ", current_user, class: "header__click_menu--link" %>
+                </li>
+                <li>
+                    <%= link_to "アカウントの設定", "/account_setting", class: "header__click_menu--link" %>
+                </li>
+                <li>
+                    <a class="header__click_menu--link header__click_menu--logout">ログアウト</a>
+                </li>
+            </ul>
+        </div>
+    <% else %>
+        <div class="signup_button">
+            <button type="button" class="signup_button__white" onclick="location.href='/login'">ログイン</button>
+            <button type="button" class="signup_button__blue" onclick="location.href='/users/new'">新規登録</button>
+        </div>
+    <% end %>
 </header>

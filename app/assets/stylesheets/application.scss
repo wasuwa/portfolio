@@ -32,10 +32,12 @@
 @import "body/body";
 @import "body/header";
 @import "body/footer";
+@import "body/main_logo";
+@import "body/hamburger";
+@import "body/flash";
+@import "body/signup_button";
 
 // home
-@import "home/main_logo";
-@import "home/hamburger";
 @import "home/swiper";
 @import "home/new-article";
 @import "home/article_items";
@@ -57,6 +59,3 @@
 
 // article_posting
 @import "article_posting/article_posting";
-
-// flash
-@import "flash/flash";
