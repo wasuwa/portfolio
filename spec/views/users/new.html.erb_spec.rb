@@ -14,7 +14,7 @@ RSpec.describe "users/new.html.erb", type: :feature do
     let(:user_invalid) { User.create() }
 
     describe 'signup' do
-        context 'send invalid information' do
+        context 'submit information to the form' do
             it 'valid' do
                 visit new_user_path
                 fill_in 'user_name', with: user_valid.name

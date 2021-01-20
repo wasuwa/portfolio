@@ -5,11 +5,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: sessions[:params][:email].downcase)
-    if user && user.authenticate(params[:sessions][:password])
+    user = User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
 
     else
-      flash[:danger] = 'ログインに失敗しました'
+      flash.now[:danger] = 'ログインに失敗しました'
+      render 'new'
     end
   end
 
