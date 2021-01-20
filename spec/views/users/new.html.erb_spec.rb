@@ -21,7 +21,9 @@ RSpec.describe "users/new.html.erb", type: :feature do
                 fill_in 'user_email', with: user_valid.email
                 fill_in 'user_password', with: user_valid.password
                 fill_in 'user_password_confirmation', with: user_valid.password_confirmation
-                click_on '新規登録'
+                within '.settings__form' do
+                    click_on '新規登録'
+                end
                 expect(page).to have_content '新規登録が完了しました'
                 expect(page).to have_content 'valid / 高校 ? 年生'
                 visit root_path
@@ -33,7 +35,9 @@ RSpec.describe "users/new.html.erb", type: :feature do
                 fill_in 'user_email', with: user_invalid.email
                 fill_in 'user_password', with: user_invalid.password
                 fill_in 'user_password_confirmation', with: user_invalid.password_confirmation
-                click_on '新規登録'
+                within '.settings__form' do
+                    click_on '新規登録'
+                end
                 expect(current_path).to eq users_path
                 expect(user_invalid.errors).to be_added(:name, :blank)
                 expect(user_invalid.errors).to be_added(:email, :blank)
