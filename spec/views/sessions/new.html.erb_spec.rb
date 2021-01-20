@@ -17,6 +17,18 @@ RSpec.describe "sessions/new.html.erb", type: :feature do
       context 'submit information to the form' do
         it 'valid' do
           visit login_path
+          fill_in 'session_email', with: user_valid.email
+          fill_in 'session_password', with: user_valid.password
+          within '.settings__form' do
+            click_on 'ログイン'
+          end
+          expect(page).to have_no_content 'ログインに失敗しました'
+          expect(page).to have_content 'ログアウト'
+          visit user_path(user_valid.id)
+          expect(page).to have_content 'login / 高校 ? 年生'
+        end
+        it 'invalid' do
+          visit login_path
           fill_in 'session_email', with: user_invalid.email
           fill_in 'session_password', with: user_invalid.password
           within '.settings__form' do
@@ -27,17 +39,17 @@ RSpec.describe "sessions/new.html.erb", type: :feature do
           visit root_path
           expect(page).to have_no_content 'ログインに失敗しました'
         end
-        it 'invalid' do
+        it 'no password' do
           visit login_path
           fill_in 'session_email', with: user_valid.email
-          fill_in 'session_password', with: user_valid.password
+          fill_in 'session_password', with: nil
           within '.settings__form' do
             click_on 'ログイン'
           end
+          expect(current_path).to eq login_path
+          expect(page).to have_content 'ログインに失敗しました'
+          visit root_path
           expect(page).to have_no_content 'ログインに失敗しました'
-          expect(page).to have_content 'ログアウト'
-          visit user_path(user_valid.id)
-          expect(page).to have_content 'login / 高校 ? 年生'
         end
       end
     end
