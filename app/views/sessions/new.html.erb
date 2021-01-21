@@ -7,6 +7,10 @@
             <%= f.email_field :email, class: "settings__form--input_sign", placeholder: "example@gmail.com" %>
             <%= f.password_field :password, class: "settings__form--input_sign", placeholder: "パスワード（6文字以上）" %>
             <%= f.submit "ログイン", class: "settings__form--button_sign" %>
+            <%= f.label :remember_me, class: "settings__remember" do %>
+                <%= f.check_box :remember_me %>
+                <span class="settings__remember--text">ログイン情報を覚えておく</span>
+            <% end %>
         <% end %>
         <%= link_to new_user_path, class: "settings__link" do %>
             登録していない方は<span class="settings__link--blue">こちら</span>
