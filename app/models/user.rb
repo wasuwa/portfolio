@@ -7,5 +7,5 @@ class User < ApplicationRecord
     has_secure_password
     validates :password, allow_blank: true, presence: true, length: { minimum: 6 }
     validates :password_confirmation, presence: { message: "が一致しません" }
-    validates :grade, numericality: {allow_nil: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 3}
+    validates :grade, numericality: { allow_nil: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 3 }
 end

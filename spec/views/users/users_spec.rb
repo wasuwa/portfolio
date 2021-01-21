@@ -28,6 +28,7 @@ RSpec.describe "users/new.html.erb", type: :feature do
                 expect(page).to have_content 'valid / 高校 ? 年生'
                 visit root_path
                 expect(page).to have_no_content '新規登録が完了しました'
+                expect(page).to have_content 'ログアウト'
             end
             it 'invalid' do
                 visit new_user_path

@@ -22,10 +22,12 @@ RSpec.describe "sessions/new.html.erb", type: :feature do
           within '.settings__form' do
             click_on 'ログイン'
           end
+          expect(page).to have_content 'ログインに成功しました'
           expect(page).to have_no_content 'ログインに失敗しました'
           expect(page).to have_content 'ログアウト'
           visit user_path(user_valid.id)
           expect(page).to have_content 'login / 高校 ? 年生'
+          expect(page).to have_no_content 'ログインに成功しました'
         end
         it 'invalid' do
           visit login_path
@@ -50,6 +52,26 @@ RSpec.describe "sessions/new.html.erb", type: :feature do
           expect(page).to have_content 'ログインに失敗しました'
           visit root_path
           expect(page).to have_no_content 'ログインに失敗しました'
+        end
+      end
+    end
+
+    describe 'logout' do
+      context 'click the logout link' do
+        it 'valid' do
+          visit login_path
+          fill_in 'session_email', with: user_valid.email
+          fill_in 'session_password', with: user_valid.password
+          within '.settings__form' do
+            click_on 'ログイン'
+          end
+          within '.hamburger_nav' do
+            click_on 'ログアウト'
+          end
+          expect(current_path).to eq root_path
+          expect(page).to have_content 'ログアウトに成功しました'
+          visit current_path
+          expect(page).to have_no_content 'ログアウトに成功しました'
         end
       end
     end
