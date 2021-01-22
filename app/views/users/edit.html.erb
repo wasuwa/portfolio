@@ -16,7 +16,7 @@
             <%= f.text_field :name, class: "settings__form--input" %>
 
             <%= f.label :grade, "高校の学年", class: "settings__form--label" %>
-            <%= f.select :grade, [ [1, 1], [2, 2], [3, 3] ], {prompt: "学年を選択してください"}, {class: "settings__form--input settings__form--input_select"} %>
+            <%= f.select :grade, [ ["秘密", nil], [1, 1], [2, 2], [3, 3] ], {prompt: "学年を選択してください"}, {class: "settings__form--input settings__form--input_select"} %>
 
             <% if @user.errors.include?(:email) %>
                 <p class="settings__form--errors"><%= @user.errors.full_messages_for(:email).first %></p>
@@ -29,6 +29,12 @@
             <% end %>
             <%= f.label :password, "パスワード", class: "settings__form--label" %>
             <%= f.password_field :password, class: "settings__form--input" %>
+
+            <% if @user.errors.include?(:password_confirmation) %>
+                <p class="settings__form--errors"><%= @user.errors.full_messages_for(:password_confirmation).first %></p>
+            <% end %>
+            <%= f.label :password_confirmation, "パスワードの確認", class: "settings__form--label" %>
+            <%= f.password_field :password_confirmation, class: "settings__form--input" %>
 
             <%= f.submit "更新する", class: "settings__form--button" %>
         <% end %>

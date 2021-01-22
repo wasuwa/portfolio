@@ -46,9 +46,21 @@ RSpec.describe "users/new.html.erb", type: :feature do
 
     describe 'setting', type: :request do
         context 'send information to form' do
-            # it 'valid' do
-                
-            # end
+            it 'valid' do
+                log_in_as(login)
+                visit edit_user_path(login)
+                fill_in 'user_name', with: login.name = "foobar"
+                select 2, from: "高校の学年"
+                fill_in 'user_email', with: login.email = "foobar@foobar.com"
+                fill_in 'user_password', with: nil
+                fill_in 'user_password_confirmation', with: nil
+                click_on '更新する'
+                expect(page).to have_content 'プロフィールの編集に成功しました'
+                expect(current_path).to eq user_path(login)
+                expect(page).to have_content 'foobar / 高校 2 年生'
+                visit current_path
+                expect(page).to have_no_content 'プロフィールの編集に成功しました'
+            end
             it 'invalid' do
                 log_in_as(login)
                 visit edit_user_path(login)
@@ -56,10 +68,29 @@ RSpec.describe "users/new.html.erb", type: :feature do
                 select 1, from: "高校の学年"
                 fill_in 'user_email', with: login.email = nil
                 fill_in 'user_password', with: login.password = "aaafds"
+                fill_in 'user_password_confirmation', with: login.password_confirmation = "aaaiii"
                 click_on '更新する'
                 expect(page).to have_content '名前を入力してください'
                 expect(page).to have_content 'メールアドレスを入力してください'
-                # expect(page).to have_content 'パスワードを入力してください'
+                expect(page).to have_content '確認とパスワードの入力が一致しません'
+            end
+            it 'no password' do
+                log_in_as(login)
+                visit edit_user_path(login)
+                fill_in 'user_name', with: login.name
+                fill_in 'user_email', with: login.email
+                fill_in 'user_password_confirmation', with: login.password_confirmation = "aaaiii"
+                click_on '更新する'
+                expect(page).to have_content 'パスワードを入力してください'
+            end
+            it 'no password_confirmation' do
+                log_in_as(login)
+                visit edit_user_path(login)
+                fill_in 'user_name', with: login.name
+                fill_in 'user_email', with: login.email
+                fill_in 'user_password', with: login.password = "aaaiii"
+                click_on '更新する'
+                expect(page).to have_content '確認とパスワードの入力が一致しません'
             end
         end
     end

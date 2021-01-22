@@ -1,14 +1,37 @@
 class User < ApplicationRecord
     attr_accessor :remember_token
     before_save { email.downcase! }
-    validates :name, presence: true, length: { maximum: 8 }
+
+    validates :name, 
+        presence: true, 
+        length: { maximum: 8 }
+
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-    validates :email, presence: true, length: { maximum: 255 }, 
-                            format: { with: VALID_EMAIL_REGEX, allow_blank: true }, uniqueness: true
+
+    validates :email, 
+        presence: true, 
+        length: { maximum: 255 }, 
+        format: { with: VALID_EMAIL_REGEX, allow_blank: true }, 
+        uniqueness: true
+
     has_secure_password
-    validates :password, allow_blank: true, presence: true, length: { minimum: 6 }
-    validates :password_confirmation, presence: { message: "が一致しません" }
-    validates :grade, numericality: { allow_nil: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 3 }
+
+    validates :password, 
+        allow_blank: true, 
+        presence: true, 
+        length: { minimum: 6 }
+
+    validates :password,
+        presence: true,
+        if: :password_was_entered?,
+        on: :update
+
+    validates :password_confirmation, 
+        presence: true,
+        on: :create
+
+    validates :grade, 
+        numericality: { allow_nil: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 3 }
 
     class << self
         def digest(string)
@@ -35,4 +58,8 @@ class User < ApplicationRecord
     def forget
         update_attribute(:remember_digest, nil)
     end
+
+    def password_was_entered?
+        password_confirmation.present?
+      end
 end
