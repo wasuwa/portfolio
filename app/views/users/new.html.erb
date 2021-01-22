@@ -9,7 +9,7 @@
             <% end %>
             <%= f.text_field :name, class: "settings__form--input_sign",
                 placeholder: "お名前" %>
-                <% if @user.errors.include?(:email) %>
+            <% if @user.errors.include?(:email) %>
                 <p class="settings__form--errors"><%= @user.errors.full_messages_for(:email).first %></p>
             <% end %>
             <%= f.email_field :email, class: "settings__form--input_sign", placeholder: "メールアドレス" %>

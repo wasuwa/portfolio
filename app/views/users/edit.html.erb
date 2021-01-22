@@ -1,0 +1,42 @@
+<!-- アカウント設定 -->
+<section class="settings">
+    <div class="settings__wrapper">
+        <div class="settings__icon">
+            <%= image_tag "default_icon.jpg", class: "settings__icon--img" %>
+            <a class="settings__edit">
+                <%= image_tag "profile_edit.png", class: "settings__edit--img" %>
+            </a>
+        </div>
+        <h2 class="settings__wrapper--title">アカウントの設定</h2>
+        <%= form_with(model: @user, local: true, class: "settings__form") do |f| %>
+            <% if @user.errors.include?(:name) %>
+                <p class="settings__form--errors"><%= @user.errors.full_messages_for(:name).first %></p>
+            <% end %>
+            <%= f.label :name, "名前", class: "settings__form--label" %>
+            <%= f.text_field :name, class: "settings__form--input" %>
+
+            <% if @user.errors.include?(:grade) %>
+                <p class="settings__form--errors"><%= @user.errors.full_messages_for(:grade).first %></p>
+            <% end %>
+            <%= f.label :grade, "高校の学年", class: "settings__form--label" %>
+            <%= f.text_field :grade, class: "settings__form--input" %>
+
+            <% if @user.errors.include?(:email) %>
+                <p class="settings__form--errors"><%= @user.errors.full_messages_for(:email).first %></p>
+            <% end %>
+            <%= f.label :email, "メールアドレス", class: "settings__form--label" %>
+            <%= f.email_field :email, class: "settings__form--input" %>
+
+            <% if @user.errors.include?(:password_confirmation) %>
+                <p class="settings__form--errors"><%= @user.errors.full_messages_for(:password_confirmation).first %></p>
+            <% end %>
+            <%= f.label :password_confirmation, "パスワード", class: "settings__form--label" %>
+            <%= f.password_field :password_confirmation, class: "settings__form--input" %>
+
+            <%= f.submit "更新する", class: "settings__form--button" %>
+        <% end %>
+        <%= link_to "/password_setting", class: "settings__link" do %>
+            パスワードを忘れた方は<span class="settings__link--blue">こちら</span>
+        <% end %>
+    </div>
+</section>

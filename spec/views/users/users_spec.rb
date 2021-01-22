@@ -4,6 +4,8 @@ RSpec.describe "users/new.html.erb", type: :feature do
 
     let(:user) { build(:user) }
 
+    let(:login) { create(:user) }
+
     let(:invalid) {
         User.create()
     }
