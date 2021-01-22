@@ -41,6 +41,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.2'
   # RSpecの高速化
   gem 'spring-commands-rspec'
+  # RSpecをDRYにする
+  gem 'factory_bot_rails'
 end
 
 group :development do

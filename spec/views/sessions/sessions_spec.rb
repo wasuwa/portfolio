@@ -1,38 +1,28 @@
 require 'rails_helper'
 
 RSpec.describe "sessions/new.html.erb", type: :feature do
-  
-    let(:user_valid) {
-      User.create(
-          name: "login",
-          email: "login@login.com",
-          password: "password",
-          password_confirmation: "password"
-      )
-    }
 
-    let(:user_invalid) { User.create() }
+    let(:user) { create(:user) }
 
     describe 'login' do
       context 'submit information to the form' do
         it 'valid' do
           visit login_path
-          fill_in 'session_email', with: user_valid.email
-          fill_in 'session_password', with: user_valid.password
+          fill_in 'session_email', with: user.email
+          fill_in 'session_password', with: user.password
           within '.settings__form' do
             click_on 'ログイン'
           end
           expect(page).to have_content 'ログインに成功しました'
           expect(page).to have_no_content 'ログインに失敗しました'
           expect(page).to have_content 'ログアウト'
-          visit user_path(user_valid.id)
-          expect(page).to have_content 'login / 高校 ? 年生'
+          visit user_path(user.id)
           expect(page).to have_no_content 'ログインに成功しました'
         end
         it 'invalid' do
           visit login_path
-          fill_in 'session_email', with: user_invalid.email
-          fill_in 'session_password', with: user_invalid.password
+          fill_in 'session_email', with: nil
+          fill_in 'session_password', with: nil
           within '.settings__form' do
             click_on 'ログイン'
           end
@@ -43,7 +33,7 @@ RSpec.describe "sessions/new.html.erb", type: :feature do
         end
         it 'no password' do
           visit login_path
-          fill_in 'session_email', with: user_valid.email
+          fill_in 'session_email', with: user.email
           fill_in 'session_password', with: nil
           within '.settings__form' do
             click_on 'ログイン'
@@ -60,8 +50,8 @@ RSpec.describe "sessions/new.html.erb", type: :feature do
       context 'click the logout link' do
         it 'valid' do
           visit login_path
-          fill_in 'session_email', with: user_valid.email
-          fill_in 'session_password', with: user_valid.password
+          fill_in 'session_email', with: user.email
+          fill_in 'session_password', with: user.password
           within '.settings__form' do
             click_on 'ログイン'
           end
@@ -80,11 +70,11 @@ RSpec.describe "sessions/new.html.erb", type: :feature do
     describe 'remember me', type: :request do
       context 'remembers the cookie when user checks the remember me box' do
         it 'valid' do
-          log_in_as(user_valid)
+          log_in_as(user)
           expect(cookies[:remember_token]).to_not eq nil
         end
         it 'invalid' do
-          log_in_as(user_valid, '0')
+          log_in_as(user, '0')
           expect(cookies[:remember_token]).to eq nil
         end
       end

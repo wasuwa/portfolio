@@ -1,15 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) {
-    User.create(
-      name: "example",
-      email: "example@example.com",
-      password: "password",
-      password_confirmation: "password",
-      grade: 2
-    )
-  }
+  
+  let(:user) { create(:user) }
 
   context 'when user is valid' do
     it 'valid' do

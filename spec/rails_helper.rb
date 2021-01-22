@@ -66,4 +66,7 @@ RSpec.configure do |config|
   # helper
   config.include CookiesHelper
   config.include RailsTestHelper
+
+  # Factory_botのクラス名を省略
+  config.include FactoryBot::Syntax::Methods
 end
