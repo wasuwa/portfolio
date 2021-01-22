@@ -15,11 +15,8 @@
             <%= f.label :name, "名前", class: "settings__form--label" %>
             <%= f.text_field :name, class: "settings__form--input" %>
 
-            <% if @user.errors.include?(:grade) %>
-                <p class="settings__form--errors"><%= @user.errors.full_messages_for(:grade).first %></p>
-            <% end %>
             <%= f.label :grade, "高校の学年", class: "settings__form--label" %>
-            <%= f.text_field :grade, class: "settings__form--input" %>
+            <%= f.select :grade, [ [1, 1], [2, 2], [3, 3] ], {prompt: "学年を選択してください"}, {class: "settings__form--input settings__form--input_select"} %>
 
             <% if @user.errors.include?(:email) %>
                 <p class="settings__form--errors"><%= @user.errors.full_messages_for(:email).first %></p>
@@ -27,11 +24,11 @@
             <%= f.label :email, "メールアドレス", class: "settings__form--label" %>
             <%= f.email_field :email, class: "settings__form--input" %>
 
-            <% if @user.errors.include?(:password_confirmation) %>
-                <p class="settings__form--errors"><%= @user.errors.full_messages_for(:password_confirmation).first %></p>
+            <% if @user.errors.include?(:password) %>
+                <p class="settings__form--errors"><%= @user.errors.full_messages_for(:password).first %></p>
             <% end %>
-            <%= f.label :password_confirmation, "パスワード", class: "settings__form--label" %>
-            <%= f.password_field :password_confirmation, class: "settings__form--input" %>
+            <%= f.label :password, "パスワード", class: "settings__form--label" %>
+            <%= f.password_field :password, class: "settings__form--input" %>
 
             <%= f.submit "更新する", class: "settings__form--button" %>
         <% end %>

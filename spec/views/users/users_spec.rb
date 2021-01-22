@@ -43,4 +43,24 @@ RSpec.describe "users/new.html.erb", type: :feature do
             end
         end
     end
+
+    describe 'setting', type: :request do
+        context 'send information to form' do
+            # it 'valid' do
+                
+            # end
+            it 'invalid' do
+                log_in_as(login)
+                visit edit_user_path(login)
+                fill_in 'user_name', with: login.name = nil
+                select 1, from: "高校の学年"
+                fill_in 'user_email', with: login.email = nil
+                fill_in 'user_password', with: login.password = "aaafds"
+                click_on '更新する'
+                expect(page).to have_content '名前を入力してください'
+                expect(page).to have_content 'メールアドレスを入力してください'
+                # expect(page).to have_content 'パスワードを入力してください'
+            end
+        end
+    end
 end
