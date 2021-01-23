@@ -8,7 +8,7 @@
             </a>
         </div>
         <h2 class="settings__wrapper--title">アカウントの設定</h2>
-        <%= form_with(model: @user, local: true, class: "settings__form") do |f| %>
+        <%= form_with(model: @user, local: true, class: "settings__form settings__form_margin") do |f| %>
             <% if @user.errors.include?(:name) %>
                 <p class="settings__form--errors"><%= @user.errors.full_messages_for(:name).first %></p>
             <% end %>
@@ -37,9 +37,6 @@
             <%= f.password_field :password_confirmation, class: "settings__form--input" %>
 
             <%= f.submit "更新する", class: "settings__form--button" %>
-        <% end %>
-        <%= link_to "/password_setting", class: "settings__link" do %>
-            パスワードを忘れた方は<span class="settings__link--blue">こちら</span>
         <% end %>
     </div>
 </section>

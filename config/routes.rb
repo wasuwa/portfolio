@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  
   # static_pages
   get 'users/new'
   root 'static_pages#home'
   get '/password_setting', to: 'static_pages#password_setting'
-  get '/email', to: 'static_pages#email'
   get '/profile/article_details', to: 'static_pages#article_details'
   get '/profile/my_article_details', to: 'static_pages#my_article_details'
   get '/profile/article_posting', to: 'static_pages#article_posting'

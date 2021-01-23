@@ -6,9 +6,6 @@ class StaticPagesController < ApplicationController
   def password_setting
   end
 
-  def email
-  end
-
   def other_profile
   end
 

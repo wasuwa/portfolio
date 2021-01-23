@@ -57,19 +57,19 @@
                 <span class="hamburger_btn__line"></span>
             </div>
             <div class="hamburger_bg" id="hamburger_bg_id"></div>
-        </div>
-        <div class="header__click_menu" id="header__click_menu_id">
-            <ul>
-                <li>
-                    <%= link_to "マイブログ", current_user, class: "header__click_menu--link" %>
-                </li>
-                <li>
-                    <%= link_to "アカウントの設定", edit_user_path(current_user), class: "header__click_menu--link" %>
-                </li>
-                <li>
-                    <%= link_to 'ログアウト', logout_path, class: "header__click_menu--link header__click_menu--logout", method: :delete %>
-                </li>
-            </ul>
+            <div class="header__click_menu" id="header__click_menu_id">
+                <ul>
+                    <li>
+                        <%= link_to "マイブログ", current_user, class: "header__click_menu--link" %>
+                    </li>
+                    <li>
+                        <%= link_to "アカウントの設定", edit_user_path(current_user), class: "header__click_menu--link" %>
+                    </li>
+                    <li>
+                        <%= link_to 'ログアウト', logout_path, class: "header__click_menu--link header__click_menu--logout", method: :delete %>
+                    </li>
+                </ul>
+            </div>
         </div>
     <% else %>
         <div class="signup_button">
