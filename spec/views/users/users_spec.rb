@@ -122,5 +122,26 @@ RSpec.describe "users/new.html.erb", type: :feature do
                 expect(response).to redirect_to login_path
             end
         end
+        context 'after logging in, go to the original page' do
+            include SessionsHelper
+            it 'valid' do
+                visit edit_user_path(login)
+                expect(page).to have_content 'この機能を使うためにはログインが必要です'
+                log_in_as(login)
+                expect(current_path).to eq edit_user_path(login)
+            end
+        end
+        context 'redirect to original page is performed only for the first time' do
+            it 'valid' do
+                visit edit_user_path(login)
+                log_in_as(login)
+                expect(current_path).to eq edit_user_path(login)
+                within '.hamburger_nav' do
+                    click_link 'ログアウト'
+                end
+                log_in_as(login)
+                expect(current_path).to eq user_path(login)
+            end
+        end
     end
 end
