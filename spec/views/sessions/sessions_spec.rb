@@ -7,14 +7,8 @@ RSpec.describe "sessions/new.html.erb", type: :feature do
     describe 'login' do
       context 'submit information to the form' do
         it 'valid' do
-          visit login_path
-          fill_in 'session_email', with: user.email
-          fill_in 'session_password', with: user.password
-          within '.settings__form' do
-            click_on 'ログイン'
-          end
+          log_in_as(user)
           expect(page).to have_content 'ログインに成功しました'
-          expect(page).to have_no_content 'ログインに失敗しました'
           expect(page).to have_content 'ログアウト'
           visit user_path(user.id)
           expect(page).to have_no_content 'ログインに成功しました'
@@ -50,12 +44,7 @@ RSpec.describe "sessions/new.html.erb", type: :feature do
       context 'click the logout link' do
         it 'valid' do
           visit login_path
-          fill_in 'session_email', with: user.email
-          fill_in 'session_password', with: user.password
-          within '.settings__form' do
-            click_on 'ログイン'
-          end
-          expect(page).to have_content 'ログインに成功しました'
+          log_in_as(user)
           within '.hamburger_nav' do
             click_on 'ログアウト'
           end
@@ -70,12 +59,8 @@ RSpec.describe "sessions/new.html.erb", type: :feature do
     describe 'remember me', type: :request do
       context 'remembers the cookie when user checks the remember me box' do
         it 'valid' do
-          log_in_as(user)
-          expect(cookies[:remember_token]).to_not eq nil
-        end
-        it 'invalid' do
-          log_in_as(user, '0')
-          expect(cookies[:remember_token]).to eq nil
+          cookie_login(user)
+          expect(cookies['remember_token']).not_to eq nil
         end
       end
     end

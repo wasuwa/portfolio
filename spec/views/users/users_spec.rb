@@ -6,6 +6,8 @@ RSpec.describe "users/new.html.erb", type: :feature do
 
     let(:login) { create(:user) }
 
+    let(:another) { create(:user) }
+
     let(:invalid) {
         User.create()
     }
@@ -91,6 +93,33 @@ RSpec.describe "users/new.html.erb", type: :feature do
                 fill_in 'user_password', with: login.password = "aaaiii"
                 click_on '更新する'
                 expect(page).to have_content '確認とパスワードの入力が一致しません'
+            end
+        end
+        context 'another user sets up a profile' do
+            it 'valid' do
+                log_in_as(another)
+                visit edit_user_path(login)
+                expect(page).to have_content '他のユーザーのプロフィールは編集できません'
+                expect(current_path).to eq root_path
+            end
+        end
+    end
+
+    describe 'before', type: :request do
+        context 'access the edit action without logging in' do
+            it 'get request' do
+                visit edit_user_path(login)
+                expect(page).to have_content 'この機能を使うためにはログインが必要です'
+                expect(current_path).to eq login_path
+                visit root_path
+                expect(page).to have_no_content 'この機能を使うためにはログインが必要です'
+            end
+            it 'patch request' do
+                patch user_path(login), params: { user: {
+                  name: login.name,
+                  email: login.email
+                } }
+                expect(response).to redirect_to login_path
             end
         end
     end
