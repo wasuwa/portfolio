@@ -23,7 +23,7 @@
             <%= f.password_field :password_confirmation, class: "settings__form--input_sign", placeholder: "パスワードの確認" %>
             <%= f.submit "新規登録", class: "settings__form--button_sign" %>
         <% end %>
-        <%= link_to "/login", class: "settings__link" do %>
+        <%= link_to login_path, class: "settings__link" do %>
             すでに登録済みの方は<span class="settings__link--blue">こちら</span>
         <% end %>
     </div>

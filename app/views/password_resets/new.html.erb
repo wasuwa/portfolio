@@ -4,8 +4,8 @@
     <div class="settings__icon">
         <%= image_tag "default_icon.jpg", class: "settings__icon--img" %>
     </div>
-    <h2 class="settings__wrapper--title">パスワードの設定</h2>
-    <form class="settings__form">
+    <h2 class="settings__wrapper--title">パスワードの再設定</h2>
+    <%# <form class="settings__form">
         <label for="current_password" class="settings__form--label">現在のパスワード</label>
         <input type="password" id="current_password" name="current_password" class="settings__form--input">
         <label for="new_password" class="settings__form--label">新しいパスワード</label>
@@ -13,8 +13,10 @@
         <label for="validation_password" class="settings__form--label">新しいパスワード（確認）</label>
         <input type="password" id="validation_password" name="validation_password" class="settings__form--input">
         <input type="submit" value="更新する" name="password_btn" class="settings__form--button">
-    </form>
-    <%= link_to "/account_setting", class: "settings__link" do %>
-        アカウントの設定は<span class="settings__link--blue">こちら</span>
+    </form> %>
+    <%= form_with(url: password_resets_path, scope: :password_reset, local: true, class: 'settings__form settings__form_margin') do |f| %>
+        <%= f.label :email, "現在のメールアドレス", class: "settings__form--label" %>
+        <%= f.email_field :email, class: "settings__form--input" %>
+        <%= f.submit "更新する", class: "settings__form--button" %>
     <% end %>
 </section>
