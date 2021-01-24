@@ -20,4 +20,8 @@ class StaticPagesController < ApplicationController
   
   def my_article_details
   end
+
+  def email
+    
+  end
 end
