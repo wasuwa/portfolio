@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   # password_resets
   resources :password_resets, only: [:new, :create, :edit, :update]
   get '/password_resets', to: 'password_resets#new'
-  post '/password_resets', to: 'password_resets#create'
   # get '/password_resets/トークン/edit', to: 'password_resets#edit'
   # get '/password_resets/トークン/', to: 'password_resets#update'
 end
