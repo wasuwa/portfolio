@@ -8,6 +8,6 @@
     <%= form_with(url: password_resets_path, scope: :password_reset, local: true, class: 'settings__form settings__form_margin') do |f| %>
         <%= f.label :email, "現在のメールアドレス", class: "settings__form--label" %>
         <%= f.email_field :email, class: "settings__form--input" %>
-        <%= f.submit "更新する", class: "settings__form--button" %>
+        <%= f.submit "送信する", class: "settings__form--button" %>
     <% end %>
 </section>
