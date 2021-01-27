@@ -20,8 +20,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   # password_resets
-  resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :password_resets, only: [:create, :edit, :update]
   get '/password_resets', to: 'password_resets#new'
-  # get '/password_resets/トークン/edit', to: 'password_resets#edit'
-  # get '/password_resets/トークン/', to: 'password_resets#update'
 end
