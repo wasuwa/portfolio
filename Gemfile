@@ -27,10 +27,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
-
 # パンくずリストを作成する
 gem 'gretel', '4.2.0'
-
 # 多言語化する
 gem 'rails-i18n'
 
