@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   get '/email', to: 'static_pages#email'
   
   # users
-  resources :users
+  resources :users, only: [:show, :create, :edit, :update, :destroy]
+  get '/signup', to: 'users#new'
 
   # sessions
   get '/login', to: 'sessions#new'

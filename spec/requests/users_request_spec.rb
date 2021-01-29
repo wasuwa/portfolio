@@ -15,7 +15,7 @@ RSpec.describe "Users", type: :feature do
   describe 'signup' do
       context 'submit information to the form' do
           it 'valid' do
-              visit new_user_path
+              visit signup_path
               fill_in 'user_name', with: user.name
               fill_in 'user_email', with: user.email
               fill_in 'user_password', with: user.password
@@ -29,7 +29,7 @@ RSpec.describe "Users", type: :feature do
               expect(page).to have_content 'ログアウト'
           end
           it 'invalid' do
-              visit new_user_path
+              visit signup_path
               fill_in 'user_name', with: invalid.name
               fill_in 'user_email', with: invalid.email
               fill_in 'user_password', with: invalid.password
