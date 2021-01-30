@@ -164,12 +164,12 @@
             </div>
         </article>
     </div>
-    <button type="button" class="new-article__button" onclick="location.href='/new_articles'">もっとみる</button>
+    <%= button_tag "もっとみる", onclick: "location.href='/new_articles'", type: "button", class: "new-article__button" %>
 </div>
 <!-- cta -->
 <div class="cta">
     <div class="cta__wrapper">
-        <%= link_to "/profile/article_posting", class: "cta__items" do %>
+        <%= link_to new_article_path, class: "cta__items" do %>
             <%= image_tag "cta_icon_write", class: "cta__items--icon" %>
             <h2 class="cta__items--title">自分の記事を書く</h2>
             <p class="cta__items--text">自分の意見を発信してみよう</p>
