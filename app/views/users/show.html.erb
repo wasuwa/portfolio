@@ -6,15 +6,11 @@
         </div>
         <h2 class="profile__name">
             <%= @user.name %>
-            <span class="profile__name--grade"> / </span><br class="profile__name--grade_br">高校
-            <% if @user.grade %>
-                <%= @user.grade %>
-            <% else %>
-                ?
-            <% end %>
-            年生
+            <span class="profile__name--grade"> / </span><br class="profile__name--grade_br">高校 <%= confirmation_grade %> 年生
         </h2>
-        <%= button_tag "ブログを書く", onclick: "location.href='/articles/new'", type: "button", class: "profile__button" %>
+        <% if current_user? %>
+            <%= button_tag "ブログを書く", onclick: "location.href='/articles/new'", type: "button", class: "profile__button" %>
+        <% end %>
     </div>
 </section>
 <!-- 記事一覧 -->
@@ -42,15 +38,20 @@
                     <p class="article_items__text--overview">
                         <%= article.content.truncate(60) %>
                     </p>
-                    <div class="article_items__button">
-                        <%= link_to "編集", "/profile/article_posting", class: "article_items__button--edit" %>
-                        <%= link_to "削除", article, method: :delete, data: { confirm: "本当に記事を削除しますか？" }, class: "article_items__button--delete" %>
-                    </div>
+                    <% if current_user? %>
+                        <div class="article_items__button">
+                            <%= link_to "編集", "/profile/article_posting", class: "article_items__button--edit" %>
+                            <%= link_to "削除", article, method: :delete, data: { confirm: "本当に記事を削除しますか？" }, class: "article_items__button--delete" %>
+                        </div>
+                    <% else %>
+                         <%= link_to @user.name, user_path(@user.id), class: "article_items__text--name" %>
+                        <%= link_to " / 高校#{confirmation_grade}年生", user_path(@user.id), class: "article_items__text--name article_items__text--grade" %>
+                    <% end %>
                 </div>
             </article>
         <% end %>
         <%= paginate @articles %>
     <% else %>
-        <p class="articles_list__no_articles">記事がありません</p>
+        <p class="articles_list__no_articles">記事はまだありません</p>
     <% end %>
 </div>

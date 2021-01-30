@@ -9,6 +9,13 @@ module RailsTestHelper
         end
     end
 
+    def posting
+        visit new_article_path
+        fill_in 'article_title', with: "これはテストです"
+        fill_in 'article_content', with: "これはテストです"
+        click_on '投稿する'
+    end
+
     def cookie_login(user, remember_me = '1')
         post login_path, params: { session: {
           email: user.email,
