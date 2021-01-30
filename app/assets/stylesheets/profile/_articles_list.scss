@@ -30,8 +30,10 @@
                 border-radius: 5px;
             }
         }
+    }
+    .article_items_margin {
         &:last-of-type {
-            margin-bottom: 60px;
+            margin-bottom: 0;
         }
     }
 }

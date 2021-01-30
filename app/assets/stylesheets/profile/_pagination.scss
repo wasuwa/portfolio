@@ -1,10 +1,147 @@
 .pagination {
-    max-width: 790px;
-    height: 75px;
+    max-width: 575px;
+    height: 60px;
     padding: 0 45px;
-    &__wrapper {
-        max-width: 790px;
+    text-align: center;
+    margin: 60px auto 0;
+    .page {
+        width: 55px;
         height: 100%;
-        background: #454;
+        display: inline-block;
+        font-size: 18px;
+        background: white;
+        padding-top: 18px;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        margin-right: 10px;
+    }
+    .current {
+        color: white;
+        background: $main_blue;
+    }
+    .next {
+        width: 55px;
+        height: 100%;
+        display: inline-block;
+        font-size: 18px;
+        background: white;
+        border: 1px solid #ddd;
+        box-sizing: border-box;
+        padding-top: 18px;
+    }
+    .prev {
+        width: 55px;
+        height: 100%;
+        display: inline-block;
+        font-size: 18px;
+        background: white;
+        border: 1px solid #ddd;
+        box-sizing: border-box;
+        margin-right: 10px;
+        padding-top: 18px;
+    }
+    .last {
+        width: 55px;
+        height: 100%;
+        display: inline-block;
+        font-size: 18px;
+        background: white;
+        border: 1px solid #ddd;
+        box-sizing: border-box;
+        margin-left: 10px;
+        padding-top: 18px;
+    }
+    .first {
+        width: 55px;
+        height: 100%;
+        display: inline-block;
+        font-size: 18px;
+        background: white;
+        border: 1px solid #ddd;
+        box-sizing: border-box;
+        margin-right: 10px;
+        padding-top: 18px;
+    }
+}
+
+@include bp_md {
+    .pagination {
+        max-width: 100%;
+        padding: 0;
+        margin: 50px auto 0;
+        .page {
+            width: 45px;
+            font-size: 18px;
+            padding-top: 18px;
+            margin-right: 5px;
+        }
+        .current {
+            color: white;
+            background: $main_blue;
+        }
+        .next {
+            width: 45px;
+            font-size: 18px;
+            padding-top: 18px;
+        }
+        .prev {
+            width: 45px;
+            font-size: 18px;
+            margin-right: 10px;
+            padding-top: 18px;
+        }
+        .last {
+            width: 45px;
+            font-size: 18px;
+            margin-left: 5px;
+            padding-top: 18px;
+        }
+        .first {
+            width: 45px;
+            font-size: 18px;
+            margin-right: 5px;
+            padding-top: 18px;
+        }
+    }
+}
+@include bp_sm {
+    .pagination {
+        max-width: 100%;
+        padding: 0;
+        height: 40px;
+        margin: 50px auto 0;
+        .page {
+            width: 27px;
+            font-size: 14px;
+            padding-top: 9px;
+            margin-right: 0px;
+        }
+        .current {
+            color: white;
+            background: $main_blue;
+        }
+        .next {
+            width: 27px;
+            font-size: 14px;
+            padding-top: 9px;
+        }
+        .prev {
+            width: 27px;
+            font-size: 14px;
+            padding-top: 9px;
+            margin-right: 0px;
+        }
+        .last {
+            width: 27px;
+            font-size: 14px;
+            padding-top: 9px;
+            margin-left: 0px;
+        }
+        .first {
+            width: 27px;
+            font-size: 14px;
+            padding-top: 9px;
+            margin-right: 0px;
+        }
     }
 }

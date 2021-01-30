@@ -31,6 +31,8 @@ gem 'bootsnap', require: false
 gem 'gretel', '4.2.0'
 # 多言語化する
 gem 'rails-i18n'
+# ページネーションを実装する
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

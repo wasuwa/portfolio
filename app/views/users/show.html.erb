@@ -25,7 +25,7 @@
         <span class="articles_list__title--line"></span>
     </div>
     <% @articles.each do |article| %>
-        <article class="article_items">
+        <article class="article_items article_items_margin">
             <div class="article_items__image">
                 <div class="article_items__wrapper">
                     <time class="article_items__wrapper--time">
@@ -48,7 +48,5 @@
             </div>
         </article>
     <% end %>
-    <div class="pagination">
-        <div class="pagination__wrapper"></div>
-    </div>
+    <%= paginate @articles %>
 </div>
