@@ -14,7 +14,7 @@
             <% end %>
             年生
         </h2>
-        <button type="button" class="profile__button">ブログを書く</button>
+        <%= button_tag "ブログを書く", onclick: "location.href='/articles/new'", type: "button", class: "profile__button" %>
     </div>
 </section>
 <!-- 記事一覧 -->
@@ -24,29 +24,33 @@
         <h2 class="articles_list__title--text">記事一覧</h2>
         <span class="articles_list__title--line"></span>
     </div>
-    <% @articles.each do |article| %>
-        <article class="article_items article_items_margin">
-            <div class="article_items__image">
-                <div class="article_items__wrapper">
-                    <time class="article_items__wrapper--time">
-                        <%= time_ago_in_words(article.created_at)+"前" %>
-                    </time>
-                    <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+    <% unless @articles.empty? %>
+        <% @articles.each do |article| %>
+            <article class="article_items article_items_margin">
+                <div class="article_items__image">
+                    <div class="article_items__wrapper">
+                        <time class="article_items__wrapper--time">
+                            <%= time_ago_in_words(article.created_at)+"前" %>
+                        </time>
+                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                    </div>
                 </div>
-            </div>
-            <div class="article_items__text">
-                <h3 class="article_items__text--title">
-                    <%= link_to article.title, "/profile/my_article_details", class: "article_items__text--title_hover" %>
-                </h3>
-                <p class="article_items__text--overview">
-                    <%= article.content.truncate(60) %>
-                </p>
-                <div class="article_items__button">
-                    <%= link_to "編集", "/profile/article_posting", class: "article_items__button--edit" %>
-                    <a class="article_items__button--delete">削除</a>
+                <div class="article_items__text">
+                    <h3 class="article_items__text--title">
+                        <%= link_to article.title, "/profile/my_article_details", class: "article_items__text--title_hover" %>
+                    </h3>
+                    <p class="article_items__text--overview">
+                        <%= article.content.truncate(60) %>
+                    </p>
+                    <div class="article_items__button">
+                        <%= link_to "編集", "/profile/article_posting", class: "article_items__button--edit" %>
+                        <%= link_to "削除", article, method: :delete, data: { confirm: "本当に記事を削除しますか？" }, class: "article_items__button--delete" %>
+                    </div>
                 </div>
-            </div>
-        </article>
+            </article>
+        <% end %>
+        <%= paginate @articles %>
+    <% else %>
+        <p class="articles_list__no_articles">記事がありません</p>
     <% end %>
-    <%= paginate @articles %>
 </div>

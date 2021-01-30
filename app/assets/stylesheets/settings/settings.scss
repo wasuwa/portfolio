@@ -66,28 +66,6 @@
                 margin-bottom: 20px;
                 text-align: center;
             }
-            &--errors {
-                width: 300px;
-                padding: 15px;
-                color: white;
-                background: #e25959;
-                border-radius: 5px;
-                opacity: .9;
-                z-index: 10;
-                margin-bottom: -10px;
-                position: relative;
-                &::before {
-                    content: "";
-                    width: 0;
-                    height: 0;
-                    border-left: 10px solid transparent;
-                    border-right: 10px solid transparent;
-                    border-top: 10px solid #e25959;
-                    opacity: .9;
-                    position: absolute;
-                    bottom: -10px;
-                }
-            }
             &--button {
                 @include button($width: 100%);
                 padding: 0;
@@ -115,6 +93,28 @@
                 margin-top: 10px;
             }
         }
+    }
+}
+.settings__form--errors {
+    width: 300px;
+    padding: 15px;
+    color: white;
+    background: #e25959;
+    border-radius: 5px;
+    opacity: .9;
+    z-index: 10;
+    margin-bottom: -10px;
+    position: relative;
+    &::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #e25959;
+        opacity: .9;
+        position: absolute;
+        bottom: -10px;
     }
 }
 
@@ -187,17 +187,6 @@
                 &--input_sign {
                     height: 40px;
                 }
-                &--errors {
-                    width: calc(100% - 20px);
-                    font-size: 12px;
-                    padding: 10px;
-                    &::before {
-                        border-left: 7px solid transparent;
-                        border-right: 7px solid transparent;
-                        border-top: 7px solid #e25959;
-                        bottom: -7px;
-                    }
-                }
                 &--button {
                     @include button($width: 100%, $height: 40px);
                 }
@@ -218,6 +207,17 @@
                 font-size: 12px;
                 line-height: 12px;
             }
+        }
+    }
+    .settings__form--errors {
+        width: calc(100% - 20px);
+        font-size: 12px;
+        padding: 10px;
+        &::before {
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 7px solid #e25959;
+            bottom: -7px;
         }
     }
 }

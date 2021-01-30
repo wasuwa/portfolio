@@ -1,0 +1,18 @@
+<div class="article_posting">
+    <%= form_with(model: @article, local: true, class: 'article_posting__form') do |f| %>
+        <% if @article.errors.include?(:title) %>
+            <p class="settings__form--errors"><%= @article.errors.full_messages_for(:title).first %></p>
+        <% end %>
+        <%= f.label :title, "タイトル", class: "article_posting__form--label" %>
+        <%= f.text_field :title, placeholder: "ここにタイトルを書いてください", class: "article_posting__form--title" %>
+        <label for="img" class="article_posting__form--label">アイキャッチ画像</label>
+        <input type="file" accept="image/png, image/jpeg" id="img" name="article_img" class="article_posting__form--img_select">
+        <div class="article_posting__form--img"></div>
+        <% if @article.errors.include?(:content) %>
+            <p class="settings__form--errors"><%= @article.errors.full_messages_for(:content).first %></p>
+        <% end %>
+        <%= f.label :content, "本文", class: "article_posting__form--label" %>
+        <%= f.text_area :content, placeholder: "ここに本文を書いてください", class: 'article_posting__form--textarea' %>
+        <%= f.submit "投稿する", class: "article_posting__form--button" %>
+    <% end %>
+</div>
