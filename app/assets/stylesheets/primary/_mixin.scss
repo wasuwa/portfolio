@@ -54,7 +54,7 @@
     }
 }
 
-@mixin article($width: 500px, $height: 99.51%, $image_width: 40%, $text_width: 60%, $title_size: 14px, $title_line: 20px, $title_mg: 15px, $overview_size: 12px, $overview_mg: 15px, $line: 17px, $name_size: 12px, $img_size: 200px 100%, $text_padding: 30px 20px, $icon_size: 35px) {
+@mixin article($width: 500px, $height: 99.51%, $image_width: 40%, $text_width: 60%, $title_size: 14px, $title_line: 20px, $title_mg: 15px, $overview_size: 12px, $overview_mg: 15px, $line: 17px, $name_size: 12px, $text_padding: 30px 20px, $icon_size: 35px) {
     max-width: $width;
     height: $height;
     display: flex;
@@ -81,6 +81,7 @@
         }
         &--img {
             width: 100%;
+            height: 100%;
             object-fit: cover;
         }
     }

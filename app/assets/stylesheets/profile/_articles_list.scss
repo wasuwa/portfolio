@@ -8,7 +8,7 @@
         margin-bottom: 50px;
     }
     .article_items {
-        @include article($width: 880px, $height: 300px, $image_width: 300px, $text_width: 580px, $title_size: 18px, $title_line: 27px, $title_mg: 20px, $overview_size: 14px, $line: 20px, $name_size: 14px, $img_size: 300px 100%, $text_padding: 40px 30px, $icon_size: 40px);
+        @include article($width: 880px, $height: 300px, $image_width: 300px, $text_width: 580px, $title_size: 18px, $title_line: 27px, $title_mg: 20px, $overview_size: 14px, $line: 20px, $name_size: 14px, $text_padding: 40px 30px, $icon_size: 40px);
         line-height: 29px;
         position: relative;
         margin-bottom: 30px;
@@ -46,7 +46,7 @@
     .articles_list {
         margin: 0 auto 50px;
         .article_items {
-            @include article($width: 880px, $height: 300px, $image_width: 300px, $text_width: 580px, $title_size: 18px, $title_line: 27px, $title_mg: 20px, $overview_size: 14px, $line: 20px, $name_size: 14px, $img_size: 300px 100%, $text_padding: 30px, $icon_size: 40px);
+            @include article($width: 880px, $height: 300px, $image_width: 300px, $text_width: 580px, $title_size: 18px, $title_line: 27px, $title_mg: 20px, $overview_size: 14px, $line: 20px, $name_size: 14px, $text_padding: 30px, $icon_size: 40px);
             &__button {
                 font-size: 12px;
             }
