@@ -56,8 +56,8 @@
                         <p class="article_items__text--overview">
                             <%= article.content.truncate(60) %>
                         </p>
-                        <%= link_to each_user(article).name, user_path(each_user(article)), class: "article_items__text--name" %>
-                        <%= link_to " / 高校#{confirmation_grade(each_user(article))}年生", user_path(each_user(article)), class: "article_items__text--name article_items__text--grade" %>
+                        <%= link_to get_user(article).name, get_user(article), class: "article_items__text--name" %>
+                        <%= link_to " / 高校#{get_grade(get_user(article))}年生", get_user(article), class: "article_items__text--name article_items__text--grade" %>
                     </div>
                 </article>
             <% end %>
@@ -77,7 +77,7 @@
             <h2 class="cta__items--title">自分の記事を書く</h2>
             <p class="cta__items--text">自分の意見を発信してみよう</p>
         <% end %>
-        <%= link_to "/new_articles", class: "cta__items" do %>
+        <%= link_to articles_path, class: "cta__items" do %>
             <%= image_tag "cta_icon_read", class: "cta__items--icon" %>
             <h2 class="cta__items--title">もっと記事を読む</h2>
             <p class="cta__items--text">価値観をアップデートしよう</p>

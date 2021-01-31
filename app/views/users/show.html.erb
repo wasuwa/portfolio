@@ -6,7 +6,7 @@
         </div>
         <h2 class="profile__name">
             <%= @user.name %>
-            <span class="profile__name--grade"> / </span><br class="profile__name--grade_br">高校 <%= confirmation_grade(@user) %> 年生
+            <span class="profile__name--grade"> / </span><br class="profile__name--grade_br">高校 <%= get_grade(@user) %> 年生
         </h2>
         <% if current_user? %>
             <%= button_tag "ブログを書く", onclick: "location.href='/articles/new'", type: "button", class: "profile__button" %>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="article_items__text">
                     <h3 class="article_items__text--title">
-                        <%= link_to article.title, "/profile/my_article_details", class: "article_items__text--title_hover" %>
+                        <%= link_to article.title, article_path(article), class: "article_items__text--title_hover" %>
                     </h3>
                     <p class="article_items__text--overview">
                         <%= article.content.truncate(60) %>
@@ -47,8 +47,8 @@
                             <%= link_to "削除", article, method: :delete, data: { confirm: "本当に記事を削除しますか？" }, class: "article_items__button--delete" %>
                         </div>
                     <% else %>
-                        <%= link_to @user.name, user_path(@user.id), class: "article_items__text--name" %>
-                        <%= link_to " / 高校#{confirmation_grade(@user)}年生", user_path(@user.id), class: "article_items__text--name article_items__text--grade" %>
+                        <%= link_to @user.name, @user, class: "article_items__text--name" %>
+                        <%= link_to " / 高校#{get_grade(@user)}年生", @user, class: "article_items__text--name article_items__text--grade" %>
                     <% end %>
                 </div>
             </article>

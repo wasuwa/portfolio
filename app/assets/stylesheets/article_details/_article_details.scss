@@ -2,9 +2,6 @@
     max-width: 880px;
     margin: 40px auto 160px;
     padding: 0 30px;
-    &__pankuzu {
-        margin-bottom: 20px;
-    }
     &__wrapper {
         background: white;
         margin-bottom: 50px;
@@ -29,10 +26,7 @@
         &--img {
             width: 100%;
             height: 460px;
-            background: image-url('article_details_no_img.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
+            object-fit: cover;
         }
         .article_details__text_area {
             padding: 50px 30px;
@@ -63,21 +57,20 @@
 @include bp_sm {
     .article_details {
         margin: 30px auto 110px;
-        &__pankuzu {
-            font-size: 12px;
-            margin-bottom: 10px;
-        }
         &__wrapper {
             margin-bottom: 30px;
             .article_details__main {
-                padding: 30px;
+                padding: 30px 20px;
                 &--time {
                     font-size: 12px;
-                    padding: 3px 15px;
+                    padding: 3px 10px;
                     margin-right: 10px;
                 }
                 &--name {
                     font-size: 12px;
+                }
+                &--name-none {
+                    display: none;
                 }
                 &--title {
                     font-size: 17px;
@@ -89,7 +82,7 @@
                 height: 250px;
             }
             .article_details__text_area {
-                padding: 30px;
+                padding: 30px 20px;
             }
         }
         &__button {

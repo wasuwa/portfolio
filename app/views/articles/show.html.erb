@@ -1,0 +1,77 @@
+<section class="article_details">
+    <div class="article_details__wrapper">
+        <div class="article_details__main">
+            <time class="article_details__main--time">
+                <%= time_ago_in_words(@article.created_at)+"前" %>
+            </time>
+            <%= link_to @user.name, user_path(@user), class: "article_details__main--name" %>
+            <%= link_to " / 高校#{get_grade(@user)}年生", user_path(@user), class: "article_details__main--name article_details__main--name-none" %>
+            <h2 class="article_details__main--title">
+                <%= @article.title %>
+            </h2>
+        </div>
+        <% if @article.image? %>
+            <%= image_tag @article.image.url, class: "article_details__wrapper--img" %>
+        <% else %>
+            <%= image_tag "article_details_no_img.jpg", class: "article_details__wrapper--img" %>
+        <% end %>
+        <div class="article_details__text_area">
+            <p class="article_details__text_area--text">
+                <%= @article.content %>
+            </p>
+        </div>
+    </div>
+    <%= button_tag "お気に入りに登録する", onclick: "location.href='/new_articles'", type: "button", class: "article_details__button" %>
+</section>
+<!-- プロフィール -->
+<section class="profile profile_details">
+    <div class="profile__wrapper">
+        <div class="profile__circle">
+            <%= image_tag "default_icon.jpg", class: "profile__circle--img" %>
+        </div>
+        <h2 class="profile__name">
+            <%= @user.name %>
+            <span class="profile__name--grade"> / </span><br class="profile__name--grade_br">高校 <%= get_grade(@user) %> 年生
+        </h2>
+        <%= button_tag "プロフィールをみる", onclick: "location.href='#{user_path(@user)}'", type: "button", class: "profile__button" %>
+    </div>
+</section>
+<!-- 記事一覧 -->
+<div class="articles_list">
+    <div class="articles_list__title">
+        <span class="articles_list__title--line"></span>
+        <h2 class="articles_list__title--text">他も読む</h2>
+        <span class="articles_list__title--line"></span>
+    </div>
+    <% unless @not_current_articles.empty? %>
+        <% @not_current_articles.first(3).each do |article| %>
+            <article class="article_items articles_list_details">
+                <div class="article_items__image">
+                    <div class="article_items__wrapper">
+                        <time class="article_items__wrapper--time">
+                            <%= time_ago_in_words(article.created_at)+"前" %>
+                        </time>
+                        <% if article.image? %>
+                            <%= image_tag article.image.url, class: "article_items__wrapper--img" %>
+                        <% else %>
+                            <%= image_tag "article_details_no_img.jpg", class: "article_items__wrapper--img" %>
+                        <% end %>
+                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                    </div>
+                </div>
+                <div class="article_items__text">
+                    <h3 class="article_items__text--title">
+                        <%= link_to article.title, article_path(article), class: "article_items__text--title_hover" %>
+                    </h3>
+                    <p class="article_items__text--overview">
+                        <%= article.content.truncate(60) %>
+                    </p>
+                    <%= link_to @user.name, @user, class: "article_items__text--name" %>
+                    <%= link_to " / 高校#{get_grade(@user)}年生", @user, class: "article_items__text--name article_items__text--grade" %>
+                </div>
+            </article>
+        <% end %>
+    <% else %>
+        <p class="articles_list__no_articles">他に記事はありません</p>
+    <% end %>
+</div>

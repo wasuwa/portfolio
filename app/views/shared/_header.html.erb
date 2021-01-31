@@ -17,7 +17,7 @@
                         <%= link_to "お気に入り", "/favorite", class: "header__ul--list_link" %>
                     </li>
                     <li class="header__ul--list">
-                        <%= link_to "新着記事", "/new_articles", class: "header__ul--list_link" %>
+                        <%= link_to "新着記事", articles_path, class: "header__ul--list_link" %>
                     </li>
                 </ul>
             </nav>
@@ -38,7 +38,7 @@
                         <%= link_to "お気に入り", "/favorite", class: "hamburger_nav__list--link" %>
                     </li>
                     <li class="hamburger_nav__list">
-                        <%= link_to "新着記事", "/new_articles", class: "hamburger_nav__list--link" %>
+                        <%= link_to "新着記事", articles_path, class: "hamburger_nav__list--link" %>
                     </li>
                     <li class="hamburger_nav__list">
                         <%= link_to "マイブログ", current_user, class: "hamburger_nav__list--link" %>

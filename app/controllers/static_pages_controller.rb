@@ -4,9 +4,6 @@ class StaticPagesController < ApplicationController
     @articles = Article.all
   end
 
-  def password_setting
-  end
-
   def other_profile
   end
 
@@ -14,15 +11,5 @@ class StaticPagesController < ApplicationController
   end
 
   def favorite_list
-  end
-
-  def article_details
-  end
-  
-  def my_article_details
-  end
-
-  def email
-    
   end
 end

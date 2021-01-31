@@ -1,5 +1,5 @@
 module UsersHelper
-    def confirmation_grade(user)
+    def get_grade(user)
         if user.grade
             user.grade
         else
@@ -7,7 +7,7 @@ module UsersHelper
         end
     end
 
-    def each_user(user)
-        User.find_by(id: user.user_id)
+    def get_user(joint)
+        User.find_by(id: joint.user_id)
     end
 end

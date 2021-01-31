@@ -2,6 +2,10 @@ class ArticlesController < ApplicationController
     before_action :logged_in_user, only: [:create, :destroy, :new, :update, :edit]
     before_action :correct_user, only: :destroy
 
+    def index
+        @articles = Article.all.page(params[:page])
+    end
+
     def new
         @article = current_user.articles.build
     end
@@ -15,6 +19,12 @@ class ArticlesController < ApplicationController
         else
             render 'new'
         end
+    end
+
+    def show
+        @article = Article.find_by(id: params[:id])
+        @user = @article.user
+        @not_current_articles = @user.articles.reject { |article| article == @article }
     end
 
     def destroy
