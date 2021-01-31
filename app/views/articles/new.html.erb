@@ -5,8 +5,8 @@
         <% end %>
         <%= f.label :title, "タイトル", class: "article_posting__form--label" %>
         <%= f.text_field :title, placeholder: "ここにタイトルを書いてください", class: "article_posting__form--title" %>
-        <label for="img" class="article_posting__form--label">アイキャッチ画像</label>
-        <input type="file" accept="image/png, image/jpeg" id="img" name="article_img" class="article_posting__form--img_select">
+        <%= f.label :image, 'アイキャッチ画像', class: "article_posting__form--label" %>
+        <%= f.file_field :image, class: "article_posting__form--img_select" %>
         <div class="article_posting__form--img"></div>
         <% if @article.errors.include?(:content) %>
             <p class="settings__form--errors"><%= @article.errors.full_messages_for(:content).first %></p>

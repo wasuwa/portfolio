@@ -5,4 +5,5 @@ class Article < ApplicationRecord
   validates :content, presence: true, length: { maximum: 30000 }
   validates :title, presence: true, length: { maximum: 32 }
   paginates_per 8
+  mount_uploader :image, ImageUploader
 end
