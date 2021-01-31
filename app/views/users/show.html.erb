@@ -23,13 +23,16 @@
     <% unless @articles.empty? %>
         <% @articles.each do |article| %>
             <article class="article_items article_items_margin">
-                <div class="article_items__image">
-                    <div class="article_items__wrapper">
-                        <time class="article_items__wrapper--time">
-                            <%= time_ago_in_words(article.created_at)+"前" %>
-                        </time>
-                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
-                    </div>
+                <div class="article_items__wrapper">
+                    <time class="article_items__wrapper--time">
+                        <%= time_ago_in_words(article.created_at)+"前" %>
+                    </time>
+                    <% if @articles.image? %>
+                        <%= image_tag @articles.image.url, class: "article_items__wrapper--img" %>
+                    <% else %>
+                        <%= image_tag "article_details_no_img.jpg", class: "article_items__wrapper--img" %>
+                    <% end %>
+                    <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
                 </div>
                 <div class="article_items__text">
                     <h3 class="article_items__text--title">

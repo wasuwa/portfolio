@@ -7,7 +7,7 @@
         <%= f.text_field :title, placeholder: "ここにタイトルを書いてください", class: "article_posting__form--title" %>
         <%= f.label :image, 'アイキャッチ画像', class: "article_posting__form--label" %>
         <%= f.file_field :image, class: "article_posting__form--img_select" %>
-        <div class="article_posting__form--img"></div>
+        <%= image_tag "article_details_no_img.jpg", class: "article_posting__form--img" %>
         <% if @article.errors.include?(:content) %>
             <p class="settings__form--errors"><%= @article.errors.full_messages_for(:content).first %></p>
         <% end %>
@@ -16,3 +16,5 @@
         <%= f.submit "投稿する", class: "article_posting__form--button" %>
     <% end %>
 </div>
+<!-- 記事投稿ページのJS -->
+<%= javascript_pack_tag 'articles_js/application' %>

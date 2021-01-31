@@ -1,0 +1,1 @@
+require ('articles_js/articles_preview')
