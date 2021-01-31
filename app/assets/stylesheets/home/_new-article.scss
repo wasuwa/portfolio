@@ -15,6 +15,10 @@
     &__button {
         @include button($background: white,  $width: 500px, $radius: 5px, $height: 50px, $color: $text_color);
     }
+    &__text {
+        font-size: 18px;
+        text-align: center;
+    }
 }
 @include bp_md {
     .new-article {
@@ -24,6 +28,10 @@
         }
         &__button {
             @include button($background: white,  $width: 440px, $radius: 5px, $height: 50px, $color: $text_color);
+        }
+        &__text {
+            font-size: 16px;
+            text-align: center;
         }
     }
 }
