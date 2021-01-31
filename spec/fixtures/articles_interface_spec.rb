@@ -6,21 +6,20 @@ RSpec.describe "ArticlesInterfaces", type: :feature do
     let(:article) { create(:article) }
 
     before do
-        20.times do
-            user.articles.create!(title: "これはテストです", content: 'これはテストです')
-        end
+        
     end
 
     it 'articles interface' do
         log_in_as(user)
         visit user_path(user.id)
-
-        # ページネーションが正しく表示されているか
-        expect(page).to have_content '1 2 3'
         
         # 有効な送信
         posting
         expect(page).to have_content '投稿に成功しました'
+        expect(page).to have_no_selector "img[src='/assets/article_details_no_img-5387121c74cac5b563ed76a405038049fb52f825d40c1876fbaa1cc32d621c2b.jpg']"
+        
+        # ページネーションが正しく表示されているか
+        expect(page).to have_no_content '1 2 3'
 
         # 投稿を削除する
         expect do

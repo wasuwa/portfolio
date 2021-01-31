@@ -12,6 +12,7 @@ module RailsTestHelper
     def posting
         visit new_article_path
         fill_in 'article_title', with: "これはテストです"
+        attach_file 'article[image]', "#{Rails.root}/spec/fixtures/img/rspec_test.jpg"
         fill_in 'article_content', with: "これはテストです"
         click_on '投稿する'
     end
