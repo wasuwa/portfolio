@@ -22,13 +22,22 @@
             margin-bottom: 50px;
         }
         &--img_select {
-            margin: 0 0 15px 15px;
+            display: none;
         }
         &--img {
             width: 100%;
             height: 460px;
             object-fit: cover;
             margin-bottom: 50px;
+        }
+        &--img_delete {
+            color: #F64C44;
+            background: white;
+            padding: 3px 18px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 0 0 -28px auto;
+            display: block;
         }
         &--textarea {
             width: 100%;
@@ -73,12 +82,14 @@
             &--title {
                 margin-bottom: 40px;
             }
-            &--img_select {
-                margin: 10px 0;
-            }
             &--img {
                 height: 250px;
                 margin-bottom: 40px;
+            }
+            &--img_delete {
+                font-size: 13px;
+                padding: 2px 15px;
+                margin: 0 0 -26px auto;
             }
             &--textarea {
                 margin-bottom: 30px;

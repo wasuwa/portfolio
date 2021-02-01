@@ -72,7 +72,7 @@
 <!-- cta -->
 <div class="cta">
     <div class="cta__wrapper">
-        <%= link_to new_article_path, class: "cta__items" do %>
+        <%= link_to new_article_path, class: "cta__items", "data-turbolinks": false do %>
             <%= image_tag "cta_icon_write", class: "cta__items--icon" %>
             <h2 class="cta__items--title">自分の記事を書く</h2>
             <p class="cta__items--text">自分の意見を発信してみよう</p>

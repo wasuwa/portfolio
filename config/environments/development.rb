@@ -86,4 +86,7 @@ Rails.application.configure do
     authentication:       'login',
     enable_starttls_auto: true
   }
+  # hostの設定
+  host = 'samplehost'
+  Rails.application.routes.default_url_options[:host] = host
 end

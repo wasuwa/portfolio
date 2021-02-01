@@ -10,15 +10,25 @@
         <%= f.label :image do %>
             <%= f.label :image, "アイキャッチ画像", class: "article_posting__form--label" %>
             <%= f.file_field :image, class: "article_posting__form--img_select" %>
-            <%= image_tag "article_details_no_img.jpg", class: "article_posting__form--img" %>
+            <% if @article.image? %>
+                <%= image_tag "#{@article.image}", class: "article_posting__form--img" %>
+            <% else %>
+                <%= image_tag "article_details_no_img.jpg", class: "article_posting__form--img" %>
+            <% end %>
         <% end %>
         <% if @article.errors.include?(:content) %>
             <p class="settings__form--errors"><%= @article.errors.full_messages_for(:content).first %></p>
         <% end %>
         <%= f.label :content, "本文", class: "article_posting__form--label" %>
         <%= f.text_area :content, placeholder: "ここに本文を書いてください", class: 'article_posting__form--textarea' %>
-        <%= f.submit "投稿する", class: "article_posting__form--button" %>
+        <%= f.submit "更新する", class: "article_posting__form--button" %>
     <% end %>
 </div>
 <!-- 記事ページのJS -->
 <%= javascript_pack_tag 'articles_js/application' %>
+<script>
+    function delete_img(){
+    var image_select = document.getElementsByClassName(".article_posting__form--img_select");
+        image_select.value = "";
+    }
+</script>

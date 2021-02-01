@@ -11,7 +11,7 @@
                         <%= link_to "ホーム", root_path, class: "header__ul--list_link" %>
                     </li>
                     <li class="header__ul--list">
-                        <%= link_to "ブログを書く",  new_article_path, class: "header__ul--list_link" %>
+                        <%= link_to "ブログを書く",  new_article_path, class: "header__ul--list_link", "data-turbolinks": false %>
                     </li>
                     <li class="header__ul--list">
                         <%= link_to "お気に入り", "/favorite", class: "header__ul--list_link" %>
@@ -32,7 +32,7 @@
                         <%= link_to "ホーム", root_path, class: "hamburger_nav__list--link" %>
                     </li>
                     <li class="hamburger_nav__list">
-                        <%= link_to "ブログを書く", new_article_path, class: "hamburger_nav__list--link" %>
+                        <%= link_to "ブログを書く", new_article_path, class: "hamburger_nav__list--link", "data-turbolinks": false %>
                     </li>
                     <li class="hamburger_nav__list">
                         <%= link_to "お気に入り", "/favorite", class: "hamburger_nav__list--link" %>

@@ -57,11 +57,11 @@ RSpec.describe "Users", type: :feature do
               fill_in 'user_password', with: nil
               fill_in 'user_password_confirmation', with: nil
               click_on '更新する'
-              expect(page).to have_content 'プロフィールの編集に成功しました'
+              expect(page).to have_content 'プロフィールの更新に成功しました'
               expect(current_path).to eq user_path(login)
               expect(page).to have_content 'foobar / 高校 2 年生'
               visit current_path
-              expect(page).to have_no_content 'プロフィールの編集に成功しました'
+              expect(page).to have_no_content 'プロフィールの更新に成功しました'
           end
           it 'invalid' do
               log_in_as(login)

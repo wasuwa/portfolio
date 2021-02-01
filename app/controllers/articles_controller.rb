@@ -20,11 +20,28 @@ class ArticlesController < ApplicationController
             render 'new'
         end
     end
-
+    
     def show
         @article = Article.find_by(id: params[:id])
         @user = @article.user
         @not_current_articles = @user.articles.reject { |article| article == @article }
+    end
+    
+    def edit
+        @article = Article.find_by(id: params[:id])
+    end
+
+    def update
+        @article = Article.find_by(id: params[:id])
+        if params[:article][:image_delete_value]
+            @article.image = nil
+        end
+        if @article.update(article_params)
+            flash[:success] = "記事の更新に成功しました"
+            redirect_to @article
+        else
+            render 'edit'
+        end
     end
 
     def destroy
