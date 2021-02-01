@@ -15,6 +15,9 @@
             left: 0;
             right: 0;
             margin: auto;
+            &--img {
+                object-fit: cover;
+            }
         }
         .profile__name {
             font-size: 28px;

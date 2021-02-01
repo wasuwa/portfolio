@@ -2,7 +2,11 @@
 <section class="profile">
     <div class="profile__wrapper">
         <div class="profile__circle">
-            <%= image_tag "default_icon.jpg", class: "profile__circle--img" %>
+            <% if @user.icon? %>
+                <%= image_tag @user.icon.thumb.url, class: "profile__circle--img" %>
+            <% else %>
+                <%= image_tag "default_icon.jpg", class: "profile__circle--img" %>
+            <% end %>
         </div>
         <h2 class="profile__name">
             <%= @user.name %>

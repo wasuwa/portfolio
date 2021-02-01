@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_31_015927) do
+ActiveRecord::Schema.define(version: 2021_02_01_121514) do
 
   create_table "articles", charset: "utf8", force: :cascade do |t|
     t.text "content"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2021_01_31_015927) do
     t.string "remember_digest"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.string "icon"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

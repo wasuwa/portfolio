@@ -34,6 +34,8 @@ class User < ApplicationRecord
     validates :grade, 
         numericality: { allow_nil: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 3 }
 
+    mount_uploader :icon, ImageUploader
+
     class << self
         def digest(string)
             cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

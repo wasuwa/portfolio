@@ -29,6 +29,9 @@
         .header__profile {
             @include profile_icon;
             margin: 0 12px 0 auto;
+            &--img {
+                object-fit: cover;
+            }
         }
         .header__triangle {
             width: 0;

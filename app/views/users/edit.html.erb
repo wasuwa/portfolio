@@ -1,41 +1,41 @@
 <!-- アカウント設定 -->
 <section class="settings">
     <div class="settings__wrapper">
-        <div class="settings__icon">
-            <%= image_tag "default_icon.jpg", class: "settings__icon--img" %>
-            <a class="settings__edit">
-                <%= image_tag "profile_edit.png", class: "settings__edit--img" %>
-            </a>
-        </div>
-        <h2 class="settings__wrapper--title">アカウントの設定</h2>
         <%= form_with(model: @user, local: true, class: "settings__form settings__form_margin") do |f| %>
+            <%= f.label :icon, class: "settings__icon" do %>
+                <% if @user.icon? %>
+                    <%= image_tag @user.icon.url, class: "settings__icon--img" %>
+                <% else %>
+                    <%= image_tag "default_icon.jpg", class: "settings__icon--img" %>
+                <% end %>
+                <%= f.file_field :icon, class: "settings__icon--img_select" %>
+                <div class="settings__edit">
+                    <%= image_tag "profile_edit.png", class: "settings__edit--img" %>
+                </div>
+            <% end %>
+            <h2 class="settings__wrapper--title">アカウントの設定</h2>
             <% if @user.errors.include?(:name) %>
                 <p class="settings__form--errors"><%= @user.errors.full_messages_for(:name).first %></p>
             <% end %>
             <%= f.label :name, "名前", class: "settings__form--label" %>
             <%= f.text_field :name, class: "settings__form--input" %>
-
             <%= f.label :grade, "高校の学年", class: "settings__form--label" %>
             <%= f.select :grade, [ ["秘密", nil], [1, 1], [2, 2], [3, 3] ], {prompt: "学年を選択してください"}, {class: "settings__form--input settings__form--input_select"} %>
-
             <% if @user.errors.include?(:email) %>
                 <p class="settings__form--errors"><%= @user.errors.full_messages_for(:email).first %></p>
             <% end %>
             <%= f.label :email, "メールアドレス", class: "settings__form--label" %>
             <%= f.email_field :email, class: "settings__form--input" %>
-
             <% if @user.errors.include?(:password) %>
                 <p class="settings__form--errors"><%= @user.errors.full_messages_for(:password).first %></p>
             <% end %>
             <%= f.label :password, "パスワード", class: "settings__form--label" %>
             <%= f.password_field :password, class: "settings__form--input" %>
-
             <% if @user.errors.include?(:password_confirmation) %>
                 <p class="settings__form--errors"><%= @user.errors.full_messages_for(:password_confirmation).first %></p>
             <% end %>
             <%= f.label :password_confirmation, "パスワードの確認", class: "settings__form--label" %>
             <%= f.password_field :password_confirmation, class: "settings__form--input" %>
-
             <%= f.submit "更新する", class: "settings__form--button" %>
         <% end %>
     </div>

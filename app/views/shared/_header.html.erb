@@ -21,8 +21,12 @@
                     </li>
                 </ul>
             </nav>
-            <%= link_to "/profile", class: "header__profile" do %>
-                <%= image_tag "default_icon.jpg", class: "header__profile--img" %>
+            <%= link_to current_user, class: "header__profile" do %>
+                <% if user_icon_view.present? %>
+                    <%= image_tag "#{user_icon_view}", class: "header__profile--img" %>
+                <% else %>
+                    <%= image_tag "default_icon.jpg", class: "header__profile--img" %>
+                <% end %>
             <% end %>
             <div class="header__triangle" id="header__triangle_id"></div>
             <!-- ハンバーガーメニュー -->
