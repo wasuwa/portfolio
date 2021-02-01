@@ -30,6 +30,8 @@
         }
         .article_details__text_area {
             padding: 50px 30px;
+            font-size: 16px;
+            word-wrap: break-word;
         }
     }
     &__button {
@@ -83,6 +85,7 @@
             }
             .article_details__text_area {
                 padding: 30px 20px;
+                font-size: 14px;
             }
         }
         &__button {

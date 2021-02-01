@@ -17,7 +17,7 @@
         <% end %>
         <div class="article_details__text_area">
             <p class="article_details__text_area--text">
-                <%= @article.content %>
+                <%= safe_join(@article.content.split("\n"),tag(:br)) %>
             </p>
         </div>
     </div>

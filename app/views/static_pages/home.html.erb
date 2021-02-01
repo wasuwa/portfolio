@@ -51,7 +51,7 @@
                     </div>
                     <div class="article_items__text">
                         <h3 class="article_items__text--title">
-                            <%= link_to article.title, "/profile/my_article_details", class: "article_items__text--title_hover" %>
+                            <%= link_to article.title, article, class: "article_items__text--title_hover" %>
                         </h3>
                         <p class="article_items__text--overview">
                             <%= article.content.truncate(60) %>
@@ -64,7 +64,7 @@
         <% end %>
     </div>
     <% unless @articles.empty? %>
-        <%= button_tag "もっとみる", onclick: "location.href='/new_articles'", type: "button", class: "new-article__button" %>
+        <%= button_tag "もっとみる", onclick: "location.href='/articles'", type: "button", class: "new-article__button" %>
     <% else %>
         <p class="new-article__text">記事はまだありません</p>
     <% end %>
