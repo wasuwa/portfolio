@@ -48,7 +48,7 @@
                         <%= link_to "マイブログ", current_user, class: "hamburger_nav__list--link" %>
                     </li>
                     <li class="hamburger_nav__list">
-                        <%= link_to "アカウントの設定", edit_user_path(current_user), class: "hamburger_nav__list--link" %>
+                        <%= link_to "アカウントの設定", edit_user_path(current_user), class: "hamburger_nav__list--link", "data-turbolinks": false %>
                     </li>
                     <li class="hamburger_nav__list">
                         <%= link_to 'ログアウト', logout_path, class: "hamburger_nav__list--link hamburger_nav__list--logout", method: :delete %>
@@ -67,7 +67,7 @@
                         <%= link_to "マイブログ", current_user, class: "header__click_menu--link" %>
                     </li>
                     <li>
-                        <%= link_to "アカウントの設定", edit_user_path(current_user), class: "header__click_menu--link" %>
+                        <%= link_to "アカウントの設定", edit_user_path(current_user), class: "header__click_menu--link", "data-turbolinks": false %>
                     </li>
                     <li>
                         <%= link_to 'ログアウト', logout_path, class: "header__click_menu--link header__click_menu--logout", method: :delete %>

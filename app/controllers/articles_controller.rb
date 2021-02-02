@@ -33,9 +33,7 @@ class ArticlesController < ApplicationController
 
     def update
         @article = Article.find_by(id: params[:id])
-        if params[:article][:image_delete_value]
-            @article.image = nil
-        end
+        @article.image = nil if params[:article][:image_delete_value]
         if @article.update(article_params)
             flash[:success] = "記事の更新に成功しました"
             redirect_to @article

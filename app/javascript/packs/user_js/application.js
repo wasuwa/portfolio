@@ -1,0 +1,1 @@
+require ('user_js/user')

@@ -28,6 +28,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @user.icon = nil if params[:user][:icon_delete_value]
     if @user.update(user_params)
       flash[:success] = "プロフィールの更新に成功しました"
       redirect_to @user

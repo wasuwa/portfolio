@@ -47,7 +47,7 @@
                     </p>
                     <% if current_user? %>
                         <div class="article_items__button">
-                            <%= link_to "編集", "/profile/article_posting", class: "article_items__button--edit" %>
+                            <%= link_to "編集", edit_article_path(article), class: "article_items__button--edit", "data-turbolinks": false %>
                             <%= link_to "削除", article, method: :delete, data: { confirm: "本当に記事を削除しますか？" }, class: "article_items__button--delete" %>
                         </div>
                     <% else %>
