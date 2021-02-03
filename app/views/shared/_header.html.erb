@@ -23,7 +23,7 @@
             </nav>
             <%= link_to current_user, class: "header__profile" do %>
                 <% if user_icon_view.present? %>
-                    <%= image_tag "#{user_icon_view}", class: "header__profile--img" %>
+                    <%= image_tag user_icon_view.thumb.url, class: "header__profile--img" %>
                 <% else %>
                     <%= image_tag "default_icon.jpg", class: "header__profile--img" %>
                 <% end %>

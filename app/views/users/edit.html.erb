@@ -5,7 +5,7 @@
             <%= f.label :icon, class: "settings__icon" do %>
                 <%= button_tag "×", type: "button", class: "settings__form--delete", id: "icon_delete_button" %>
                 <% if @user.icon? %>
-                    <%= image_tag @user.icon.url, class: "settings__icon--img" %>
+                    <%= image_tag @user.icon.thumb.url, class: "settings__icon--img" %>
                 <% else %>
                     <%= image_tag "default_icon.jpg", class: "settings__icon--img" %>
                 <% end %>

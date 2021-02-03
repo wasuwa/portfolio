@@ -1,32 +1,36 @@
 <!-- Swiper -->
-<div class="swiper-container">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <article class="swiper-slide__wrapper">
-                <p class="swiper-slide__wrapper--name">taro</p>
-                <h2 class="swiper-slide__wrapper--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h2>
-                <button type="button" class="swiper-slide__wrapper--button" onclick="location.href='/profile/my_article_details'">もっと読む</button>
-            </article>
+<% unless @all_ranks.empty? %>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <% @all_ranks.each.with_index(1) do |article, rank| %>
+                <div class="swiper-slide">
+                    <article class="swiper-slide__wrapper">
+                        <% if article.image? %>
+                            <%= image_tag article.image.url, class: "swiper-slide__wrapper--background" %>
+                        <% else %>
+                            <%= image_tag "article_details_no_img.jpg", class: "swiper-slide__wrapper--background" %>
+                        <% end %>
+                        <p class="swiper-slide__wrapper--name">
+                            <%= article.user.name %>
+                        </p>
+                        <div class="swiper-slide__rank">
+                            <p>
+                                <span class="swiper-slide__rank--like">いいね</span><br><%= rank %><span class="swiper-slide__rank--grade">位</span>
+                            </p>
+                        </div>
+                        <h2 class="swiper-slide__wrapper--title">
+                            <%= article.title %>
+                        </h2>
+                        <%= button_tag "もっと読む", onclick: "location.href='#{article_path(article.id)}'", type: "button", class: "swiper-slide__wrapper--button" %>
+                    </article>
+                </div>
+            <% end %>
         </div>
-        <div class="swiper-slide">
-            <article class="swiper-slide__wrapper">
-                <p class="swiper-slide__wrapper--name">taro</p>
-                <h2 class="swiper-slide__wrapper--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h2>
-                <button type="button" class="swiper-slide__wrapper--button" onclick="location.href='/profile/my_article_details'">もっと読む</button>
-            </article>
-        </div>
-        <div class="swiper-slide">
-            <article class="swiper-slide__wrapper">
-                <p class="swiper-slide__wrapper--name">taro</p>
-                <h2 class="swiper-slide__wrapper--title">高校生です。HSSBでブログを始めました。毎日更新していきます。</h2>
-                <button type="button" class="swiper-slide__wrapper--button" onclick="location.href='/profile/my_article_details'">もっと読む</button>
-            </article>
-        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-</div>
-<div class="swiper-pagination"></div>
+    <div class="swiper-pagination"></div>
+<% end %>
 <!-- 新着記事 -->
 <div class="new-article">
     <div class="new-article__title">
@@ -93,7 +97,7 @@
             <h2 class="cta__items--title">もっと記事を読む</h2>
             <p class="cta__items--text">価値観をアップデートしよう</p>
         <% end %>
-        <%= link_to "/favorite", class: "cta__items" do %>
+        <%= link_to favorites_path, class: "cta__items" do %>
             <%= image_tag "cta_icon_favorite", class: "cta__items--icon" %>
             <h2 class="cta__items--title">お気に入りを見る</h2>
             <p class="cta__items--text">お気に入りの記事を読み返そう</p>
