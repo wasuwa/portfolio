@@ -49,6 +49,19 @@
             margin-bottom: 60px;
             display: flex;
             flex-direction: column;
+            &--delete {
+                width: 25px;
+                height: 25px;
+                color: #F64C44;
+                background: white;
+                cursor: pointer;
+                border: 1px solid #ddd;
+                border-radius: 50px;
+                margin-left: auto;
+                font-size: 16px;
+                padding: 0 0 1px 1px;
+                position: absolute;
+            }
             &--label {
                 line-height: 14px;
                 margin-bottom: 15px;
@@ -184,6 +197,13 @@
             }
             .settings__form {
                 margin-bottom: 50px;
+                &--delete {
+                    width: 20px;
+                    height: 20px;
+                    font-size: 12px;
+                    
+                    position: absolute;
+                }
                 &--label {
                     margin-bottom: 10px;
                 }
