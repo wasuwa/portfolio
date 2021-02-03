@@ -22,5 +22,8 @@ Rails.application.routes.draw do
   get '/password_resets', to: 'password_resets#new'
   
   # articles
-  resources :articles
+  resources :articles do
+    # favorite
+    resource :favorite, only: [:create, :destroy]
+  end
 end

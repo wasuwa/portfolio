@@ -68,7 +68,17 @@
                         <% else %>
                             <%= image_tag "article_details_no_img.jpg", class: "article_items__wrapper--img" %>
                         <% end %>
-                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                        <% if logged_in? %>
+                            <% if article.favorited_by?(current_user) %>
+                                <%= link_to article_favorite_path(article.id), method: :delete do %>
+                                    <%= image_tag "active_star.png", class: "article_items__wrapper--star" %>
+                                <% end %>
+                            <% else %>
+                                <%= link_to article_favorite_path(article.id), method: :post do %>
+                                    <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
                     </div>
                 </div>
                 <div class="article_items__text">

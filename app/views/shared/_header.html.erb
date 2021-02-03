@@ -36,16 +36,16 @@
                         <%= link_to "ホーム", root_path, class: "hamburger_nav__list--link" %>
                     </li>
                     <li class="hamburger_nav__list">
-                        <%= link_to "ブログを書く", new_article_path, class: "hamburger_nav__list--link", "data-turbolinks": false %>
-                    </li>
-                    <li class="hamburger_nav__list">
-                        <%= link_to "お気に入り", "/favorite", class: "hamburger_nav__list--link" %>
-                    </li>
-                    <li class="hamburger_nav__list">
                         <%= link_to "新着記事", articles_path, class: "hamburger_nav__list--link" %>
                     </li>
                     <li class="hamburger_nav__list">
                         <%= link_to "マイブログ", current_user, class: "hamburger_nav__list--link" %>
+                    </li>
+                    <li class="hamburger_nav__list">
+                        <%= link_to "ブログを書く", new_article_path, class: "hamburger_nav__list--link", "data-turbolinks": false %>
+                    </li>
+                    <li class="hamburger_nav__list">
+                        <%= link_to "お気に入り", "/favorite", class: "hamburger_nav__list--link" %>
                     </li>
                     <li class="hamburger_nav__list">
                         <%= link_to "アカウントの設定", edit_user_path(current_user), class: "hamburger_nav__list--link", "data-turbolinks": false %>
