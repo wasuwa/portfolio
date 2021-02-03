@@ -2,10 +2,6 @@ Rails.application.routes.draw do
 
   # static_pages
   root 'static_pages#home'
-  get '/profile/article_details', to: 'static_pages#article_details'
-  get '/profile/my_article_details', to: 'static_pages#my_article_details'
-  get '/new_articles', to: 'static_pages#new_articles_list'
-  get '/favorite', to: 'static_pages#favorite_list'
   get '/email', to: 'static_pages#email'
   
   # users
@@ -24,6 +20,7 @@ Rails.application.routes.draw do
   # articles
   resources :articles do
     # favorite
-    resource :favorite, only: [:create, :destroy]
+    resource :favorite, only: [:index, :create, :destroy]
   end
+  get '/favorites', to: 'favorites#index'
 end

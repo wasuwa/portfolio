@@ -4,9 +4,6 @@ class StaticPagesController < ApplicationController
     @articles = Article.all
   end
 
-  def favorite_list
-  end
-
   def email
   end
 end
