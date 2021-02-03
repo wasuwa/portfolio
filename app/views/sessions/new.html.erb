@@ -6,7 +6,7 @@
         <%= form_with(url: login_path, scope: :session, local: true, class: 'settings__form') do |f| %>
             <%= f.email_field :email, class: "settings__form--input_sign", placeholder: "example@gmail.com" %>
             <%= f.password_field :password, class: "settings__form--input_sign", placeholder: "パスワード（6文字以上）" %>
-            <%= f.submit "ログイン", class: "settings__form--button_sign" %>
+            <%= f.submit "ログイン", class: "settings__form--button_sign", data: { disable_with: '送信中...'} %>
             <%= f.label :remember_me, class: "settings__remember" do %>
                 <%= f.check_box :remember_me %>
                 <span class="settings__remember--text">ログイン情報を覚えておく</span>

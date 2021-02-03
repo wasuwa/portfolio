@@ -17,6 +17,6 @@
         <% end %>
         <%= f.label :password_confirmation, "新しいパスワードの確認", class: "settings__form--label" %>
         <%= f.password_field :password_confirmation, class: "settings__form--input" %>
-        <%= f.submit "更新する", class: "settings__form--button" %>
+        <%= f.submit "更新する", class: "settings__form--button", data: { disable_with: '送信中...'} %>
     <% end %>
 </section>

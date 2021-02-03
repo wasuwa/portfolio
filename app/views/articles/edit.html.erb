@@ -21,7 +21,7 @@
         <% end %>
         <%= f.label :content, "本文", class: "article_posting__form--label" %>
         <%= f.text_area :content, placeholder: "ここに本文を書いてください", class: 'article_posting__form--textarea' %>
-        <%= f.submit "更新する", class: "article_posting__form--button" %>
+        <%= f.submit "更新する", class: "article_posting__form--button", data: { disable_with: '送信中...' } %>
     <% end %>
 </div>
 <!-- 記事ページのJS -->
