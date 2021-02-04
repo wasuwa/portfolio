@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
         @article = Article.find_by(id: params[:id])
         @user = @article.user
         @comment = Comment.new
+        @comments = @article.comments.all
         @not_current_articles = @user.articles.reject { |article| article == @article }
     end
     

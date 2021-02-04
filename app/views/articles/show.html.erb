@@ -38,8 +38,15 @@
     <% end %>
     <div class="comment">
         <%= form_with(model: [@article, @comment], local: true) do |f| %>
-            <%= f.text_area :content %>
+            <%= f.text_area :content, placeholder: "140文字以内" %>
             <%= f.submit "コメントする", data: { disable_with: '送信中...'} %>
+        <% end %>
+        <% if @comments.present? %>
+            <% @comments.each do |comment| %>
+                <%= comment.content %>
+            <% end %>
+        <% else %>
+            <p>まだコメントはありません</p>
         <% end %>
     </div>
 </section>
