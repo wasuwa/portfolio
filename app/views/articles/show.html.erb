@@ -36,6 +36,12 @@
             <% end %>
         <% end %>
     <% end %>
+    <div class="comment">
+        <%= form_with(model: [@article, @comment], local: true) do |f| %>
+            <%= f.text_area :content %>
+            <%= f.submit "コメントする", data: { disable_with: '送信中...'} %>
+        <% end %>
+    </div>
 </section>
 <!-- プロフィール -->
 <section class="profile profile_details">

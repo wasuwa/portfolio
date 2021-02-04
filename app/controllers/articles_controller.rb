@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
     def show
         @article = Article.find_by(id: params[:id])
         @user = @article.user
+        @comment = Comment.new
         @not_current_articles = @user.articles.reject { |article| article == @article }
     end
     
