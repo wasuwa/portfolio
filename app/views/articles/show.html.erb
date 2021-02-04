@@ -24,7 +24,17 @@
     <% if current_user? %>
         <%= button_tag "記事を編集する", onclick: "location.href='#{edit_article_path(@article)}'", type: "button", class: "article_details__button" %>
     <% else %>
-        <%= button_tag "お気に入りに登録する", onclick: "location.href='/new_articles'", type: "button", class: "article_details__button" %>
+        <% if logged_in? %>
+            <% if @article.favorited_by?(current_user) %>
+                <%= link_to article_favorite_path(@article.id), method: :delete do %>
+                    <%= button_tag "お気に入りを解除する", type: "button", class: "article_details__button" %>
+                <% end %>
+            <% else %>
+                <%= link_to article_favorite_path(@article.id), method: :post do %>
+                    <%= button_tag "お気に入りに登録する", type: "button", class: "article_details__button" %>
+                <% end %>
+            <% end %>
+        <% end %>
     <% end %>
 </section>
 <!-- プロフィール -->
