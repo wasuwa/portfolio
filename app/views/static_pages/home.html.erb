@@ -1,3 +1,14 @@
+<!-- テストログイン -->
+<% if current_user.nil? %>
+    <div class="test_login">
+        <p class="test_login__text">\\ ポートフォリオ閲覧用はこちら //</p>
+        <%= form_with(url: login_path, scope: :session, local: true, class: "test_login__form") do |f| %>
+            <%= f.hidden_field :email, value: "baru@baru.com" %>
+            <%= f.hidden_field :password, value: "aaaaaa" %>
+            <%= f.submit 'テストログイン', class: "test_login__form--button", data: { disable_with: '送信中...'} %>
+        <% end %>
+    </div>
+<% end %>
 <!-- Swiper -->
 <% unless @all_ranks.empty? %>
     <div class="swiper-container">
