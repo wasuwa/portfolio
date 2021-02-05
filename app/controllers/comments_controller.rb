@@ -13,6 +13,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find_by(user_id: current_user.id, article_id: params[:article_id])
+    @comment.destroy
+    redirect_back(fallback_location: root_path)
   end
 
   private
