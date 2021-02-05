@@ -31,13 +31,17 @@
                 </div>
                 <div class="article_items__text">
                     <h3 class="article_items__text--title">
-                        <%= link_to article.title, article, class: "article_items__text--title_hover" %>
+                        <%= link_to article.title.truncate(24), article, class: "article_items__text--title_hover" %>
                     </h3>
                     <p class="article_items__text--overview">
-                        <%= article.content.truncate(60) %>
+                        <%= article.content.truncate(52) %>
                     </p>
                     <%= link_to get_user(article).name, get_user(article), class: "article_items__text--name" %>
                     <%= link_to " / 高校 #{get_grade(get_user(article))} 年生", get_user(article), class: "article_items__text--name article_items__text--grade" %>
+                    <div class="article_items__favorite_count">
+                        <%= article.favorites.count %>
+                        <span class="article_items__favorite_count--like">Like</span>
+                    </div>
                 </div>
             </article>
         <% end %>

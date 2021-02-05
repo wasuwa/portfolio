@@ -50,10 +50,10 @@
                 </div>
                 <div class="article_items__text">
                     <h3 class="article_items__text--title">
-                        <%= link_to article.title, article_path(article), class: "article_items__text--title_hover" %>
+                        <%= link_to article.title.truncate(24), article_path(article), class: "article_items__text--title_hover" %>
                     </h3>
                     <p class="article_items__text--overview">
-                        <%= article.content.truncate(60) %>
+                        <%= article.content.truncate(52) %>
                     </p>
                     <% if current_user? %>
                         <div class="article_items__button">
@@ -63,6 +63,10 @@
                     <% else %>
                         <%= link_to @user.name, @user, class: "article_items__text--name" %>
                         <%= link_to " / 高校 #{get_grade(@user)} 年生", @user, class: "article_items__text--name article_items__text--grade" %>
+                        <div class="article_items__favorite_count">
+                            <%= article.favorites.count %>
+                            <span class="article_items__favorite_count--like">Like</span>
+                        </div>
                     <% end %>
                 </div>
             </article>

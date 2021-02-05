@@ -7,6 +7,7 @@
         margin-bottom: 50px;
         .article_details__main {
             padding: 30px 30px 50px;
+            position: relative;
             &--time {
                 background: $sub_blue;
                 color: white;
@@ -22,6 +23,17 @@
                 font-size: 20px;
                 line-height: 25px;
                 word-wrap: break-word;
+            }
+            .article_details__favorite_count {
+                position: absolute;
+                top: 28px;
+                right: 30px;
+                font-size: 16px;
+                color: $main_blue;
+                &--like {
+                    font-size: 14px;
+                    color: $text_color;
+                }
             }
         }
         &--img {
@@ -94,6 +106,14 @@
                     font-size: 17px;
                     line-height: 23px;
                     margin-top: 15px;
+                }
+                .article_details__favorite_count {
+                    top: 20px;
+                    right: 20px;
+                    font-size: 14px;
+                    &--like {
+                        font-size: 12px;
+                    }
                 }
             }
             &--img {

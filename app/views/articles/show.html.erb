@@ -6,6 +6,10 @@
             </time>
             <%= link_to @user.name, user_path(@user), class: "article_details__main--name" %>
             <%= link_to " / 高校 #{get_grade(@user)} 年生", user_path(@user), class: "article_details__main--name article_details__main--name-none" %>
+            <div class="article_details__favorite_count">
+                <%= @article.favorites.count %>
+                <span class="article_details__favorite_count--like">Like</span>
+            </div>
             <h2 class="article_details__main--title">
                 <%= @article.title %>
             </h2>
@@ -138,13 +142,17 @@
                 </div>
                 <div class="article_items__text">
                     <h3 class="article_items__text--title">
-                        <%= link_to article.title, article_path(article), class: "article_items__text--title_hover" %>
+                        <%= link_to article.title.truncate(24), article_path(article), class: "article_items__text--title_hover" %>
                     </h3>
                     <p class="article_items__text--overview">
-                        <%= article.content.truncate(60) %>
+                        <%= article.content.truncate(52) %>
                     </p>
                     <%= link_to @user.name, @user, class: "article_items__text--name" %>
                     <%= link_to " / 高校 #{get_grade(@user)} 年生", @user, class: "article_items__text--name article_items__text--grade" %>
+                    <div class="article_items__favorite_count">
+                        <%= article.favorites.count %>
+                        <span class="article_items__favorite_count--like">Like</span>
+                    </div>
                 </div>
             </article>
         <% end %>

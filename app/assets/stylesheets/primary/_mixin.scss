@@ -89,6 +89,7 @@
         width: $text_width;
         padding: $text_padding;
         box-sizing: border-box;
+        position: relative;
         &--title {
             margin-bottom: $title_mg;
             font-size: $title_size;
@@ -116,11 +117,35 @@
         &--grade {
             display: inline;
         }
+        .article_items__favorite_count {
+            position: absolute;
+            right: 30px;
+            bottom: 20px;
+            font-size: 16px;
+            color: $main_blue;
+            &--like {
+                font-size: 14px;
+                color: $text_color;
+            }
+        }
     }
     @include bp_sm {
         &__text {
             &--grade {
                 display: none;
+            }
+        }
+    }
+    @include bp_md {
+        &__text {
+            .article_items__favorite_count {
+                position: absolute;
+                right: 20px;
+                bottom: 20px;
+                font-size: 14px;
+                &--like {
+                    font-size: 12px;
+                }
             }
         }
     }
