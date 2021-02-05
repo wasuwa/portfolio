@@ -37,9 +37,10 @@
     <% if current_user? %>
         <%= button_tag "記事を編集する", onclick: "location.href='#{edit_article_path(@article)}'", type: "button", class: "article_details__button" %>
     <% end %>
+    <!-- コメント機能 -->
     <div class="comment">
         <div class="comment__wrapper">
-            <h2 class="comment__wrapper--title">コメント</h2>
+            <h2 class="comment__wrapper--title">コメントをする</h2>
             <%= form_with(model: [@article, @comment], local: true, class: "comment__form") do |f| %>
                 <div class="comment__area">
                     <% if flash[:comment_error].present? %>
@@ -52,13 +53,13 @@
                 <%= f.submit "投稿する", class: "comment__form--button", data: { disable_with: '送信中...'} %>
             <% end %>
         </div>
+        <div class="comment__heading">
+            <h2 class="comment__heading--title">コメント一覧</h2>
+            <span class="comment__heading--count">
+                <%= @comments.count %>件
+            </span>
+        </div>
         <% if @comments.present? %>
-            <div class="comment__heading">
-                <h2 class="comment__heading--title">コメント一覧</h2>
-                <span class="comment__heading--count">
-                    <%= @comments.count %>
-                </span>
-            </div>
             <% @comments.each do |comment| %>
                 <div class="comment__items">
                     <div class="comment__circle">
@@ -70,11 +71,11 @@
                     </div>
                     <div class="comment__contents">
                         <%= link_to comment.user.name, comment.user, class: "comment__contents--name" %>
-                        <%= link_to " / 高校#{get_grade(comment.user)}年生", comment.user, class: "comment__contents--name comment__contents--name_grade" %>
+                        <%= link_to " / 高校 #{get_grade(comment.user)} 年生", comment.user, class: "comment__contents--name comment__contents--name_grade" %>
                         <p class="comment__contents--text">
-                            <%= comment.content %>
+                            <%= safe_join(comment.content.split("\n"),tag(:br)) %>
                         </p>
-                        <%= link_to "削除", root_path, class: "comment__contents--delete" %>
+                        <%= link_to "削除", root_path, class: "comment__contents--delete", method: :delete %>
                     </div>
                 </div>
             <% end %>
@@ -114,28 +115,26 @@
     <% unless @not_current_articles.empty? %>
         <% @not_current_articles.first(3).each do |article| %>
             <article class="article_items articles_list_details">
-                <div class="article_items__image">
-                    <div class="article_items__wrapper">
-                        <time class="article_items__wrapper--time">
-                            <%= time_ago_in_words(article.created_at)+"前" %>
-                        </time>
-                        <% if article.image? %>
-                            <%= image_tag article.image.url, class: "article_items__wrapper--img" %>
+                <div class="article_items__wrapper">
+                    <time class="article_items__wrapper--time">
+                        <%= time_ago_in_words(article.created_at)+"前" %>
+                    </time>
+                    <% if article.image? %>
+                        <%= image_tag article.image.url, class: "article_items__wrapper--img" %>
+                    <% else %>
+                        <%= image_tag "article_details_no_img.jpg", class: "article_items__wrapper--img" %>
+                    <% end %>
+                    <% if logged_in? %>
+                        <% if article.favorited_by?(current_user) %>
+                            <%= link_to article_favorites_path(article.id), method: :delete do %>
+                                <%= image_tag "active_star.png", class: "article_items__wrapper--star" %>
+                            <% end %>
                         <% else %>
-                            <%= image_tag "article_details_no_img.jpg", class: "article_items__wrapper--img" %>
-                        <% end %>
-                        <% if logged_in? %>
-                            <% if article.favorited_by?(current_user) %>
-                                <%= link_to article_favorites_path(article.id), method: :delete do %>
-                                    <%= image_tag "active_star.png", class: "article_items__wrapper--star" %>
-                                <% end %>
-                            <% else %>
-                                <%= link_to article_favorites_path(article.id), method: :post do %>
-                                    <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
-                                <% end %>
+                            <%= link_to article_favorites_path(article.id), method: :post do %>
+                                <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
                             <% end %>
                         <% end %>
-                    </div>
+                    <% end %>
                 </div>
                 <div class="article_items__text">
                     <h3 class="article_items__text--title">

@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
   belongs_to :user
-  has_many :favorites
-  has_many :comments
+  has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 30000 }
