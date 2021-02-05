@@ -62,7 +62,7 @@
                         </div>
                     <% else %>
                         <%= link_to @user.name, @user, class: "article_items__text--name" %>
-                        <%= link_to " / 高校#{get_grade(@user)}年生", @user, class: "article_items__text--name article_items__text--grade" %>
+                        <%= link_to " / 高校 #{get_grade(@user)} 年生", @user, class: "article_items__text--name article_items__text--grade" %>
                     <% end %>
                 </div>
             </article>

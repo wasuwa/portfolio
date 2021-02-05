@@ -5,7 +5,7 @@
                 <%= time_ago_in_words(@article.created_at)+"前" %>
             </time>
             <%= link_to @user.name, user_path(@user), class: "article_details__main--name" %>
-            <%= link_to " / 高校#{get_grade(@user)}年生", user_path(@user), class: "article_details__main--name article_details__main--name-none" %>
+            <%= link_to " / 高校 #{get_grade(@user)} 年生", user_path(@user), class: "article_details__main--name article_details__main--name-none" %>
             <h2 class="article_details__main--title">
                 <%= @article.title %>
             </h2>
@@ -144,7 +144,7 @@
                         <%= article.content.truncate(60) %>
                     </p>
                     <%= link_to @user.name, @user, class: "article_items__text--name" %>
-                    <%= link_to " / 高校#{get_grade(@user)}年生", @user, class: "article_items__text--name article_items__text--grade" %>
+                    <%= link_to " / 高校 #{get_grade(@user)} 年生", @user, class: "article_items__text--name article_items__text--grade" %>
                 </div>
             </article>
         <% end %>
