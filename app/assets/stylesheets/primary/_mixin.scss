@@ -3,7 +3,7 @@
     height: 100%;
     top: 22px;
     background: #000;
-    opacity: .3;
+    opacity: .4;
     -webkit-tap-highlight-color:rgba(0,0,0,0);
     cursor:pointer;    
     &::after {
@@ -135,5 +135,6 @@
         width: $width;
         height: $width;
         border-radius: 50%;
+        object-fit: cover;
     }
 }

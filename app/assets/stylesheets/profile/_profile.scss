@@ -15,9 +15,6 @@
             left: 0;
             right: 0;
             margin: auto;
-            &--img {
-                object-fit: cover;
-            }
         }
         .profile__name {
             font-size: 28px;
@@ -37,6 +34,9 @@
     &:last-child {
         margin-bottom: 0 !important;
     }
+}
+.profile_details {
+    max-width: 880px;
 }
 
 @include bp_md {

@@ -21,6 +21,7 @@
                 margin-top: 20px;
                 font-size: 20px;
                 line-height: 25px;
+                word-wrap: break-word;
             }
         }
         &--img {
@@ -33,6 +34,20 @@
             font-size: 16px;
             word-wrap: break-word;
         }
+        .article_details__container {
+            position: relative;
+            .article_details__favorite {
+                position: absolute;
+                display: block;
+                width: 60px;
+                height: 60px;
+                bottom: 30px;
+                right: 30px;
+                &--img {
+                    width: 100%;
+                }
+            }
+        }
     }
     &__button {
         @include button;
@@ -43,6 +58,7 @@
     .article_details {
         margin: 40px auto 110px;
         &__wrapper {
+            margin-bottom: 30px;
             .article_details__main {
                 padding: 30px;
             }
@@ -62,7 +78,7 @@
         &__wrapper {
             margin-bottom: 30px;
             .article_details__main {
-                padding: 30px 20px;
+                padding: 20px;
                 &--time {
                     font-size: 12px;
                     padding: 3px 10px;
@@ -86,6 +102,14 @@
             .article_details__text_area {
                 padding: 30px 20px;
                 font-size: 14px;
+            }
+            .article_details__container {
+                .article_details__favorite {
+                    width: 45px;
+                    height: 45px;
+                    bottom: 20px;
+                    right: 20px;
+                }
             }
         }
         &__button {

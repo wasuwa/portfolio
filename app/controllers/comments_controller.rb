@@ -8,8 +8,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_back(fallback_location: @article)
     else
-      flash[:danger] = "コメントに失敗しました"
-      redirect_back(fallback_location: @article)
+      redirect_to @article, flash: { comment_error: @comment.errors.full_messages }
     end
   end
 
