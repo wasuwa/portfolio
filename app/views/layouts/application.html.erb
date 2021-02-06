@@ -10,16 +10,18 @@
     <link rel="apple-touch-icon-precomposed" href="画像のURL">
     <meta name="msapplication-TileImage" content="画像のURL">
     <meta name="msapplication-TileColor" content="色">
-    <title>HSSB</title>
-    <meta property="og:url" content="URL">
-    <meta property="og:title" content="HSSB">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="SNSののディスクリプション">
-    <meta property="og:image" content="画像のURL">
+    <title><%= content_for?(:title) ? yield(:title) : "HSSB" %></title>
+    <!-- OGP -->
+    <meta property="og:url" content="<%= request.url %>">
+    <meta property="og:title" content="<%= full_title(yield(:title)) %>">
+    <meta property="og:type" content="<%= content_for?(:og_type) ? yield(:og_type) : "article" %>">
+    <meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : '高校生の意見発信ブログです' %>">
+    <meta property="og:image" content="<%= content_for?(:image_url) ? yield(:image_url) : full_url('/assets/article_details_no_img-5387121c74cac5b563ed76a405038049fb52f825d40c1876fbaa1cc32d621c2b.jpg') %>">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@Baru_blog">
     <meta property="og:site_name" content="HSSB">
     <meta property="og:locale" content="ja_JP">
+    <meta property="fb:app_id" content="<%= ENV["FACEBOOK_ID"] %>">
     <!-- GoogleFont -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
