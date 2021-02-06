@@ -38,6 +38,9 @@
             </p>
         </div>
     </div>
+    <div class="sns_share">
+        <i class="fab fa-twitter"></i>
+    </div>
     <% if current_user? %>
         <%= button_tag "記事を編集する", onclick: "location.href='#{edit_article_path(@article)}'", type: "button", class: "article_details__button" %>
     <% end %>
