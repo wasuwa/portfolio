@@ -6,8 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : '高校生の意見発信ブログです' %>">
     <link rel="canonical" href="URL">
-    <link rel="icon" href="faviconのリンク" sizes="48x48" type="image/x-ico">
     <title><%= content_for?(:title) ? yield(:title) : "HSSB" %></title>
+    <%= favicon_link_tag('favicon.ico') %>
+    <%= favicon_link_tag('apple-touch-icon.png',
+                     {:rel => 'apple-touch-icon',
+                      :sizes => '180x180',
+                      :type => 'image/png'}) %>
+    <%= favicon_link_tag('android-chrome.png',
+                     {:rel => 'shortcut icon',
+                      :sizes => '256x256',
+                      :type => 'image/png'}) %>
     <!-- OGP -->
     <meta property="og:url" content="<%= request.url %>">
     <meta property="og:title" content="<%= full_title(yield(:title)) %>">
