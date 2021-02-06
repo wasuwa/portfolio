@@ -1,3 +1,7 @@
+<%= content_for(:title, @article.title) %>
+<%= content_for(:description, @article.content) %>
+<%= content_for(:image_url, full_url(@article.image)) %>
+
 <section class="article_details">
     <div class="article_details__wrapper">
         <div class="article_details__main">
@@ -14,29 +18,37 @@
                 <%= @article.title %>
             </h2>
         </div>
-        <div class="article_details__container">
-            <% if @article.image? %>
-                <%= image_tag @article.image.url, class: "article_details__wrapper--img" %>
-            <% else %>
-                <%= image_tag "article_details_no_img.jpg", class: "article_details__wrapper--img" %>
-            <% end %>
-            <% if logged_in? %>
-                <% if @article.favorited_by?(current_user) %>
-                    <%= link_to article_favorites_path(@article.id), class: "article_details__favorite", method: :delete do %>
-                        <%= image_tag "active_star.png", class: "article_details__favorite--img" %>
-                    <% end %>
-                <% else %>
-                    <%= link_to article_favorites_path(@article.id), class: "article_details__favorite", method: :post do %>
-                        <%= image_tag "no_active_star.png", class: "article_details__favorite--img" %>
-                    <% end %>
-                <% end %>
-            <% end %>
-        </div>
+        <% if @article.image? %>
+            <%= image_tag @article.image.url, class: "article_details__wrapper--img" %>
+        <% else %>
+            <%= image_tag "article_details_no_img.jpg", class: "article_details__wrapper--img" %>
+        <% end %>
         <div class="article_details__text_area">
             <p class="article_details__text_area--text">
                 <%= safe_join(@article.content.split("\n"),tag(:br)) %>
             </p>
         </div>
+    </div>
+    <!-- snsシェア -->
+    <div class="sns_share">
+        <!-- ドメイン未定です -->
+        <%= link_to "https://twitter.com/share?url=#{request.url}", title: 'HSSB', target: '_blank', rel: "noopener noreferrer" do %>
+            <i class="fab fa-twitter"></i>
+        <% end %>
+        <%= link_to "https://www.facebook.com/sharer.php?src=bm&u=#{request.url}", title: 'HSSB', target: '_blank', rel: "noopener noreferrer" do %>
+            <i class="fab fa-facebook-f"></i>
+        <% end %>
+        <% if logged_in? %>
+            <% if @article.favorited_by?(current_user) %>
+                <%= link_to article_favorites_path(@article.id), class: "article_details__favorite", method: :delete do %>
+                    <%= image_tag "active_star.png", class: "sns_share__favorite" %>
+                <% end %>
+            <% else %>
+                <%= link_to article_favorites_path(@article.id), class: "article_details__favorite", method: :post do %>
+                    <%= image_tag "no_active_star.png", class: "sns_share__favorite" %>
+                <% end %>
+            <% end %>
+        <% end %>
     </div>
     <% if current_user? %>
         <%= button_tag "記事を編集する", onclick: "location.href='#{edit_article_path(@article)}'", type: "button", class: "article_details__button" %>
@@ -79,7 +91,9 @@
                         <p class="comment__contents--text">
                             <%= safe_join(comment.content.split("\n"),tag(:br)) %>
                         </p>
-                        <%= link_to "削除", article_comments_path(@article.id), class: "comment__contents--delete", method: :delete %>
+                        <% if comment.user == current_user %>
+                            <%= link_to "削除", article_comments_path(@article.id), class: "comment__contents--delete", method: :delete %>
+                        <% end %>
                     </div>
                 </div>
             <% end %>
