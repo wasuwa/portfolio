@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   
   # articles
   resources :articles do
-    # favorite
+    # favorites
     resources :favorites, only: [:create, :destroy]
-    # comment
+    # comments
     resource :comments, only: [:create, :destroy]
   end
   get '/favorites', to: 'favorites#index'

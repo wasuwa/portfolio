@@ -1,0 +1,4 @@
+document.getElementById('comment_ajax').innerHTML = '<%= j(render "shared/comment") %>';
+document.getElementById('comment_count_ajax').innerHTML = '<%= j("#{@comments.count}件") %>';
+document.getElementById('comment_error').innerHTML = '<p class="comment__area--error settings__form--errors" ><%= j(@comment.errors.full_messages.first) %></p>';
+document.getElementById('comment_content').value = '';

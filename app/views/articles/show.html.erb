@@ -51,46 +51,30 @@
     <div class="comment">
         <div class="comment__wrapper">
             <h2 class="comment__wrapper--title">コメントをする</h2>
-            <%= form_with(model: [@article, @comment], local: true, class: "comment__form") do |f| %>
+            <%= form_with(model: [@article, @comment], data: { remote: true }, class: "comment__form") do |f| %>
                 <div class="comment__area">
-                    <% if flash[:comment_error].present? %>
-                        <p class="comment__area--error settings__form--errors">
-                            <%= flash[:comment_error].first %>
-                        </p>
-                    <% end %>
+                    <div id="comment_error">
+                        <% if @comment.errors.any? %>
+                            <p class="comment__area--error settings__form--errors" >
+                                <%= @comment.errors.full_messages.first %>
+                            </p>
+                        <% end %>
+                    </div>
                     <%= f.text_area :content, placeholder: "140文字以内", class: "comment__area--text_area" %>
                 </div>
-                <%= f.submit "投稿する", class: "comment__form--button", data: { disable_with: '送信中...'} %>
+                <%= f.submit "投稿する", class: "comment__form--button" %>
             <% end %>
         </div>
         <div class="comment__heading">
             <h2 class="comment__heading--title">コメント一覧</h2>
-            <span class="comment__heading--count">
+            <span class="comment__heading--count" id="comment_count_ajax">
                 <%= @comments.count %>件
             </span>
         </div>
         <% if @comments.present? %>
-            <% @comments.each do |comment| %>
-                <div class="comment__items">
-                    <div class="comment__circle">
-                        <% if comment.user.icon? %>
-                            <%= image_tag comment.user.icon.thumb.url, class: "comment__circle--img" %>
-                        <% else %>
-                            <%= image_tag "default_icon.jpg", class: "comment__circle--img" %>
-                        <% end %>
-                    </div>
-                    <div class="comment__contents">
-                        <%= link_to comment.user.name, comment.user, class: "comment__contents--name" %>
-                        <%= link_to " / 高校 #{get_grade(comment.user)} 年生", comment.user, class: "comment__contents--name comment__contents--name_grade" %>
-                        <p class="comment__contents--text">
-                            <%= safe_join(comment.content.split("\n"),tag(:br)) %>
-                        </p>
-                        <% if comment.user == current_user %>
-                            <%= link_to "削除", article_comments_path(@article.id), class: "comment__contents--delete", method: :delete %>
-                        <% end %>
-                    </div>
-                </div>
-            <% end %>
+            <div id="comment_ajax">
+                <%= render "shared/comment" %>
+            </div>
         <% else %>
             <p class="comment__no_text">まだコメントはありません</p>
         <% end %>
