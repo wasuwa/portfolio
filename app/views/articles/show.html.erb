@@ -54,11 +54,7 @@
             <%= form_with(model: [@article, @comment], data: { remote: true }, class: "comment__form") do |f| %>
                 <div class="comment__area">
                     <div id="comment_error">
-                        <% if @comment.errors.any? %>
-                            <p class="comment__area--error settings__form--errors" >
-                                <%= @comment.errors.full_messages.first %>
-                            </p>
-                        <% end %>
+                        <%= render "shared/comment_error" %>
                     </div>
                     <%= f.text_area :content, placeholder: "140文字以内", class: "comment__area--text_area" %>
                 </div>
