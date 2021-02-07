@@ -39,15 +39,9 @@
             <i class="fab fa-facebook-f"></i>
         <% end %>
         <% if logged_in? %>
-            <% if @article.favorited_by?(current_user) %>
-                <%= link_to article_favorites_path(@article.id), class: "article_details__favorite", method: :delete do %>
-                    <%= image_tag "active_star.png", class: "sns_share__favorite" %>
-                <% end %>
-            <% else %>
-                <%= link_to article_favorites_path(@article.id), class: "article_details__favorite", method: :post do %>
-                    <%= image_tag "no_active_star.png", class: "sns_share__favorite" %>
-                <% end %>
-            <% end %>
+            <div id="favorite_<%= @article.id %>">
+                <%= render "shared/favorite", article: @article %>
+            </div>
         <% end %>
     </div>
     <% if current_user? %>
@@ -142,17 +136,9 @@
                     <% else %>
                         <%= image_tag "article_details_no_img.jpg", class: "article_items__wrapper--img" %>
                     <% end %>
-                    <% if logged_in? %>
-                        <% if article.favorited_by?(current_user) %>
-                            <%= link_to article_favorites_path(article.id), method: :delete do %>
-                                <%= image_tag "active_star.png", class: "article_items__wrapper--star" %>
-                            <% end %>
-                        <% else %>
-                            <%= link_to article_favorites_path(article.id), method: :post do %>
-                                <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
-                            <% end %>
-                        <% end %>
-                    <% end %>
+                    <div id="favorite_<%= article.id %>">
+                        <%= render "shared/favorite", article: article %>
+                    </div>
                 </div>
                 <div class="article_items__text">
                     <h3 class="article_items__text--title">

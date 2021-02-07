@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # articles
   resources :articles do
     # favorite
-    resource :favorites, only: [:create, :destroy]
+    resources :favorites, only: [:create, :destroy]
     # comment
     resource :comments, only: [:create, :destroy]
   end
