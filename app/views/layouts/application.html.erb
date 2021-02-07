@@ -43,10 +43,8 @@
     <!-- ヘッダー -->
     <%= render 'shared/header' %>
     <!-- flashメッセージ -->
-    <% unless flash[:comment_error] %>
-      <% flash.each do |message_class, message| %>
-        <p class="flash flash_<%= message_class %>"><%= message %></p>
-      <% end %>
+    <% flash.each do |message_class, message| %>
+      <p class="flash flash_<%= message_class %>"><%= message %></p>
     <% end %>
     <!-- main -->
     <main>
