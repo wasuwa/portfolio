@@ -2,13 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
     let(:user) { build(:user) }
-    let(:user_invalid) { User.create() }
     let(:login_user) { create(:user) }
     let(:another_user) { create(:user) }
 
     describe "new" do
         context "有効なパラメータを送信した場合" do
-            example "リクエストに成功する" do
+            example "リクエストが成功する" do
                 get signup_path
                 expect(response.status).to eq 200
             end
@@ -16,6 +15,8 @@ RSpec.describe "Users", type: :request do
     end
     
     describe "create" do
+        let(:user_invalid) { User.create() }
+
         context "有効なパラメータを送信した場合" do
             example "リクエストが成功する" do
                 post users_path, params: { user: attributes_for(:user) }
@@ -39,7 +40,7 @@ RSpec.describe "Users", type: :request do
 
     describe "show" do
         context "有効なパラメータを送信した場合" do
-            example "リクエストに成功する" do
+            example "リクエストが成功する" do
                 get user_path(login_user)
                 expect(response.status).to eq 200
             end
@@ -147,6 +148,16 @@ RSpec.describe "Users", type: :request do
     end
 
     describe "before", type: :feature do
+        context "有効なuserがeditにアクセスした場合" do
+            before do
+                log_in_as(login_user)
+                visit edit_user_path(login_user)
+            end
+            example "editテンプレートが表示される" do
+                expect(current_path).to eq edit_user_path(login_user)
+            end
+        end
+
         context "他のuserがeditにアクセスした場合" do
             before do
                 log_in_as(login_user)
