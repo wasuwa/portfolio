@@ -1,12 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "Articles", type: :feature do
-
     let!(:article) { create(:article) }
     let(:user) { create(:user) }
 
     describe 'create', type: :request do
-
         let!(:article) { attributes_for(:article) }
         let(:post_request) { post articles_path, params: { article: article } }
 
