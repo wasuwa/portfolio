@@ -32,4 +32,18 @@ RSpec.describe Comment, type: :feature do
       expect(comment).to be_invalid
     end
   end
+
+  describe "dependent: :destroy" do
+    before do
+      article.comments.create!(content: 'これはテストです', user_id: user.id)
+    end
+    
+    context 'articleを削除した場合' do
+      example 'articleと同時にcommentも削除される' do
+        expect do
+          article.destroy
+        end.to change(Comment, :count).by(-1)
+      end
+    end
+  end
 end

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  
   let(:user) { create(:user) }
 
   context "userが正しい場合" do
@@ -40,7 +39,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context "userのnameは8文字以下に制限する" do
+  context "userのnameは8文字以下に制限される" do
     example "バリデーションが通る" do
       user.name = 'a' * 8
       expect(user).to be_valid
@@ -51,7 +50,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context "userのemailは255文字以下に制限する" do
+  context "userのemailは255文字以下に制限される" do
     example "バリデーションが通る" do
       user.email = 'a' * 243 + '@example.com'
       expect(user).to be_valid
@@ -62,7 +61,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context "userのpasswordは6文字以上に制限する" do
+  context "userのpasswordは6文字以上に制限される" do
     example "バリデーションが通る" do
       user.password = user.password_confirmation = "a" * 6
       expect(user).to be_valid

@@ -19,7 +19,6 @@ RSpec.describe "Articles", type: :feature do
     end
 
     describe 'delete', type: :request do
-
         let(:delete_request) { delete article_path(article) }
 
         context 'other users delete articles' do
