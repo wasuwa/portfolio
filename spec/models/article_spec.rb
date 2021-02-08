@@ -54,9 +54,9 @@ RSpec.describe Article, type: :model do
   end
 
   describe "articleの並び順" do
-    let!(:day_before_yesterday) { FactoryBot.create(:article, :day_before_yesterday) }
-    let!(:now) { FactoryBot.create(:article, :now) }  
-    let!(:yesterday) { FactoryBot.create(:article, :yesterday) }
+    let!(:day_before_yesterday) { create(:article, :day_before_yesterday) }
+    let!(:now) { create(:article, :now) }  
+    let!(:yesterday) { create(:article, :yesterday) }
 
     context "articleの並び順は降順になる" do
       example "nowが最初に表示される" do

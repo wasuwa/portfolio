@@ -33,6 +33,18 @@ RSpec.describe Comment, type: :feature do
     end
   end
 
+  describe "commentの並び順" do
+    let!(:day_before_yesterday) { create(:comment, :day_before_yesterday) }
+    let!(:now) { create(:comment, :now) }  
+    let!(:yesterday) { create(:comment, :yesterday) }
+
+    context "articleの並び順は降順になる" do
+      example "nowが最初に表示される" do
+        expect(Comment.first).to eq now
+      end
+    end
+  end
+
   describe "dependent: :destroy" do
     before do
       article.comments.create!(content: 'これはテストです', user_id: user.id)
