@@ -1,67 +1,74 @@
 require 'rails_helper'
 
-RSpec.describe "Sessions", type: :feature do
+RSpec.describe "Sessions", type: :request do
 
-    let(:user) { create(:user) }
+  let(:user) { create(:user) }
 
-    describe 'login' do
-      context 'submit information to the form' do
-        it 'valid' do
-          log_in_as(user)
-          expect(page).to have_content 'ログインに成功しました'
-          expect(page).to have_content 'ログアウト'
-          visit user_path(user.id)
-          expect(page).to have_no_content 'ログインに成功しました'
-        end
-        it 'invalid' do
-          visit login_path
-          fill_in 'session_email', with: nil
-          fill_in 'session_password', with: nil
-          within '.settings__form' do
-            click_on 'ログイン'
-          end
-          expect(current_path).to eq login_path
-          expect(page).to have_content 'ログインに失敗しました'
-          visit root_path
-          expect(page).to have_no_content 'ログインに失敗しました'
-        end
-        it 'no password' do
-          visit login_path
-          fill_in 'session_email', with: user.email
-          fill_in 'session_password', with: nil
-          within '.settings__form' do
-            click_on 'ログイン'
-          end
-          expect(current_path).to eq login_path
-          expect(page).to have_content 'ログインに失敗しました'
-          visit root_path
-          expect(page).to have_no_content 'ログインに失敗しました'
-        end
+  describe 'new' do
+    context "有効なパラメータが送信された場合" do
+      example "リクエストが成功する" do
+        get login_path
+        expect(response.status).to eq 200
       end
     end
+  end
 
-    describe 'logout' do
-      context 'click the logout link' do
-        it 'valid' do
-          visit login_path
-          log_in_as(user)
-          within '.hamburger_nav' do
-            click_on 'ログアウト'
-          end
-          expect(current_path).to eq root_path
-          expect(page).to have_content 'ログアウトに成功しました'
-          visit current_path
-          expect(page).to have_no_content 'ログアウトに成功しました'
-        end
+  describe "create", type: :feature do
+    let(:user_invalid) { User.create() }
+
+    context "有効なパラメータが送信された場合" do
+      before do
+        log_in_as(user)
+      end
+      example "ログインに成功する" do
+        expect(page).to have_content "ログインに成功しました"
+      end
+      example "showテンプレートが表示される" do
+        expect(current_path).to eq user_path(user)
       end
     end
-
-    describe 'remember me', type: :request do
-      context 'remembers the cookie when user checks the remember me box' do
-        it 'valid' do
-          cookie_login(user)
-          expect(cookies['remember_token']).not_to eq nil
+    
+    context "無効なパラメータが送信された場合" do
+      before do
+        visit login_path
+        fill_in 'session_email', with: nil
+        fill_in 'session_password', with: nil
+        within '.settings__form' do
+          click_on 'ログイン'
         end
       end
+      example "ログインに失敗する" do
+        expect(page).to have_content 'ログインに失敗しました'
+      end
+      example "login_pathにリダイレクトされる" do
+        expect(current_path).to eq login_path
+      end
     end
+  end
+
+  describe "destroy", type: :feature do
+    context "有効なパラメータが送信された場合" do
+      before do
+        log_in_as(user)
+        within ".hamburger_nav" do
+          click_on 'ログアウト'
+        end
+      end
+      example "ログアウトする" do
+        expect(page).to have_content 'ログアウトに成功しました'
+      end
+      example "root_pathにリダイレクトされる" do
+        expect(current_path).to eq root_path
+      end
+    end
+  end
+
+  describe 'cookie' do
+    context 'userがremember_meをクリックした場合' do
+      it 'cookieに値が保存される' do
+        cookie_login(user)
+        expect(cookies['remember_token']).not_to eq nil
+      end
+    end
+  end
 end

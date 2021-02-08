@@ -6,7 +6,7 @@ RSpec.describe "Users", type: :request do
     let(:another_user) { create(:user) }
 
     describe "new" do
-        context "有効なパラメータを送信した場合" do
+        context "有効なパラメータが送信された場合" do
             example "リクエストが成功する" do
                 get signup_path
                 expect(response.status).to eq 200
@@ -17,7 +17,7 @@ RSpec.describe "Users", type: :request do
     describe "create" do
         let(:user_invalid) { User.create() }
 
-        context "有効なパラメータを送信した場合" do
+        context "有効なパラメータが送信された場合" do
             example "リクエストが成功する" do
                 post users_path, params: { user: attributes_for(:user) }
                 expect(response.status).to eq 302
@@ -29,7 +29,7 @@ RSpec.describe "Users", type: :request do
             end
         end
         
-        context "無効な情報を送信した場合" do
+        context "無効なパラメータが送信された場合" do
             example "新規登録に失敗する" do
                 expect do
                     user_invalid.save
@@ -39,7 +39,7 @@ RSpec.describe "Users", type: :request do
     end
 
     describe "show" do
-        context "有効なパラメータを送信した場合" do
+        context "有効なパラメータが送信された場合" do
             example "リクエストが成功する" do
                 get user_path(login_user)
                 expect(response.status).to eq 200
@@ -74,7 +74,7 @@ RSpec.describe "Users", type: :request do
             end
         end
         
-        context "無効な情報を送信した場合" do
+        context "無効なパラメータが送信された場合" do
             before do
                 log_in_as(login_user)
                 visit edit_user_path(login_user)
