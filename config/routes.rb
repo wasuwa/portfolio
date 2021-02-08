@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/email', to: 'static_pages#email'
   
   # users
-  resources :users, only: [:new, :show, :create, :edit, :update, :destroy]
+  resources :users, only: [:show, :create, :edit, :update, :destroy]
   get '/signup', to: 'users#new'
   
   # sessions
