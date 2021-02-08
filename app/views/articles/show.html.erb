@@ -67,13 +67,9 @@
                 <%= @comments.count %>件
             </span>
         </div>
-        <% if @comments.present? %>
-            <div id="comment_ajax">
-                <%= render "shared/comment" %>
-            </div>
-        <% else %>
-            <p class="comment__no_text">まだコメントはありません</p>
-        <% end %>
+        <div id="comment_ajax">
+            <%= render "shared/comment" %>
+        </div>        
     </div>
 </section>
 <!-- プロフィール -->

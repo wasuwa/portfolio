@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @article = Article.find(params[:article_id])
-    @comment = Comment.find_by(user_id: current_user.id, article_id: params[:article_id])
+    @comment = Comment.find_by(user_id: current_user.id, article_id: @article.id, id: params[:id])
     @comment.destroy
   end
 

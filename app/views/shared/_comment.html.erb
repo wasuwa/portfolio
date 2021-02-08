@@ -1,21 +1,25 @@
-<% @comments.each do |comment| %>
-    <div class="comment__items">
-        <div class="comment__circle">
-            <% if comment.user.icon? %>
-                <%= image_tag comment.user.icon.thumb.url, class: "comment__circle--img" %>
-            <% else %>
-                <%= image_tag "default_icon.jpg", class: "comment__circle--img" %>
-            <% end %>
+<% if @comments.present? %>
+    <% @comments.each do |comment| %>
+        <div class="comment__items">
+            <div class="comment__circle">
+                <% if comment.user.icon? %>
+                    <%= image_tag comment.user.icon.thumb.url, class: "comment__circle--img" %>
+                <% else %>
+                    <%= image_tag "default_icon.jpg", class: "comment__circle--img" %>
+                <% end %>
+            </div>
+            <div class="comment__contents">
+                <%= link_to comment.user.name, comment.user, class: "comment__contents--name" %>
+                <%= link_to " / 高校 #{get_grade(comment.user)} 年生", comment.user, class: "comment__contents--name comment__contents--name_grade" %>
+                <p class="comment__contents--text">
+                    <%= safe_join(comment.content.split("\n"),tag(:br)) %>
+                </p>
+                <% if comment.user == current_user %>
+                    <%= link_to "削除", article_comment_path(@article.id, comment.id), class: "comment__contents--delete", method: :delete, remote: true, data: { confirm: "本当にコメントを削除しますか？" } %>
+                <% end %>
+            </div>
         </div>
-        <div class="comment__contents">
-            <%= link_to comment.user.name, comment.user, class: "comment__contents--name" %>
-            <%= link_to " / 高校 #{get_grade(comment.user)} 年生", comment.user, class: "comment__contents--name comment__contents--name_grade" %>
-            <p class="comment__contents--text">
-                <%= safe_join(comment.content.split("\n"),tag(:br)) %>
-            </p>
-            <% if comment.user == current_user %>
-                <%= link_to "削除", article_comments_path(@article.id), class: "comment__contents--delete", method: :delete, remote: true, data: { confirm: "本当にコメントを削除しますか？" } %>
-            <% end %>
-        </div>
-    </div>
+    <% end %>
+ <% else %>
+    <p class="comment__no_text">まだコメントはありません</p>
 <% end %>
