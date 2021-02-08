@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :comment do
-    user_id { 1 }
-    article_id { 1 }
+    association :user
+    association :article
+    content { "コメントです" }
   end
 end
