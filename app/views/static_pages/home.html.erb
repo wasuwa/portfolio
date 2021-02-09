@@ -63,7 +63,6 @@
                         <% else %>
                             <%= image_tag "article_details_no_img.jpg", class: "article_items__wrapper--img" %>
                         <% end %>
-                        <%= image_tag "no_active_star.png", class: "article_items__wrapper--star" %>
                         <div id="favorite_<%= article.id %>">
                             <%= render "shared/favorite", article: article %>
                         </div>
@@ -77,9 +76,8 @@
                         </p>
                         <%= link_to get_user(article).name, get_user(article), class: "article_items__text--name" %>
                         <%= link_to " / 高校 #{get_grade(get_user(article))} 年生", get_user(article), class: "article_items__text--name article_items__text--grade" %>
-                        <div class="article_items__favorite_count">
-                            <%= article.favorites.count %>
-                            <span class="article_items__favorite_count--like">Like</span>
+                        <div class="article_items__favorite_count" id="favorite_count_<%= article.id %>">
+                          <%= render "shared/favorite_count", article: article %>
                         </div>
                     </div>
                 </article>

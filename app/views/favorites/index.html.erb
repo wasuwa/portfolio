@@ -30,9 +30,8 @@
                     </p>
                     <%= link_to get_user(article).name, get_user(article), class: "article_items__text--name" %>
                     <%= link_to " / 高校 #{get_grade(get_user(article))} 年生", get_user(article), class: "article_items__text--name article_items__text--grade" %>
-                    <div class="article_items__favorite_count">
-                        <%= article.favorites.count %>
-                        <span class="article_items__favorite_count--like">Like</span>
+                    <div class="article_items__favorite_count" id="favorite_count_<%= article.id %>">
+                      <%= render "shared/favorite_count", article: article %>
                     </div>
                 </div>
             </article>

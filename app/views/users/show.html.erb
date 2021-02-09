@@ -55,9 +55,8 @@
                     <% else %>
                         <%= link_to @user.name, @user, class: "article_items__text--name" %>
                         <%= link_to " / 高校 #{get_grade(@user)} 年生", @user, class: "article_items__text--name article_items__text--grade" %>
-                        <div class="article_items__favorite_count">
-                            <%= article.favorites.count %>
-                            <span class="article_items__favorite_count--like">Like</span>
+                        <div class="article_items__favorite_count" id="favorite_count_<%= article.id %>">
+                          <%= render "shared/favorite_count", article: article %>
                         </div>
                     <% end %>
                 </div>
