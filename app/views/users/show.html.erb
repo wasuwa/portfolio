@@ -1,3 +1,5 @@
+<% content_for(:list_title, "記事一覧") %>
+
 <!-- プロフィール -->
 <section class="profile">
     <div class="profile__wrapper">
@@ -19,11 +21,7 @@
 </section>
 <!-- 記事一覧 -->
 <div class="articles_list">
-  <div class="articles_list__title">
-    <span class="articles_list__title--line"></span>
-    <h2 class="articles_list__title--text">記事一覧</h2>
-    <span class="articles_list__title--line"></span>
-  </div>
+  <%= render "shared/list_title" %>
   <% unless @articles.empty? %>
     <% @articles.each do |article| %>
       <%= render "shared/articles", article: article %>

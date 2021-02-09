@@ -1,6 +1,7 @@
 <% content_for(:title, @article.title) %>
 <% content_for(:description, @article.content) %>
 <% content_for(:image_url, full_url(@article.image)) %>
+<% content_for(:list_title, "他も読む") %>
 
 <section class="article_details">
     <div class="article_details__wrapper">
@@ -94,11 +95,7 @@
 </section>
 <!-- 記事一覧 -->
 <div class="articles_list">
-    <div class="articles_list__title">
-        <span class="articles_list__title--line"></span>
-        <h2 class="articles_list__title--text">他も読む</h2>
-        <span class="articles_list__title--line"></span>
-    </div>
+    <%= render "shared/list_title" %>
     <% unless @not_current_articles.empty? %>
         <% @not_current_articles.first(3).each do |article| %>
             <%= render "shared/articles", article: article %>
