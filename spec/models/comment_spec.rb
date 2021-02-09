@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :feature do
-  
   let(:user) { create(:user) }
   let(:article) { create(:article) }
   let(:comment) { create(:comment) }
