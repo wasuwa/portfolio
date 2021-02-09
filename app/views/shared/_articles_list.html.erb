@@ -1,0 +1,15 @@
+<div class="articles_list articles_list_new">
+  <div class="articles_list__title articles_list_new__title">
+    <span class="articles_list__title--line"></span>
+    <h2 class="articles_list__title--text"><%= yield(:list_title) %></h2>
+    <span class="articles_list__title--line"></span>
+  </div>
+  <% unless @articles.empty? %>
+    <% @articles.each do |article| %>
+      <%= render "shared/articles", article: article %>
+    <% end %>
+    <%= paginate @articles %>
+  <% else %>
+    <p class="articles_list__no_articles">記事はまだありません</p>
+  <% end %>
+</div>

@@ -1,0 +1,35 @@
+<article class="article_items">
+  <div class="article_items__wrapper">
+    <time class="article_items__wrapper--time">
+      <%= time_ago_in_words(article.created_at)+"前" %>
+    </time>
+    <% if article.image? %>
+      <%= image_tag article.image.url, class: "article_items__wrapper--img" %>
+    <% else %>
+      <%= image_tag "article_details_no_img.jpg", class: "article_items__wrapper--img" %>
+    <% end %>
+    <div id="favorite_<%= article.id %>">
+      <%= render "shared/favorite", article: article %>
+    </div>
+  </div>
+  <div class="article_items__text">
+    <h3 class="article_items__text--title">
+      <%= link_to article.title.truncate(24), article, class: "article_items__text--title_hover" %>
+    </h3>
+    <p class="article_items__text--overview">
+      <%= article.content.truncate(52) %>
+    </p>
+    <% if current_user? && controller.controller_name == "users" %>
+    <div class="article_items__button">
+      <%= link_to "編集", edit_article_path(article), class: "article_items__button--edit", "data-turbolinks": false %>
+      <%= link_to "削除", article, method: :delete, data: { confirm: "本当に記事を削除しますか？" }, class: "article_items__button--delete" %>
+    </div>
+    <% else %>
+      <%= link_to get_user(article).name, get_user(article), class: "article_items__text--name" %>
+      <%= link_to " / 高校 #{get_grade(get_user(article))} 年生", get_user(article), class: "article_items__text--name article_items__text--grade" %>
+      <div class="article_items__favorite_count" id="favorite_count_<%= article.id %>">
+        <%= render "shared/favorite_count", article: article %>
+      </div>
+    <% end %>
+  </div>
+</article>
