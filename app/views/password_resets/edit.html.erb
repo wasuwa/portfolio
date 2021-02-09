@@ -1,22 +1,18 @@
 <!-- パスワード再設定 -->
 <section class="settings">
-    <div class="settings__wrapper">
-    <div class="settings__icon">
-        <%= image_tag "default_icon.jpg", class: "settings__icon--img" %>
-    </div>
-    <h2 class="settings__wrapper--title">パスワードの再設定</h2>
-    <%= form_with(model: @user, url: password_reset_path(params[:id]), local: true, class: 'settings__form settings__form_margin') do |f| %>
-        <%= hidden_field_tag :email, @user.email %>
-        <% if @user.errors.include?(:password) %>
-            <p class="settings__form--errors"><%= @user.errors.full_messages_for(:password).first %></p>
-        <% end %>
-        <%= f.label :password, "新しいパスワード", class: "settings__form--label" %>
-        <%= f.password_field :password, class: "settings__form--input" %>
-        <% if @user.errors.include?(:password_confirmation) %>
-            <p class="settings__form--errors"><%= @user.errors.full_messages_for(:password_confirmation).first %></p>
-        <% end %>
-        <%= f.label :password_confirmation, "新しいパスワードの確認", class: "settings__form--label" %>
-        <%= f.password_field :password_confirmation, class: "settings__form--input" %>
-        <%= f.submit "更新する", class: "settings__form--button", data: { disable_with: '送信中...'} %>
-    <% end %>
+  <div class="settings__wrapper">
+  <div class="settings__icon">
+    <%= render "shared/find_user_icon", user: @user %>
+  </div>
+  <h2 class="settings__wrapper--title">パスワードの再設定</h2>
+  <%= form_with(model: @user, url: password_reset_path(params[:id]), local: true, class: 'settings__form settings__form_margin') do |f| %>
+    <%= hidden_field_tag :email, @user.email %>
+    <%= render "error/password_error", user: @user %>
+    <%= f.label :password, "新しいパスワード", class: "settings__form--label" %>
+    <%= f.password_field :password, class: "settings__form--input" %>
+    <%= render "error/password_confirmation_error", user: @user %>
+    <%= f.label :password_confirmation, "新しいパスワードの確認", class: "settings__form--label" %>
+    <%= f.password_field :password_confirmation, class: "settings__form--input" %>
+    <%= f.submit "更新する", class: "settings__form--button", data: { disable_with: '送信中...'} %>
+  <% end %>
 </section>
