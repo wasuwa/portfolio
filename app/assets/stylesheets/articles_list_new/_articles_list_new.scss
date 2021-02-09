@@ -1,19 +1,14 @@
 .articles_list_new {
     margin-top: 100px;
-    &__title {
+    .articles_list__title {
         justify-content: center;
-    }
-}
-.articles_list_details {
-    &:last-child {
-        margin-bottom: 0;
     }
 }
 
 @include bp_md {
     .articles_list_new {
         margin-top: 50px;
-        &__title {
+        .articles_list__title {
             margin-bottom: 40px;
         }
     }
@@ -21,7 +16,7 @@
 
 @include bp_sm {
     .articles_list_new {
-        &__title {
+      .articles_list__title {
             margin-bottom: 30px;
         }
     }

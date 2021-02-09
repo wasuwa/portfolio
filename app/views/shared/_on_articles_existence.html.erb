@@ -1,0 +1,8 @@
+<% unless @articles.empty? %>
+  <% @articles.each do |article| %>
+    <%= render "shared/articles", article: article %>
+  <% end %>
+  <%= paginate @articles %>
+<% else %>
+  <p class="articles_list__no_articles">記事はまだありません</p>
+<% end %>

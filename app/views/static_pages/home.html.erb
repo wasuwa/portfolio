@@ -1,114 +1,87 @@
 <%= content_for(:og_type, "website") %>
 <!-- テストログイン -->
 <% if current_user.nil? %>
-    <div class="test_login">
-        <p class="test_login__text">\\ ポートフォリオ閲覧用はこちら //</p>
-        <%= form_with(url: login_path, scope: :session, local: true, class: "test_login__form") do |f| %>
-            <%= f.hidden_field :email, value: "baru@baru.com" %>
-            <%= f.hidden_field :password, value: "aaaaaa" %>
-            <%= f.submit 'テストログイン', class: "test_login__form--button", data: { disable_with: '送信中...'} %>
-        <% end %>
-    </div>
+  <div class="test_login">
+    <p class="test_login__text">\\ ポートフォリオ閲覧用はこちら //</p>
+    <%= form_with(url: login_path, scope: :session, local: true, class: "test_login__form") do |f| %>
+      <%= f.hidden_field :email, value: "baru@baru.com" %>
+      <%= f.hidden_field :password, value: "aaaaaa" %>
+      <%= f.submit 'テストログイン', class: "test_login__form--button", data: { disable_with: '送信中...'} %>
+    <% end %>
+  </div>
 <% end %>
 <!-- Swiper -->
 <% unless @all_ranks.empty? %>
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <% @all_ranks.each.with_index(1) do |article, rank| %>
-                <div class="swiper-slide">
-                    <article class="swiper-slide__wrapper">
-                        <% if article.image? %>
-                            <%= image_tag article.image.url, class: "swiper-slide__wrapper--background" %>
-                        <% else %>
-                            <%= image_tag "article_details_no_img.jpg", class: "swiper-slide__wrapper--background" %>
-                        <% end %>
-                        <p class="swiper-slide__wrapper--name">
-                            <%= article.user.name %>
-                        </p>
-                        <div class="swiper-slide__rank">
-                            <p>
-                                <span class="swiper-slide__rank--like">いいね</span><br><%= rank %><span class="swiper-slide__rank--grade">位</span>
-                            </p>
-                        </div>
-                        <h2 class="swiper-slide__wrapper--title">
-                            <%= article.title.truncate(24) %>
-                        </h2>
-                        <%= button_tag "もっと読む", onclick: "location.href='#{article_path(article.id)}'", type: "button", class: "swiper-slide__wrapper--button" %>
-                    </article>
-                </div>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @all_ranks.each.with_index(1) do |article, rank| %>
+        <div class="swiper-slide">
+          <article class="swiper-slide__wrapper">
+            <% if article.image? %>
+              <%= image_tag article.image.url, class: "swiper-slide__wrapper--background" %>
+            <% else %>
+              <%= image_tag "article_details_no_img.jpg", class: "swiper-slide__wrapper--background" %>
             <% end %>
+            <p class="swiper-slide__wrapper--name">
+              <%= article.user.name %>
+            </p>
+            <div class="swiper-slide__rank">
+              <p>
+                  <span class="swiper-slide__rank--like">いいね</span><br><%= rank %><span class="swiper-slide__rank--grade">位</span>
+              </p>
+            </div>
+            <h2 class="swiper-slide__wrapper--title">
+              <%= article.title.truncate(24) %>
+            </h2>
+            <%= button_tag "もっと読む", onclick: "location.href='#{article_path(article.id)}'", type: "button", class: "swiper-slide__wrapper--button" %>
+          </article>
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+      <% end %>
     </div>
-    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+  <div class="swiper-pagination"></div>
 <% end %>
 <!-- 新着記事 -->
 <div class="new-article">
     <div class="new-article__title">
-        <span class="new-article__title--line"></span>
-        <h2 class="new-article__title--text">新着記事</h2>
-        <span class="new-article__title--line"></span>
+      <span class="new-article__title--line"></span>
+      <h2 class="new-article__title--text">新着記事</h2>
+      <span class="new-article__title--line"></span>
     </div>
     <div class="new-article__wrapper">
-        <% unless @articles.empty? %>
-            <% @articles.first(8).each do |article| %>
-                <article class="article_items">
-                    <div class="article_items__wrapper">
-                        <time class="article_items__wrapper--time">
-                            <%= time_ago_in_words(article.created_at)+"前" %>
-                        </time>
-                        <% if article.image? %>
-                            <%= image_tag article.image.url, class: "article_items__wrapper--img" %>
-                        <% else %>
-                            <%= image_tag "article_details_no_img.jpg", class: "article_items__wrapper--img" %>
-                        <% end %>
-                        <div id="favorite_<%= article.id %>">
-                            <%= render "shared/favorite", article: article %>
-                        </div>
-                    </div>
-                    <div class="article_items__text">
-                        <h3 class="article_items__text--title">
-                            <%= link_to article.title.truncate(24), article, class: "article_items__text--title_hover" %>
-                        </h3>
-                        <p class="article_items__text--overview">
-                            <%= article.content.truncate(52) %>
-                        </p>
-                        <%= link_to get_user(article).name, get_user(article), class: "article_items__text--name" %>
-                        <%= link_to " / 高校 #{get_grade(get_user(article))} 年生", get_user(article), class: "article_items__text--name article_items__text--grade" %>
-                        <div class="article_items__favorite_count" id="favorite_count_<%= article.id %>">
-                          <%= render "shared/favorite_count", article: article %>
-                        </div>
-                    </div>
-                </article>
-            <% end %>
+      <% unless @articles.empty? %>
+        <% @articles.first(8).each do |article| %>
+          <%= render "shared/articles", article: article %>
         <% end %>
+      <% end %>
     </div>
     <% unless @articles.empty? %>
-        <%= button_tag "もっとみる", onclick: "location.href='/articles'", type: "button", class: "new-article__button" %>
+      <%= button_tag "もっとみる", onclick: "location.href='/articles'", type: "button", class: "new-article__button" %>
     <% else %>
-        <p class="new-article__text">記事はまだありません</p>
+      <p class="new-article__text">記事はまだありません</p>
     <% end %>
 </div>
 <!-- cta -->
 <div class="cta">
-    <div class="cta__wrapper">
-        <%= link_to new_article_path, class: "cta__items", "data-turbolinks": false do %>
-            <%= image_tag "cta_icon_write", class: "cta__items--icon" %>
-            <h2 class="cta__items--title">自分の記事を書く</h2>
-            <p class="cta__items--text">自分の意見を発信してみよう</p>
-        <% end %>
-        <%= link_to articles_path, class: "cta__items" do %>
-            <%= image_tag "cta_icon_read", class: "cta__items--icon" %>
-            <h2 class="cta__items--title">もっと記事を読む</h2>
-            <p class="cta__items--text">価値観をアップデートしよう</p>
-        <% end %>
-        <%= link_to favorites_path, class: "cta__items" do %>
-            <%= image_tag "cta_icon_favorite", class: "cta__items--icon" %>
-            <h2 class="cta__items--title">お気に入りを見る</h2>
-            <p class="cta__items--text">お気に入りの記事を読み返そう</p>
-        <% end %>
-    </div>
+  <div class="cta__wrapper">
+    <%= link_to new_article_path, class: "cta__items", "data-turbolinks": false do %>
+      <%= image_tag "cta_icon_write", class: "cta__items--icon" %>
+      <h2 class="cta__items--title">自分の記事を書く</h2>
+      <p class="cta__items--text">自分の意見を発信してみよう</p>
+    <% end %>
+    <%= link_to articles_path, class: "cta__items" do %>
+      <%= image_tag "cta_icon_read", class: "cta__items--icon" %>
+      <h2 class="cta__items--title">もっと記事を読む</h2>
+      <p class="cta__items--text">価値観をアップデートしよう</p>
+    <% end %>
+    <%= link_to favorites_path, class: "cta__items" do %>
+      <%= image_tag "cta_icon_favorite", class: "cta__items--icon" %>
+      <h2 class="cta__items--title">お気に入りを見る</h2>
+      <p class="cta__items--text">お気に入りの記事を読み返そう</p>
+    <% end %>
+  </div>
 </div>
 <!-- TOPページのJS -->
 <%= javascript_pack_tag 'top_js/application' %>

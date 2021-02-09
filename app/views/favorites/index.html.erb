@@ -1,43 +1,4 @@
+<% content_for(:list_title, "お気に入り") %>
+
 <!-- お気に入り記事一覧 -->
-<div class="articles_list articles_list_new">
-    <div class="articles_list__title articles_list_new__title">
-        <span class="articles_list__title--line"></span>
-        <h2 class="articles_list__title--text">お気に入り</h2>
-        <span class="articles_list__title--line"></span>
-    </div>
-    <% unless @articles.empty? %>
-        <% @articles.each do |article| %>
-            <article class="article_items">
-                <div class="article_items__wrapper">
-                    <time class="article_items__wrapper--time">
-                        <%= time_ago_in_words(article.created_at)+"前" %>
-                    </time>
-                    <% if article.image? %>
-                        <%= image_tag article.image.url, class: "article_items__wrapper--img" %>
-                    <% else %>
-                        <%= image_tag "article_details_no_img.jpg", class: "article_items__wrapper--img" %>
-                    <% end %>
-                    <div id="favorite_<%= article.id %>">
-                        <%= render "shared/favorite", article: article %>
-                    </div>
-                </div>
-                <div class="article_items__text">
-                    <h3 class="article_items__text--title">
-                        <%= link_to article.title.truncate(24), article, class: "article_items__text--title_hover" %>
-                    </h3>
-                    <p class="article_items__text--overview">
-                        <%= article.content.truncate(52) %>
-                    </p>
-                    <%= link_to get_user(article).name, get_user(article), class: "article_items__text--name" %>
-                    <%= link_to " / 高校 #{get_grade(get_user(article))} 年生", get_user(article), class: "article_items__text--name article_items__text--grade" %>
-                    <div class="article_items__favorite_count" id="favorite_count_<%= article.id %>">
-                      <%= render "shared/favorite_count", article: article %>
-                    </div>
-                </div>
-            </article>
-        <% end %>
-        <%= paginate @articles %>
-    <% else %>
-        <p class="articles_list__no_articles">記事はまだありません</p>
-    <% end %>
-</div>
+<%= render "shared/articles_list" %>
