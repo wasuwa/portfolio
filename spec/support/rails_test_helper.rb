@@ -10,6 +10,7 @@ module RailsTestHelper
     end
 
     def posting
+        log_in_as(user)
         visit new_article_path
         fill_in 'article_title', with: "これはテストです"
         attach_file 'article[image]', "#{Rails.root}/spec/fixtures/img/rspec_test.jpg"
