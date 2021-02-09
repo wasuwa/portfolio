@@ -21,7 +21,7 @@ RSpec.describe "ArticlesInterfaces" do
     # 投稿を削除する
     expect do
       page.accept_confirm do
-          all(".article_items__button--delete")[0].click_on "delete"
+        all(".article_items__button--delete")[0].click_on "delete"
       end
       expect(current_path).to user_path(user.id)
       expect(page).to have_content '記事が削除されました'
