@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/email', to: 'static_pages#email'
   
   # users
-  resources :users, only: [:new, :show, :create, :edit, :update, :destroy]
+  resources :users, only: [:show, :create, :edit, :update]
   get '/signup', to: 'users#new'
   
   # sessions
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     # favorites
     resources :favorites, only: [:create, :destroy]
     # comments
-    resource :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
   get '/favorites', to: 'favorites#index'
 end

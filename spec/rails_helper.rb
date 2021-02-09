@@ -70,4 +70,11 @@ RSpec.configure do |config|
 
   # Factory_botのクラス名を省略
   config.include FactoryBot::Syntax::Methods
+
+  # テスト実行後にテスト用画像を削除する
+  config.after(:all) do
+    if Rails.env.test?
+      FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads_#{Rails.env}/"])
+    end
+  end
 end

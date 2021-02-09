@@ -1,62 +1,65 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-
+  let(:user) { create(:user) }
   let(:article) { create(:article) }
 
-  let(:user) { create(:user) }
-
-  context 'when article is valid' do
-    it 'valid' do
+  context "articleが正しい場合" do
+    example "バリデーションが通る" do
       expect(article).to be_valid
     end
-    it 'no user_id' do
+  end
+
+  context "articleのuser_idが空白の場合" do
+    example "バリデーションが通らない" do
       article.user_id = nil
       expect(article).to be_invalid
     end
-    it 'no content' do
-      article.content = nil
-      expect(article).to be_invalid
-    end
-    it 'no title' do
+  end
+
+  context "articleのtitleが空白の場合" do
+    example "バリデーションが通らない" do
       article.title = nil
       expect(article).to be_invalid
     end
   end
-  
-  context 'content can be up to 30,000 characters in length' do
-    it 'valid' do
+
+  context "articleのcontentが空白の場合" do
+    example "バリデーションが通らない" do
+      article.content = nil
+      expect(article).to be_invalid
+    end
+  end
+
+  context "articleのcontentは30,000文字以下に制限される" do
+    example "バリデーションが通る" do
       article.content = "a" * 30000
       expect(article).to be_valid
     end
-    it 'invalid' do
+    example "バリデーションが通らない" do
       article.content = "a" * 30001
       expect(article).to be_invalid
     end
   end
-  
-  describe 'title' do
-    context 'title can be up to 32 characters in length' do
-      it 'valid' do
-        article.title = "a" * 32
-        expect(article).to be_valid
-      end
-      it 'invalid' do
-        article.title = "a" * 33
-        expect(article).to be_invalid
-      end
+
+  context "articleのtitleは32文字以下に制限される" do
+    example "バリデーションが通る" do
+      article.title = "a" * 32
+      expect(article).to be_valid
+    end
+    example "バリデーションが通らない" do
+      article.title = "a" * 33
+      expect(article).to be_invalid
     end
   end
 
-  describe "Sort by latest" do
-    let!(:day_before_yesterday) { FactoryBot.create(:article, :day_before_yesterday) }
+  describe "articleの並び順" do
+    let!(:day_before_yesterday) { create(:article, :day_before_yesterday) }
+    let!(:now) { create(:article, :now) }  
+    let!(:yesterday) { create(:article, :yesterday) }
 
-    let!(:now) { FactoryBot.create(:article, :now) }
-
-    let!(:yesterday) { FactoryBot.create(:article, :yesterday) }
-
-    context 'articles are sorted in descending order' do
-      it 'valid' do
+    context "articleの並び順は降順になる" do
+      example "nowが最初に表示される" do
         expect(Article.first).to eq now
       end
     end
@@ -64,12 +67,11 @@ RSpec.describe Article, type: :model do
   
   describe 'dependent: :destroy' do
     before do
-      user.save
       user.articles.create!(content: 'これはテストです', title: "これはテストです")
     end
     
-    context 'if user is deleted, article is also deleted' do
-      it 'valid' do
+    context 'userを削除した場合' do
+      example 'userと同時にarticleも削除される' do
         expect do
           user.destroy
         end.to change(Article, :count).by(-1)

@@ -10,9 +10,8 @@
             </time>
             <%= link_to @user.name, user_path(@user), class: "article_details__main--name" %>
             <%= link_to " / 高校 #{get_grade(@user)} 年生", user_path(@user), class: "article_details__main--name article_details__main--name-none" %>
-            <div class="article_details__favorite_count">
-                <%= @article.favorites.count %>
-                <span class="article_details__favorite_count--like">Like</span>
+            <div class="article_items__favorite_count" id="favorite_count_<%= @article.id %>">
+              <%= render "shared/favorite_count", article: @article %>
             </div>
             <h2 class="article_details__main--title">
                 <%= @article.title %>
@@ -67,13 +66,9 @@
                 <%= @comments.count %>件
             </span>
         </div>
-        <% if @comments.present? %>
-            <div id="comment_ajax">
-                <%= render "shared/comment" %>
-            </div>
-        <% else %>
-            <p class="comment__no_text">まだコメントはありません</p>
-        <% end %>
+        <div id="comment_ajax">
+            <%= render "shared/comment" %>
+        </div>        
     </div>
 </section>
 <!-- プロフィール -->
@@ -129,9 +124,8 @@
                     </p>
                     <%= link_to @user.name, @user, class: "article_items__text--name" %>
                     <%= link_to " / 高校 #{get_grade(@user)} 年生", @user, class: "article_items__text--name article_items__text--grade" %>
-                    <div class="article_items__favorite_count">
-                        <%= article.favorites.count %>
-                        <span class="article_items__favorite_count--like">Like</span>
+                    <div class="article_items__favorite_count" id="favorite_count_<%= article.id %>">
+                      <%= render "shared/favorite_count", article: article %>
                     </div>
                 </div>
             </article>
