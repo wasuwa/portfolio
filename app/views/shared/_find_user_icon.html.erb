@@ -1,5 +1,5 @@
 <% if @user.icon? %>
-          <%= image_tag @user.icon.thumb.url, class: "settings__icon--img" %>
-        <% else %>
-          <%= image_tag "default_icon.jpg", class: "settings__icon--img" %>
-        <% end %>
+  <%= image_tag @user.icon.thumb.url, class: "settings__icon--img" %>
+<% else %>
+  <%= image_tag "default_icon.jpg", class: "settings__icon--img" %>
+<% end %>

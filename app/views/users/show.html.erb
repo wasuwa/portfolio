@@ -2,22 +2,7 @@
 
 <!-- プロフィール -->
 <section class="profile">
-  <div class="profile__wrapper">
-    <div class="profile__circle">
-      <% if @user.icon? %>
-        <%= image_tag @user.icon.thumb.url, class: "profile__circle--img" %>
-      <% else %>
-        <%= image_tag "default_icon.jpg", class: "profile__circle--img" %>
-      <% end %>
-    </div>
-    <h2 class="profile__name">
-      <%= @user.name %>
-      <span class="profile__name--grade"> / </span><br class="profile__name--grade_br">高校 <%= get_grade(@user) %> 年生
-    </h2>
-    <% if current_user? %>
-      <%= button_tag "ブログを書く", onclick: "location.href='/articles/new'", type: "button", class: "profile__button" %>
-    <% end %>
-  </div>
+  <%= render "shared/profile" %>
 </section>
 <!-- 記事一覧 -->
 <div class="articles_list">
