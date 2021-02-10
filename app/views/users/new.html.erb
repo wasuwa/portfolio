@@ -3,7 +3,7 @@
   <div class="settings__wrapper">
     <%= image_tag "elephant_icon.jpg", class: "settings__img" %>
     <h2 class="settings__wrapper--title">ブログ生活をスタートしよう</h2>
-    <%= form_with(model: @user, local: true, class: "settings__form") do |f| %>
+    <%= form_with(model: @user, class: "settings__form") do |f| %>
       <%= render "error/name_error", user: @user %>
       <%= f.text_field :name, class: "settings__form--input_sign",
           placeholder: "お名前" %>

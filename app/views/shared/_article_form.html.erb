@@ -1,5 +1,5 @@
 <div class="article_posting">
-  <%= form_with(model: @article, local: true, class: 'article_posting__form') do |f| %>
+  <%= form_with(model: @article, class: 'article_posting__form') do |f| %>
     <% if @article.errors.include?(:title) %>
       <p class="settings__form--errors"><%= @article.errors.full_messages_for(:title).first %></p>
     <% end %>

@@ -63,7 +63,7 @@ RSpec.describe "PasswordResets", type: :feature do
         fill_in 'user_password_confirmation', with: 'aaaaaa'
         click_on '更新する'
         expect(current_path).to eq user_path(user.id)
-        expect(page).to have_content 'パスワードがリセットされました'
+        expect(page).to have_content 'パスワードが更新されました'
       end
     end
 
