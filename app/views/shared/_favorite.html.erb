@@ -1,5 +1,5 @@
 <% if logged_in? %>
-  <% if article.favorited_by?(current_user) %>
+  <% if Favorite.find_by(user_id: current_user.id, article_id: article.id) %>
     <%= link_to article_favorite_path(article.id, article.user.id), method: :delete, remote: true do %>
       <%= image_tag "active_star.png", class: "article_items__wrapper--star" %>
     <% end %>

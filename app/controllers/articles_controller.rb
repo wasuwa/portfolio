@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
     before_action :correct_user, only: :destroy
 
     def index
-        @articles = Article.all.page(params[:page])
+        @articles = Article.all.includes(:user, :favorites).page(params[:page])
     end
 
     def new
