@@ -1,2 +1,2 @@
 document.getElementById('comment_ajax').innerHTML = '<%= j(render "shared/comment") %>';
-document.getElementById('comment_count_ajax').innerHTML = '<%= j("#{@comments.count}件") %>';
+document.getElementById('comment_count_ajax').innerHTML = '<%= j("#{@comments.size}件") %>';
