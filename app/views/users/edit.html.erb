@@ -1,7 +1,7 @@
 <!-- アカウント設定 -->
 <section class="settings">
   <div class="settings__wrapper">
-    <%= form_with(model: @user, local: true, class: "settings__form settings__form_margin") do |f| %>
+    <%= form_with(model: @user, class: "settings__form settings__form_margin") do |f| %>
       <%= f.label :icon, class: "settings__icon" do %>
         <%= button_tag "×", type: "button", class: "settings__form--delete", id: "icon_delete_button" %>
         <%= render "shared/find_user_icon", user: @user %>
