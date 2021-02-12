@@ -45,6 +45,8 @@ group :development, :test do
   gem 'spring-commands-rspec'
   # RSpecをDRYにする
   gem 'factory_bot_rails'
+  # CircleCI
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
