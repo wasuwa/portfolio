@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, :only => [:create, :destroy]
   before_action :get_comments
 
   def create
@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @article = Article.find(params[:article_id])
-    @comment = Comment.find_by(user_id: current_user.id, article_id: @article.id, id: params[:id])
+    @comment = Comment.find_by(:user_id => current_user.id, :article_id => @article.id, :id => params[:id])
     @comment.destroy
   end
 

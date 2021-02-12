@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Article, type: :model do
+RSpec.describe Article, :type => :model do
   let(:user) { create(:user) }
   let(:article) { create(:article) }
 
@@ -67,7 +67,7 @@ RSpec.describe Article, type: :model do
   
   describe 'dependent: :destroy' do
     before do
-      user.articles.create!(content: 'これはテストです', title: "これはテストです")
+      user.articles.create!(:content => 'これはテストです', :title => "これはテストです")
     end
     
     context 'userを削除した場合' do

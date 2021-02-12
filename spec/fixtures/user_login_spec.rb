@@ -5,7 +5,7 @@ RSpec.describe "UserSetting" do
   let(:article) { create(:article) }
   let(:another_user) { create(:user) }
 
-  example 'ログインのテスト', type: :feature do
+  example 'ログインのテスト', :type => :feature do
     posting
     within ".hamburger_nav" do
       click_on 'ログアウト'
@@ -19,7 +19,7 @@ RSpec.describe "UserSetting" do
     # showテンプレートにリダイレクトされる
     expect(current_url).to eq user_url(another_user)
     # ブログを書くボタンが表示される
-    expect(page).to have_selector ".profile__button", text: "ブログを書く"
+    expect(page).to have_selector ".profile__button", :text => "ブログを書く"
     # お気に入りボタンが表示される
     visit root_path
     expect(page).to have_selector "img[src$='/assets/no_active_star-1adb2db5fdc6fbc32fd48bde53fe6935457f7035536fe77e79fcaec6cb1d2c52.png']"
@@ -28,6 +28,6 @@ RSpec.describe "UserSetting" do
     end
     visit user_path(another_user)
     # ブログを書くボタンが表示されない
-    expect(page).not_to have_selector ".profile__button", text: "ブログを書く"
+    expect(page).not_to have_selector ".profile__button", :text => "ブログを書く"
   end
 end

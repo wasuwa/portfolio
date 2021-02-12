@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Favorites", type: :request do
+RSpec.describe "Favorites", :type => :request do
   let(:user) { create(:user) }
   let(:article) { create(:article) }
-  let(:favorite) { create(:favorite, user_id: user.id, article_id: article.id) }
+  let(:favorite) { create(:favorite, :user_id => user.id, :article_id => article.id) }
 
   describe "create" do
     context "有効なパラメータが送信された場合" do

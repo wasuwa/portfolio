@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Articles", type: :request do
+RSpec.describe "Articles", :type => :request do
   let!(:article) { create(:article) }
   let(:user) { create(:user) }
 
@@ -13,8 +13,8 @@ RSpec.describe "Articles", type: :request do
     end
   end
 
-  describe "create", type: :feature do
-    let(:post_request) { post articles_path, params: { article: article } }
+  describe "create", :type => :feature do
+    let(:post_request) { post articles_path, :params => { :article => article } }
 
     context "有効なパラメータが送信された場合" do
       before do
@@ -32,8 +32,8 @@ RSpec.describe "Articles", type: :request do
       before do
         log_in_as(user)
         visit new_article_path
-        fill_in 'article_title', with: ""
-        fill_in 'article_content', with: ""
+        fill_in 'article_title', :with => ""
+        fill_in 'article_content', :with => ""
         click_on '投稿する'
       end
       example "newテンプレートがレンダリングされる" do
@@ -46,13 +46,13 @@ RSpec.describe "Articles", type: :request do
     end
   end
 
-  describe "update", type: :feature do
+  describe "update", :type => :feature do
     context "有効なパラメータが送信された場合" do
       before do
         log_in_as(user)
         visit edit_article_path(article)
-        fill_in 'article_title', with: "updateします"
-        fill_in 'article_content', with: "updateします"
+        fill_in 'article_title', :with => "updateします"
+        fill_in 'article_content', :with => "updateします"
         click_on '更新する'
       end
       example "showテンプレートにリダイレクトされる" do
@@ -72,8 +72,8 @@ RSpec.describe "Articles", type: :request do
       before do
         log_in_as(user)
         visit edit_article_path(article)
-        fill_in 'article_title', with: ""
-        fill_in 'article_content', with: ""
+        fill_in 'article_title', :with => ""
+        fill_in 'article_content', :with => ""
         click_on '更新する'
       end
       example "editテンプレートがレンダリングされる" do
@@ -95,7 +95,7 @@ RSpec.describe "Articles", type: :request do
     end
   end
 
-  describe "destroy", type: :feature do
+  describe "destroy", :type => :feature do
     let(:delete_request) { delete article_path(article) }
 
     context "有効なパラメータが送信された場合" do
@@ -116,7 +116,7 @@ RSpec.describe "Articles", type: :request do
     end
   end
 
-  describe "before", type: :feature do
+  describe "before", :type => :feature do
     let(:another_user) { create(:user) }
 
     context "未ログインのuserがindex、showアクション以外にアクセスした場合" do

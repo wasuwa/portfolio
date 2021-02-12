@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy, :new, :update, :edit]
-  before_action :correct_user, only: :destroy
+  before_action :logged_in_user, :only => [:create, :destroy, :new, :update, :edit]
+  before_action :correct_user, :only => :destroy
 
   def index
     @articles = Article.all.includes(:user, :favorites).page(params[:page])
@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
     @user = current_user
     @article.destroy
     flash[:success] = "記事が削除されました"
-    redirect_back(fallback_location: @user)
+    redirect_back(:fallback_location => @user)
   end
 
   private
@@ -58,7 +58,7 @@ class ArticlesController < ApplicationController
     end
 
     def correct_user
-      @article = current_user.articles.find_by(id: params[:id])
+      @article = current_user.articles.find_by(:id => params[:id])
       redirect_to @user if @article.nil?
     end
 end

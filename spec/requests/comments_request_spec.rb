@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Comments", type: :request do
+RSpec.describe "Comments", :type => :request do
   let(:user) { create(:user) }
   let(:article) { create(:article) }
-  let(:comment) { create(:comment, user_id: user.id, article_id: article.id) }
+  let(:comment) { create(:comment, :user_id => user.id, :article_id => article.id) }
 
   describe "create" do
     context "有効なパラメータが送信された場合" do

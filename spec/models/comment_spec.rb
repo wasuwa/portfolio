@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Comment, type: :feature do
+RSpec.describe Comment, :type => :feature do
   let(:user) { create(:user) }
   let(:article) { create(:article) }
   let(:comment) { create(:comment) }
@@ -46,7 +46,7 @@ RSpec.describe Comment, type: :feature do
 
   describe "dependent: :destroy" do
     before do
-      article.comments.create!(content: 'これはテストです', user_id: user.id)
+      article.comments.create!(:content => 'これはテストです', :user_id => user.id)
     end
     
     context 'articleを削除した場合' do
