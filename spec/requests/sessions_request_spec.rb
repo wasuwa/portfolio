@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Sessions", type: :request do
+RSpec.describe "Sessions", :type => :request do
 
   let(:user) { create(:user) }
 
@@ -13,7 +13,7 @@ RSpec.describe "Sessions", type: :request do
     end
   end
 
-  describe "create", type: :feature do
+  describe "create", :type => :feature do
     let(:user_invalid) { User.create() }
 
     context "有効なパラメータが送信された場合" do
@@ -31,8 +31,8 @@ RSpec.describe "Sessions", type: :request do
     context "無効なパラメータが送信された場合" do
       before do
         visit login_path
-        fill_in 'session_email', with: nil
-        fill_in 'session_password', with: nil
+        fill_in 'session_email', :with => nil
+        fill_in 'session_password', :with => nil
         within '.settings__form' do
           click_on 'ログイン'
         end
@@ -46,7 +46,7 @@ RSpec.describe "Sessions", type: :request do
     end
   end
 
-  describe "destroy", type: :feature do
+  describe "destroy", :type => :feature do
     context "有効なパラメータが送信された場合" do
       before do
         log_in_as(user)

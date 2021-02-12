@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SessionsHelper, type: :helper do
+RSpec.describe SessionsHelper, :type => :helper do
   let(:user) { create(:user) }
   
   describe 'current_user' do

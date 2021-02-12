@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "PasswordResets", type: :feature do
+RSpec.describe "PasswordResets", :type => :feature do
   let(:user) { create(:user) }
   before { user.create_reset_digest }
 
@@ -8,7 +8,7 @@ RSpec.describe "PasswordResets", type: :feature do
     context "userから有効なパラメータが送信された場合" do
       example "emailが送信される" do
         visit password_resets_path
-        fill_in 'password_reset_email', with: user.email
+        fill_in 'password_reset_email', :with => user.email
         click_on '送信する'
         expect(current_path).to eq email_path
       end
@@ -17,7 +17,7 @@ RSpec.describe "PasswordResets", type: :feature do
     context "userから無効なパラメータが送信された場合" do
       before do
         visit password_resets_path
-        fill_in 'password_reset_email', with: nil
+        fill_in 'password_reset_email', :with => nil
         click_on '送信する'
       end
       example "元のページにリダイレクトされる" do
@@ -31,7 +31,7 @@ RSpec.describe "PasswordResets", type: :feature do
     context "userから空のemailが送信された場合" do
       before do
         visit password_resets_path
-        fill_in 'password_reset_email', with: nil
+        fill_in 'password_reset_email', :with => nil
         click_on '送信する'
       end
       example "元のページにリダイレクトされる" do
@@ -46,21 +46,21 @@ RSpec.describe "PasswordResets", type: :feature do
   describe "create" do
     context "有効なリンクをクリックした場合" do
       example "パスワードをリセットするurlにリダイレクトされる" do
-        visit edit_password_reset_url(user.reset_token, email: user.email)
-        expect(current_url).to eq edit_password_reset_url(user.reset_token, email: user.email)
+        visit edit_password_reset_url(user.reset_token, :email => user.email)
+        expect(current_url).to eq edit_password_reset_url(user.reset_token, :email => user.email)
       end
     end
   end
 
   describe "update" do
     before do
-      visit edit_password_reset_url(user.reset_token, email: user.email)
+      visit edit_password_reset_url(user.reset_token, :email => user.email)
     end
 
     context "有効なパラメータが送信された場合" do
       example "パスワードがリセットされる" do
-        fill_in 'user_password', with: 'aaaaaa'
-        fill_in 'user_password_confirmation', with: 'aaaaaa'
+        fill_in 'user_password', :with => 'aaaaaa'
+        fill_in 'user_password_confirmation', :with => 'aaaaaa'
         click_on '更新する'
         expect(current_path).to eq user_path(user.id)
         expect(page).to have_content 'パスワードが更新されました'
@@ -71,8 +71,8 @@ RSpec.describe "PasswordResets", type: :feature do
       before do
         user.email = 'fdsafasdfsdf@dfsafasdfdsaf.com'
         user.save!
-        fill_in 'user_password', with: 'aaaaaa'
-        fill_in 'user_password_confirmation', with: 'aaaaaa'
+        fill_in 'user_password', :with => 'aaaaaa'
+        fill_in 'user_password_confirmation', :with => 'aaaaaa'
         click_on '更新する'
       end
       example "TOPページにリダイレクトされる" do
@@ -85,8 +85,8 @@ RSpec.describe "PasswordResets", type: :feature do
 
     context "パスワードが空の場合" do
       example "エラーメッセージが表示される" do
-        fill_in 'user_password', with: nil
-        fill_in 'user_password_confirmation', with: 'aaaaaa'
+        fill_in 'user_password', :with => nil
+        fill_in 'user_password_confirmation', :with => 'aaaaaa'
         click_on '更新する'
         expect(page).to have_content 'パスワードを入力してください'
       end
@@ -94,8 +94,8 @@ RSpec.describe "PasswordResets", type: :feature do
 
     context "パスワードの確認が空の場合" do
       example "エラーメッセージが表示される" do
-        fill_in 'user_password', with: nil
-        fill_in 'user_password_confirmation', with: 'aaaaaa'
+        fill_in 'user_password', :with => nil
+        fill_in 'user_password_confirmation', :with => 'aaaaaa'
         click_on '更新する'
         expect(page).to have_content 'パスワードを入力してください'
       end
@@ -103,8 +103,8 @@ RSpec.describe "PasswordResets", type: :feature do
 
     context "パスワードの確認が空の場合" do
       example "エラーメッセージが表示される" do
-        fill_in 'user_password', with: 'aaaaaa'
-        fill_in 'user_password_confirmation', with: nil
+        fill_in 'user_password', :with => 'aaaaaa'
+        fill_in 'user_password_confirmation', :with => nil
         click_on '更新する'
         expect(page).to have_content '確認とパスワードの入力が一致しません'
       end
@@ -112,8 +112,8 @@ RSpec.describe "PasswordResets", type: :feature do
     
     context "パスワードが無効の場合" do
       example "エラーメッセージが表示される" do
-        fill_in 'user_password', with: 'aaa'
-        fill_in 'user_password_confirmation', with: 'aaaaaa'
+        fill_in 'user_password', :with => 'aaa'
+        fill_in 'user_password_confirmation', :with => 'aaaaaa'
         click_on '更新する'
         expect(page).to have_content 'パスワードは6文字以上で入力してください'
         expect(page).to have_content '確認とパスワードの入力が一致しません'
@@ -124,7 +124,7 @@ RSpec.describe "PasswordResets", type: :feature do
   describe "before" do
     context "トークンが無効の場合" do
       before do
-        visit edit_password_reset_url('aaa', email: user.email)     
+        visit edit_password_reset_url('aaa', :email => user.email)     
       end
       example "TOPページにリダイレクトされる" do
         expect(current_url).to eq root_url
@@ -136,7 +136,7 @@ RSpec.describe "PasswordResets", type: :feature do
 
     context "emailが無効の場合" do
       before do
-        visit edit_password_reset_url(user.reset_token, email: 'aaa@aaa.com') 
+        visit edit_password_reset_url(user.reset_token, :email => 'aaa@aaa.com') 
       end
       example "TOPページにリダイレクトされる" do
         expect(current_url).to eq root_url
@@ -150,7 +150,7 @@ RSpec.describe "PasswordResets", type: :feature do
       before do
         user.reset_sent_at = 3.hours.ago
         user.save!
-        visit edit_password_reset_url(user.reset_token, email: user.email)
+        visit edit_password_reset_url(user.reset_token, :email => user.email)
       end
       example "emailを送信するurlにリダイレクトされる" do
         expect(current_url).to eq password_resets_url

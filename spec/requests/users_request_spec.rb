@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :request do
+RSpec.describe "Users", :type => :request do
   let(:user) { build(:user) }
   let(:login_user) { create(:user) }
   let(:another_user) { create(:user) }
@@ -19,7 +19,7 @@ RSpec.describe "Users", type: :request do
 
     context "有効なパラメータが送信された場合" do
       example "リクエストが成功する" do
-        post users_path, params: { user: attributes_for(:user) }
+        post users_path, :params => { :user => attributes_for(:user) }
         expect(response.status).to eq 302
       end
       example "新規登録に成功する" do
@@ -47,16 +47,16 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "update", type: :feature do
+  describe "update", :type => :feature do
     context "有効な情報を送信した場合" do
         before do
           log_in_as(login_user)
           visit edit_user_path(login_user)
-          fill_in 'user_name', with: "NewName"
-          select 2, from: "高校の学年"
-          fill_in 'user_email', with: "new@new.com"
-          fill_in 'user_password', with: login_user.password = "newnew"
-          fill_in 'user_password_confirmation', with: login_user.password_confirmation = "newnew"
+          fill_in 'user_name', :with => "NewName"
+          select 2, :from => "高校の学年"
+          fill_in 'user_email', :with => "new@new.com"
+          fill_in 'user_password', :with => login_user.password = "newnew"
+          fill_in 'user_password_confirmation', :with => login_user.password_confirmation = "newnew"
           click_on "更新する"
         end
         
@@ -78,10 +78,10 @@ RSpec.describe "Users", type: :request do
         before do
           log_in_as(login_user)
           visit edit_user_path(login_user)
-          fill_in 'user_name', with: ""
-          fill_in 'user_email', with: ""
-          fill_in 'user_password', with: login_user.password = ""
-          fill_in 'user_password_confirmation', with: login_user.password_confirmation = ""
+          fill_in 'user_name', :with => ""
+          fill_in 'user_email', :with => ""
+          fill_in 'user_password', :with => login_user.password = ""
+          fill_in 'user_password_confirmation', :with => login_user.password_confirmation = ""
           click_on "更新する"
         end
         example "userが更新されない" do
@@ -105,7 +105,7 @@ RSpec.describe "Users", type: :request do
         before do
           log_in_as(login_user)
           visit edit_user_path(login_user)
-          fill_in 'user_name', with: "pass_nil"
+          fill_in 'user_name', :with => "pass_nil"
           click_on "更新する"
         end
         example "userが更新される" do
@@ -118,8 +118,8 @@ RSpec.describe "Users", type: :request do
         before do
           log_in_as(login_user)
           visit edit_user_path(login_user)
-          fill_in 'user_password', with: login_user.password = ""
-          fill_in 'user_password_confirmation', with: login_user.password_confirmation = "aaaaaa"
+          fill_in 'user_password', :with => login_user.password = ""
+          fill_in 'user_password_confirmation', :with => login_user.password_confirmation = "aaaaaa"
           click_on "更新する"
         end
         example "userが更新されない" do
@@ -134,8 +134,8 @@ RSpec.describe "Users", type: :request do
         before do
           log_in_as(login_user)
           visit edit_user_path(login_user)
-          fill_in 'user_password', with: login_user.password = "aaaaaa"
-          fill_in 'user_password_confirmation', with: login_user.password_confirmation = ""
+          fill_in 'user_password', :with => login_user.password = "aaaaaa"
+          fill_in 'user_password_confirmation', :with => login_user.password_confirmation = ""
           click_on "更新する"
         end
         example "userが更新されない" do
@@ -147,7 +147,7 @@ RSpec.describe "Users", type: :request do
       end
   end
 
-  describe "before", type: :feature do
+  describe "before", :type => :feature do
     context "有効なuserがeditにアクセスした場合" do
       before do
         log_in_as(login_user)
@@ -176,9 +176,9 @@ RSpec.describe "Users", type: :request do
         log_in_as(another_user)
       end
       example "login_pathにリダイレクトされる" do
-        patch user_path(login_user), params: { user: {
-                            name: login_user.name,
-                            email: login_user.email
+        patch user_path(login_user), :params => { :user => {
+                            :name => login_user.name,
+                            :email => login_user.email
         } }
         expect(response).to redirect_to login_path
       end
@@ -198,9 +198,9 @@ RSpec.describe "Users", type: :request do
 
     context "未ログインのユーザーがpatchリクエストを送信した場合" do
       example "login_pathにリダイレクトされる" do
-        patch user_path(login_user), params: { user: {
-                            name: login_user.name,
-                            email: login_user.email
+        patch user_path(login_user), :params => { :user => {
+                            :name => login_user.name,
+                            :email => login_user.email
         } }
         expect(response).to redirect_to login_path
       end
