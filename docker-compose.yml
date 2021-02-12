@@ -26,6 +26,7 @@ services:
       - "3000:3000"
     volumes:
       - .:/workspace
+    env_file: development.env
 
 volumes:
   mysql-data:
