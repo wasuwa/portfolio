@@ -13,9 +13,9 @@ RSpec.describe "Users", :type => :request do
       end
     end
   end
-  
+
   describe "create" do
-    let(:user_invalid) { User.create() }
+    let(:user_invalid) { User.create }
 
     context "有効なパラメータが送信された場合" do
       example "リクエストが成功する" do
@@ -24,15 +24,15 @@ RSpec.describe "Users", :type => :request do
       end
       example "新規登録に成功する" do
         expect do
-            user.save
+          user.save
         end.to change(User, :count).by(+1)
       end
     end
-    
+
     context "無効なパラメータが送信された場合" do
       example "新規登録に失敗する" do
         expect do
-            user_invalid.save
+          user_invalid.save
         end.to change(User, :count).by(0)
       end
     end
@@ -41,7 +41,7 @@ RSpec.describe "Users", :type => :request do
   describe "show" do
     context "有効なパラメータが送信された場合" do
       example "リクエストが成功する" do
-          get user_path(login_user)
+        get user_path(login_user)
           expect(response.status).to eq 200
       end
     end
@@ -59,7 +59,7 @@ RSpec.describe "Users", :type => :request do
         fill_in 'user_password_confirmation', :with => login_user.password_confirmation = "newnew"
         click_on "更新する"
       end
-      
+
       example "userが更新される" do
         login_user.reload
         expect(login_user.name).to eq "NewName"
@@ -73,7 +73,7 @@ RSpec.describe "Users", :type => :request do
         expect(current_path).to eq user_path(login_user)
       end
     end
-      
+
     context "無効なパラメータが送信された場合" do
       before do
         log_in_as(login_user)
@@ -146,7 +146,7 @@ RSpec.describe "Users", :type => :request do
       end
     end
   end
-  
+
   describe "before", :type => :feature do
     context "有効なuserがeditにアクセスした場合" do
       before do
@@ -177,13 +177,13 @@ RSpec.describe "Users", :type => :request do
       end
       example "login_pathにリダイレクトされる" do
         patch user_path(login_user), :params => { :user => {
-                            :name => login_user.name,
-                            :email => login_user.email
+          :name => login_user.name,
+          :email => login_user.email
         } }
         expect(response).to redirect_to login_path
       end
     end
-    
+
     context "未ログインのユーザーがeditにアクセスした場合" do
       before do
         visit edit_user_path(login_user)
@@ -199,8 +199,8 @@ RSpec.describe "Users", :type => :request do
     context "未ログインのユーザーがpatchリクエストを送信した場合" do
       example "login_pathにリダイレクトされる" do
         patch user_path(login_user), :params => { :user => {
-                            :name => login_user.name,
-                            :email => login_user.email
+          :name => login_user.name,
+          :email => login_user.email
         } }
         expect(response).to redirect_to login_path
       end

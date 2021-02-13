@@ -5,7 +5,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # 上限変更
   process :resize_to_limit => [700, 700]
-  #JPGで保存
+  # JPGで保存
   process :convert => 'jpg'
 
   # Choose what kind of storage to use for this uploader:
@@ -45,16 +45,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
-    %w(jpg jpeg png)
+    %w[jpg jpeg png]
   end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    super.chomp(File.extname(super)) + '.jpg' 
+    super.chomp(File.extname(super)) + '.jpg'
   end
 
-  #日付で保存
+  # 日付で保存
   def filename
     if original_filename.present?
       time = Time.now
