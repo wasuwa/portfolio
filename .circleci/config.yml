@@ -43,6 +43,13 @@ jobs:
           name: Rubocop
           command: bundle exec rubocop
 
+      # webpack
+      - run:
+          name: yarn Install
+          command: yarn install
+
+      - run: bundle exec bin/webpack
+
       # rspec
       - run:
           name: run tests

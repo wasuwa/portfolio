@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="rspec" tests="116" skipped="0" failures="0" errors="0" time="34.959825" timestamp="2021-02-13T13:08:10+00:00" hostname="7f38650830d6">
+<properties>
+<property name="seed" value="61909"/>
+</properties>
+<testcase classname="spec.fixtures.articles_interface_spec" name="ArticlesInterfaces 投稿のテスト" file="./spec/fixtures/articles_interface_spec.rb" time="4.417368"></testcase>
+<testcase classname="spec.fixtures.sign_up_spec" name="SignUp 新規登録のテスト" file="./spec/fixtures/sign_up_spec.rb" time="0.253733"></testcase>
+<testcase classname="spec.fixtures.user_login_spec" name="UserSetting ログインのテスト" file="./spec/fixtures/user_login_spec.rb" time="1.615908"></testcase>
+<testcase classname="spec.fixtures.user_setting_spec" name="UserSetting 新規登録のテスト" file="./spec/fixtures/user_setting_spec.rb" time="0.814156"></testcase>
+<testcase classname="spec.helpers.sessions_helper_spec" name="SessionsHelper current_user sessionがnilの場合 正しいuserを返す" file="./spec/helpers/sessions_helper_spec.rb" time="0.029386"></testcase>
+<testcase classname="spec.helpers.sessions_helper_spec" name="SessionsHelper current_user remember_digestが間違っている場合 nilを返す" file="./spec/helpers/sessions_helper_spec.rb" time="0.032594"></testcase>
+<testcase classname="spec.mailers.user_mailer_spec" name="UserMailer Mailer 正しい宛先に送られた場合 パスワードのリセットリンクが表示される" file="./spec/mailers/user_mailer_spec.rb" time="0.029696"></testcase>
+<testcase classname="spec.mailers.user_mailer_spec" name="UserMailer Mailer 正しい宛先に送られた場合 正しい内容が表示される" file="./spec/mailers/user_mailer_spec.rb" time="0.022802"></testcase>
+<testcase classname="spec.models.article_spec" name="Article articleが正しい場合 バリデーションが通る" file="./spec/models/article_spec.rb" time="0.027987"></testcase>
+<testcase classname="spec.models.article_spec" name="Article articleのuser_idが空白の場合 バリデーションが通らない" file="./spec/models/article_spec.rb" time="0.027104"></testcase>
+<testcase classname="spec.models.article_spec" name="Article articleのtitleが空白の場合 バリデーションが通らない" file="./spec/models/article_spec.rb" time="0.023824"></testcase>
+<testcase classname="spec.models.article_spec" name="Article articleのcontentが空白の場合 バリデーションが通らない" file="./spec/models/article_spec.rb" time="0.029875"></testcase>
+<testcase classname="spec.models.article_spec" name="Article articleのcontentは30,000文字以下に制限される バリデーションが通る" file="./spec/models/article_spec.rb" time="0.031041"></testcase>
+<testcase classname="spec.models.article_spec" name="Article articleのcontentは30,000文字以下に制限される バリデーションが通らない" file="./spec/models/article_spec.rb" time="0.031530"></testcase>
+<testcase classname="spec.models.article_spec" name="Article articleのtitleは32文字以下に制限される バリデーションが通る" file="./spec/models/article_spec.rb" time="0.032434"></testcase>
+<testcase classname="spec.models.article_spec" name="Article articleのtitleは32文字以下に制限される バリデーションが通らない" file="./spec/models/article_spec.rb" time="0.028557"></testcase>
+<testcase classname="spec.models.article_spec" name="Article articleの並び順 articleの並び順は降順になる nowが最初に表示される" file="./spec/models/article_spec.rb" time="0.062106"></testcase>
+<testcase classname="spec.models.article_spec" name="Article dependent: :destroy userを削除した場合 userと同時にarticleも削除される" file="./spec/models/article_spec.rb" time="0.043794"></testcase>
+<testcase classname="spec.models.comment_spec" name="Comment コメントが正しい場合 バリデーションが通る" file="./spec/models/comment_spec.rb" time="0.035062"></testcase>
+<testcase classname="spec.models.comment_spec" name="Comment コメントのcontentが空白の場合 バリデーションが通らない" file="./spec/models/comment_spec.rb" time="0.032988"></testcase>
+<testcase classname="spec.models.comment_spec" name="Comment コメントのcontentが140文字以下の場合 バリデーションが通る" file="./spec/models/comment_spec.rb" time="0.034256"></testcase>
+<testcase classname="spec.models.comment_spec" name="Comment コメントのcontentの文字数が140文字より多い場合 バリデーションが通らない" file="./spec/models/comment_spec.rb" time="0.033808"></testcase>
+<testcase classname="spec.models.comment_spec" name="Comment commentの並び順 articleの並び順は降順になる nowが最初に表示される" file="./spec/models/comment_spec.rb" time="0.101395"></testcase>
+<testcase classname="spec.models.comment_spec" name="Comment dependent: :destroy articleを削除した場合 articleと同時にcommentも削除される" file="./spec/models/comment_spec.rb" time="0.053953"></testcase>
+<testcase classname="spec.models.favorite_spec" name="Favorite dependent: :destroy articleを削除した場合 articleと同時にfavoriteも削除される" file="./spec/models/favorite_spec.rb" time="0.061965"></testcase>
+<testcase classname="spec.models.user_spec" name="User userが正しい場合 バリデーションが通る" file="./spec/models/user_spec.rb" time="0.017484"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのnameが空白の場合 バリデーションが通らない" file="./spec/models/user_spec.rb" time="0.017282"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのemailが空白の場合 バリデーションが通らない" file="./spec/models/user_spec.rb" time="0.016554"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのpasswordが空白の場合 バリデーションが通らない" file="./spec/models/user_spec.rb" time="0.015986"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのemailが重複している場合 バリデーションが通らない" file="./spec/models/user_spec.rb" time="0.029192"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのnameは8文字以下に制限される バリデーションが通る" file="./spec/models/user_spec.rb" time="0.017260"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのnameは8文字以下に制限される バリデーションが通らない" file="./spec/models/user_spec.rb" time="0.017803"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのemailは255文字以下に制限される バリデーションが通る" file="./spec/models/user_spec.rb" time="0.018811"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのemailは255文字以下に制限される バリデーションが通らない" file="./spec/models/user_spec.rb" time="0.019897"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのpasswordは6文字以上に制限される バリデーションが通る" file="./spec/models/user_spec.rb" time="0.019833"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのpasswordは6文字以上に制限される バリデーションが通らない" file="./spec/models/user_spec.rb" time="0.020866"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのgradeは1,2,3,nil以外を制限する バリデーションが通る" file="./spec/models/user_spec.rb" time="0.020940"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのgradeは1,2,3,nil以外を制限する バリデーションが通る" file="./spec/models/user_spec.rb" time="0.024082"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのgradeは1,2,3,nil以外を制限する バリデーションが通る" file="./spec/models/user_spec.rb" time="0.020662"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのgradeは1,2,3,nil以外を制限する バリデーションが通る" file="./spec/models/user_spec.rb" time="0.019059"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのgradeは1,2,3,nil以外を制限する バリデーションが通らない" file="./spec/models/user_spec.rb" time="0.016783"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのgradeは1,2,3,nil以外を制限する バリデーションが通らない" file="./spec/models/user_spec.rb" time="0.017959"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのemailは無効な形を受けつけない場合 バリデーションが通る" file="./spec/models/user_spec.rb" time="0.027560"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのemailは無効な形を受けつけない場合 バリデーションが通らない" file="./spec/models/user_spec.rb" time="0.030721"></testcase>
+<testcase classname="spec.models.user_spec" name="User userのemailは小文字で保存される 大文字になる" file="./spec/models/user_spec.rb" time="0.022907"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles index 有効なパラメータが送信された場合 リクエストが成功する" file="./spec/requests/articles_request_spec.rb" time="0.124016"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles create 有効なパラメータが送信された場合 投稿が成功する" file="./spec/requests/articles_request_spec.rb" time="0.834575"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles create 有効なパラメータが送信された場合 showテンプレートにリダイレクトされる" file="./spec/requests/articles_request_spec.rb" time="0.868897"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles create 無効なパラメータが送信された場合 newテンプレートがレンダリングされる" file="./spec/requests/articles_request_spec.rb" time="0.479419"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles create 無効なパラメータが送信された場合 エラーメッセージが表示される" file="./spec/requests/articles_request_spec.rb" time="0.473968"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles update 有効なパラメータが送信された場合 showテンプレートにリダイレクトされる" file="./spec/requests/articles_request_spec.rb" time="0.543377"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles update 有効なパラメータが送信された場合 記事が更新される" file="./spec/requests/articles_request_spec.rb" time="0.525483"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles update 有効なパラメータが送信された場合 flashメッセージが表示される" file="./spec/requests/articles_request_spec.rb" time="0.538985"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles update 無効なパラメータが送信された場合 editテンプレートがレンダリングされる" file="./spec/requests/articles_request_spec.rb" time="0.496211"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles update 無効なパラメータが送信された場合 エラーメッセージが表示される" file="./spec/requests/articles_request_spec.rb" time="0.526306"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles show 有効なパラメータが送信された場合 リクエストが成功する" file="./spec/requests/articles_request_spec.rb" time="0.135277"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles destroy 有効なパラメータが送信された場合 記事が削除される" file="./spec/requests/articles_request_spec.rb" time="1.047944"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles destroy 有効なパラメータが送信された場合 flashメッセージが表示される" file="./spec/requests/articles_request_spec.rb" time="1.054200"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles destroy 有効なパラメータが送信された場合 元いたページにリダイレクトされる" file="./spec/requests/articles_request_spec.rb" time="1.075221"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles before 未ログインのuserがindex、showアクション以外にアクセスした場合 login_urlにリダイレクトされる" file="./spec/requests/articles_request_spec.rb" time="1.273353"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles before 未ログインのuserがindex、showアクション以外にアクセスした場合 flashメッセージが表示される" file="./spec/requests/articles_request_spec.rb" time="1.284423"></testcase>
+<testcase classname="spec.requests.articles_request_spec" name="Articles before 別のuserがdestroyアクションにアクセスした場合 showテンプレートにリダイレクトされる" file="./spec/requests/articles_request_spec.rb" time="1.402358"></testcase>
+<testcase classname="spec.requests.comments_request_spec" name="Comments create 有効なパラメータが送信された場合 お気に入りに登録される" file="./spec/requests/comments_request_spec.rb" time="0.046635"></testcase>
+<testcase classname="spec.requests.comments_request_spec" name="Comments destroy 有効なパラメータが送信される場合 お気に入りが削除される" file="./spec/requests/comments_request_spec.rb" time="0.050867"></testcase>
+<testcase classname="spec.requests.favorites_request_spec" name="Favorites create 有効なパラメータが送信された場合 お気に入りに登録される" file="./spec/requests/favorites_request_spec.rb" time="0.053284"></testcase>
+<testcase classname="spec.requests.favorites_request_spec" name="Favorites destroy 有効なパラメータが送信される場合 お気に入りが削除される" file="./spec/requests/favorites_request_spec.rb" time="0.059783"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets create userから有効なパラメータが送信された場合 emailが送信される" file="./spec/requests/password_resets_request_spec.rb" time="0.259554"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets create userから無効なパラメータが送信された場合 元のページにリダイレクトされる" file="./spec/requests/password_resets_request_spec.rb" time="0.197748"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets create userから無効なパラメータが送信された場合 エラーメッセージが表示される" file="./spec/requests/password_resets_request_spec.rb" time="0.192545"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets create userから空のemailが送信された場合 元のページにリダイレクトされる" file="./spec/requests/password_resets_request_spec.rb" time="0.189599"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets create userから空のemailが送信された場合 エラーメッセージが表示される" file="./spec/requests/password_resets_request_spec.rb" time="0.191446"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets create 有効なリンクをクリックした場合 パスワードをリセットするurlにリダイレクトされる" file="./spec/requests/password_resets_request_spec.rb" time="0.164812"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets update 有効なパラメータが送信された場合 パスワードがリセットされる" file="./spec/requests/password_resets_request_spec.rb" time="0.254365"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets update emailを途中で変更した場合 TOPページにリダイレクトされる" file="./spec/requests/password_resets_request_spec.rb" time="0.258961"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets update emailを途中で変更した場合 エラーメッセージが表示される" file="./spec/requests/password_resets_request_spec.rb" time="0.266987"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets update パスワードが空の場合 エラーメッセージが表示される" file="./spec/requests/password_resets_request_spec.rb" time="0.212193"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets update パスワードの確認が空の場合 エラーメッセージが表示される" file="./spec/requests/password_resets_request_spec.rb" time="0.195539"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets update パスワードの確認が空の場合 エラーメッセージが表示される" file="./spec/requests/password_resets_request_spec.rb" time="0.213208"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets update パスワードが無効の場合 エラーメッセージが表示される" file="./spec/requests/password_resets_request_spec.rb" time="0.205740"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets before トークンが無効の場合 TOPページにリダイレクトされる" file="./spec/requests/password_resets_request_spec.rb" time="0.198556"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets before トークンが無効の場合 エラーメッセージが表示される" file="./spec/requests/password_resets_request_spec.rb" time="0.186164"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets before emailが無効の場合 TOPページにリダイレクトされる" file="./spec/requests/password_resets_request_spec.rb" time="0.173633"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets before emailが無効の場合 エラーメッセージが表示される" file="./spec/requests/password_resets_request_spec.rb" time="0.183461"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets before emailの有効期限が無効の場合 emailを送信するurlにリダイレクトされる" file="./spec/requests/password_resets_request_spec.rb" time="0.136744"></testcase>
+<testcase classname="spec.requests.password_resets_request_spec" name="PasswordResets before emailの有効期限が無効の場合 エラーメッセージが表示される" file="./spec/requests/password_resets_request_spec.rb" time="0.135328"></testcase>
+<testcase classname="spec.requests.sessions_request_spec" name="Sessions new 有効なパラメータが送信された場合 リクエストが成功する" file="./spec/requests/sessions_request_spec.rb" time="0.092120"></testcase>
+<testcase classname="spec.requests.sessions_request_spec" name="Sessions create 有効なパラメータが送信された場合 ログインに成功する" file="./spec/requests/sessions_request_spec.rb" time="0.221027"></testcase>
+<testcase classname="spec.requests.sessions_request_spec" name="Sessions create 有効なパラメータが送信された場合 showテンプレートが表示される" file="./spec/requests/sessions_request_spec.rb" time="0.218614"></testcase>
+<testcase classname="spec.requests.sessions_request_spec" name="Sessions create 無効なパラメータが送信された場合 ログインに失敗する" file="./spec/requests/sessions_request_spec.rb" time="0.202558"></testcase>
+<testcase classname="spec.requests.sessions_request_spec" name="Sessions create 無効なパラメータが送信された場合 login_pathにリダイレクトされる" file="./spec/requests/sessions_request_spec.rb" time="0.170717"></testcase>
+<testcase classname="spec.requests.sessions_request_spec" name="Sessions destroy 有効なパラメータが送信された場合 ログアウトする" file="./spec/requests/sessions_request_spec.rb" time="0.378151"></testcase>
+<testcase classname="spec.requests.sessions_request_spec" name="Sessions destroy 有効なパラメータが送信された場合 root_pathにリダイレクトされる" file="./spec/requests/sessions_request_spec.rb" time="0.362623"></testcase>
+<testcase classname="spec.requests.sessions_request_spec" name="Sessions cookie userがremember_meをクリックした場合 cookieに値が保存される" file="./spec/requests/sessions_request_spec.rb" time="0.036504"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users new 有効なパラメータが送信された場合 リクエストが成功する" file="./spec/requests/users_request_spec.rb" time="0.095821"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users create 有効なパラメータが送信された場合 リクエストが成功する" file="./spec/requests/users_request_spec.rb" time="0.028744"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users create 有効なパラメータが送信された場合 新規登録に成功する" file="./spec/requests/users_request_spec.rb" time="0.019418"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users create 無効なパラメータが送信された場合 新規登録に失敗する" file="./spec/requests/users_request_spec.rb" time="0.016093"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users show 有効なパラメータが送信された場合 リクエストが成功する" file="./spec/requests/users_request_spec.rb" time="0.107795"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users update 有効な情報を送信した場合 userが更新される" file="./spec/requests/users_request_spec.rb" time="0.484158"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users update 有効な情報を送信した場合 userの個別ページにリダイレクトされる" file="./spec/requests/users_request_spec.rb" time="0.529070"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users update 無効なパラメータが送信された場合 userが更新されない" file="./spec/requests/users_request_spec.rb" time="0.489653"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users update 無効なパラメータが送信された場合 元のページにリダイレクトされる" file="./spec/requests/users_request_spec.rb" time="0.497222"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users update 無効なパラメータが送信された場合 エラーメッセージが表示される" file="./spec/requests/users_request_spec.rb" time="0.494890"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users update パスワード、パスワードの確認が空の場合 userが更新される" file="./spec/requests/users_request_spec.rb" time="0.515137"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users update パスワードのみが空の場合 userが更新されない" file="./spec/requests/users_request_spec.rb" time="0.469975"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users update パスワードのみが空の場合 エラーメッセージが表示される" file="./spec/requests/users_request_spec.rb" time="0.490277"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users update パスワードの確認のみが空の場合 userが更新されない" file="./spec/requests/users_request_spec.rb" time="0.494356"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users update パスワードの確認のみが空の場合 エラーメッセージが表示される" file="./spec/requests/users_request_spec.rb" time="0.555606"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users before 有効なuserがedit\bにアクセスした場合 editテンプレートが表示される" file="./spec/requests/users_request_spec.rb" time="0.351444"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users before 他のuserがedit\bにアクセスした場合 root_pathにリダイレクトされる" file="./spec/requests/users_request_spec.rb" time="0.406020"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users before 他のuserがedit\bにアクセスした場合 エラーメッセージが表示される" file="./spec/requests/users_request_spec.rb" time="0.417070"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users before 他のユーザーがpatchリクエストを送信した場合 login_pathにリダイレクトされる" file="./spec/requests/users_request_spec.rb" time="0.223696"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users before 未ログインのユーザーがeditにアクセスした場合 login_pathにリダイレクトされる" file="./spec/requests/users_request_spec.rb" time="0.116190"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users before 未ログインのユーザーがeditにアクセスした場合 エラーメッセージが表示される" file="./spec/requests/users_request_spec.rb" time="0.172186"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users before 未ログインのユーザーがpatchリクエストを送信した場合 login_pathにリダイレクトされる" file="./spec/requests/users_request_spec.rb" time="0.044439"></testcase>
+<testcase classname="spec.requests.users_request_spec" name="Users before 元ページの情報はログイン時に削除される 2回目からはuser_pathにリダイレクトされる" file="./spec/requests/users_request_spec.rb" time="1.101858"></testcase>
+</testsuite>
