@@ -1,0 +1,9 @@
+test:
+  adapter: mysql2
+  encoding: utf8mb4
+  database: hssb_test
+  pool: 5
+  port: 3306
+  username: root
+  host: '127.0.0.1'
+  database: ci_test
