@@ -39,16 +39,16 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:name, :email, :grade, :password,
-        :password_confirmation, :icon)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :grade, :password,
+                                 :password_confirmation, :icon)
+  end
 
-    def correct_user
-      @user = User.find(params[:id])
-      unless current_user?
-        flash[:danger] = "他のユーザーのプロフィールは編集できません"
-        redirect_to(root_url)
-      end
+  def correct_user
+    @user = User.find(params[:id])
+    unless current_user?
+      flash[:danger] = "他のユーザーのプロフィールは編集できません"
+      redirect_to(root_url)
     end
+  end
 end

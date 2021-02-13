@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
 
   def index
     @user = current_user
-    @favorite_articles = @user.favorites.includes(:article).order(:created_at => "DESC").map{ |favorite| favorite.article }
+    @favorite_articles = @user.favorites.includes(:article).order(:created_at => "DESC").map { |favorite| favorite.article }
     @articles = Kaminari.paginate_array(@favorite_articles).page(params[:page]).per(8)
   end
 
