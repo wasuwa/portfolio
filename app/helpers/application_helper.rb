@@ -9,13 +9,11 @@ module ApplicationHelper
     end
   end
 
-def full_url(path)
+  def full_url(path)
+  # ドメインが決まり次第elseで分岐させリンクさせる
     domain = if Rails.env.development?
               'http://localhost:3000/'
-              else
-              # ドメイン未定です
-              'http://localhost:3000/'
-              end
+             end
     "#{domain}#{path}"
   end
 end

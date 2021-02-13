@@ -6,3 +6,268 @@ Style/HashTransformKeys:
 
 Style/HashTransformValues:
   Enabled: true
+
+Layout/SpaceBeforeBrackets:
+  Enabled: true
+
+Lint/AmbiguousAssignment:
+  Enabled: true
+
+Lint/DuplicateBranch:
+  Enabled: true
+
+Lint/DuplicateRegexpCharacterClassElement:
+  Enabled: true
+
+Lint/EmptyBlock:
+  Enabled: true
+  
+Lint/EmptyClass:
+  Enabled: true
+
+Lint/NoReturnInBeginEndBlocks:
+  Enabled: true
+
+Lint/ToEnumArguments:
+  Enabled: true
+
+Lint/UnexpectedBlockArity:
+  Enabled: true
+
+Lint/UnmodifiedReduceAccumulator:
+  Enabled: true
+
+Style/ArgumentsForwarding:
+  Enabled: true
+
+Style/CollectionCompact:
+  Enabled: true
+
+Style/DocumentDynamicEvalDefinition:
+  Enabled: true
+
+Style/HashExcept:
+  Enabled: true
+
+Style/NegatedIfElseCondition:
+  Enabled: true
+
+Style/NilLambda:
+  Enabled: true
+
+Style/RedundantArgument:
+  Enabled: true
+
+Style/SwapValues:
+  Enabled: true
+
+# ハッシュの指摘を無視する
+Style/HashSyntax:
+  Enabled: false
+
+# ""の指摘を無視する
+Style/StringLiterals:
+  Enabled: false
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# 文字列リテラルの指摘を無視する
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# 一貫性のないインデントを無視する
+Layout/IndentationConsistency:
+  Enabled: false
+
+
+#------------------------------------------
+
+
+
+# ファイル最後の改行チェックを無視する              あとで有効にする
+Layout/TrailingEmptyLines:
+  Enabled: false
+
+# インデントを自動修正   あとで有効にする
+Layout/IndentationWidth:
+  Enabled: false
+
+# 最後の空白を消す
+Layout/TrailingWhitespace:
+  Enabled: false
+
+# 引数を揃える
+Layout/ArgumentAlignment:
+  Enabled: false
+
+# 引数がないメソッドには（）をつけない
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/StringConcatenation:
+  Enabled: false
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: false
+
+Style/ExpandPathArguments:
+  Enabled: false
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+Layout/MultilineOperationIndentation:
+  Enabled: false
+
+Layout/LeadingCommentSpace:
+  Enabled: false
+
+Layout/SpaceBeforeBlockBraces:
+  Enabled: false
+
+Layout/HashAlignment:
+  Enabled: false
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Style/RedundantFetchBlock:
+  Enabled: false
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: false
+
+Style/PerlBackrefs:
+  Enabled: false
+
+Style/SymbolProc:
+  Enabled: false
+
+Layout/ElseAlignment:
+  Enabled: false
+
+Layout/SpaceAroundKeyword:
+  Enabled: false
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Layout/CommentIndentation: # kore
+  Enabled: false
+#--------------------------------------------
+
+# ブロックの行の上限を無視する
+Metrics/BlockLength:
+  Enabled: false
+
+# メソッド名の上行を無視する
+Metrics/MethodLength:
+  Enabled: false
+
+# クラスドキュメントコメントを無視する
+Style/Documentation:
+  Enabled: false
+
+# 文字列の長さの上限を無視する
+Layout/LineLength:
+  Enabled: false
+
+# 空メソッドを一行に変換するのを無視する
+Style/EmptyMethod:
+  Enabled: false
+
+# 配列の前に%i,%Iをつける制限を無視する
+Style/SymbolArray:
+  Enabled: false
+
+# 変数名のgetを許容する
+Naming/AccessorMethodName:
+  Enabled: false
+
+# 修飾子を優先する
+Style/IfUnlessModifier:
+  Enabled: false
+
+# ネストされたモジュール定義を使用する
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# ガード句に変換しない
+Style/GuardClause:
+  Enabled: false
+
+# 分岐条件のサイズ
+Metrics/AbcSize:
+  Enabled: false
+
+# ブロックコメントを許可
+Style/BlockComments:
+  Enabled: false
+
+# warnで無効にしない
+Style/StderrPuts:
+  Enabled: false
+
+# 高すぎる複雑度を許可する
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+# PROGRAM_NAMEを優先しない
+Style/SpecialGlobalVars:
+  Enabled: false
+
+# 高すぎる複雑さを許可する
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+# 三項演算子を許可する
+Style/MultilineTernaryOperator:
+  Enabled: false
+
+# %wを使用しない
+Style/WordArray:
+  Enabled: false
+
+# 代わりにprocを使用しない
+Style/Proc:
+  Enabled: false
+
+# 変数名を変えない
+Style/GlobalStdStream:
+  Enabled: false
+
+# localhost:3000を利用する
+Style/IdenticalConditionalBranches:
+  Enabled: false
+
+# || を利用しない
+Style/RedundantCondition:
+  Enabled: false
+
+# 重複を許可する
+Lint/DuplicateMethods:
+  Enabled: false
+
+# 引数名を許可する
+Lint/UnusedBlockArgument:
+  Enabled: false

@@ -1,5 +1,4 @@
 module RailsTestHelper
-
   def log_in_as(user)
     visit login_path
     fill_in 'session_email', :with => user.email
@@ -22,7 +21,7 @@ module RailsTestHelper
     post login_path, :params => { :session => {
       :email => user.email,
       :password => user.password,
-      :remember_me => remember_me,
+      :remember_me => remember_me
     } }
   end
 

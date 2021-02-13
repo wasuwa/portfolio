@@ -49,104 +49,104 @@ RSpec.describe "Users", :type => :request do
 
   describe "update", :type => :feature do
     context "有効な情報を送信した場合" do
-        before do
-          log_in_as(login_user)
-          visit edit_user_path(login_user)
-          fill_in 'user_name', :with => "NewName"
-          select 2, :from => "高校の学年"
-          fill_in 'user_email', :with => "new@new.com"
-          fill_in 'user_password', :with => login_user.password = "newnew"
-          fill_in 'user_password_confirmation', :with => login_user.password_confirmation = "newnew"
-          click_on "更新する"
-        end
-        
-        example "userが更新される" do
-          login_user.reload
-          expect(login_user.name).to eq "NewName"
-          expect(login_user.email).to eq "new@new.com"
-          expect(login_user.grade).to eq 2
-          expect(login_user.password).to eq "newnew"
-          expect(login_user.password_confirmation).to eq "newnew"
-        end
-
-        example "userの個別ページにリダイレクトされる" do
-          expect(current_path).to eq user_path(login_user)
-        end
+      before do
+        log_in_as(login_user)
+        visit edit_user_path(login_user)
+        fill_in 'user_name', :with => "NewName"
+        select 2, :from => "高校の学年"
+        fill_in 'user_email', :with => "new@new.com"
+        fill_in 'user_password', :with => login_user.password = "newnew"
+        fill_in 'user_password_confirmation', :with => login_user.password_confirmation = "newnew"
+        click_on "更新する"
       end
       
-      context "無効なパラメータが送信された場合" do
-        before do
-          log_in_as(login_user)
-          visit edit_user_path(login_user)
-          fill_in 'user_name', :with => ""
-          fill_in 'user_email', :with => ""
-          fill_in 'user_password', :with => login_user.password = ""
-          fill_in 'user_password_confirmation', :with => login_user.password_confirmation = ""
-          click_on "更新する"
-        end
-        example "userが更新されない" do
-          login_user.reload
-          expect(login_user.name).to eq login_user.name
-          expect(login_user.email).to eq login_user.email
-          expect(login_user.grade).to eq login_user.grade
-          expect(login_user.password).to eq login_user.password
-          expect(login_user.password_confirmation).to eq login_user.password_confirmation
-        end
-        example "元のページにリダイレクトされる" do
-          expect(current_path).to eq user_path(login_user)
-        end
-        example "エラーメッセージが表示される" do
-          expect(page).to have_content "名前を入力してください"
-          expect(page).to have_content "メールアドレスを入力してください"
-        end
+      example "userが更新される" do
+        login_user.reload
+        expect(login_user.name).to eq "NewName"
+        expect(login_user.email).to eq "new@new.com"
+        expect(login_user.grade).to eq 2
+        expect(login_user.password).to eq "newnew"
+        expect(login_user.password_confirmation).to eq "newnew"
       end
 
-      context "パスワード、パスワードの確認が空の場合" do
-        before do
-          log_in_as(login_user)
-          visit edit_user_path(login_user)
-          fill_in 'user_name', :with => "pass_nil"
-          click_on "更新する"
-        end
-        example "userが更新される" do
-          login_user.reload
-          expect(login_user.name).to eq "pass_nil"
-        end
+      example "userの個別ページにリダイレクトされる" do
+        expect(current_path).to eq user_path(login_user)
       end
+    end
+      
+    context "無効なパラメータが送信された場合" do
+      before do
+        log_in_as(login_user)
+        visit edit_user_path(login_user)
+        fill_in 'user_name', :with => ""
+        fill_in 'user_email', :with => ""
+        fill_in 'user_password', :with => login_user.password = ""
+        fill_in 'user_password_confirmation', :with => login_user.password_confirmation = ""
+        click_on "更新する"
+      end
+      example "userが更新されない" do
+        login_user.reload
+        expect(login_user.name).to eq login_user.name
+        expect(login_user.email).to eq login_user.email
+        expect(login_user.grade).to eq login_user.grade
+        expect(login_user.password).to eq login_user.password
+        expect(login_user.password_confirmation).to eq login_user.password_confirmation
+      end
+      example "元のページにリダイレクトされる" do
+        expect(current_path).to eq user_path(login_user)
+      end
+      example "エラーメッセージが表示される" do
+        expect(page).to have_content "名前を入力してください"
+        expect(page).to have_content "メールアドレスを入力してください"
+      end
+    end
 
-      context "パスワードのみが空の場合" do
-        before do
-          log_in_as(login_user)
-          visit edit_user_path(login_user)
-          fill_in 'user_password', :with => login_user.password = ""
-          fill_in 'user_password_confirmation', :with => login_user.password_confirmation = "aaaaaa"
-          click_on "更新する"
-        end
-        example "userが更新されない" do
-          expect(login_user.password).to eq login_user.password
-        end
-        example "エラーメッセージが表示される" do
-          expect(page).to have_content "パスワードを入力してください"
-        end
+    context "パスワード、パスワードの確認が空の場合" do
+      before do
+        log_in_as(login_user)
+        visit edit_user_path(login_user)
+        fill_in 'user_name', :with => "pass_nil"
+        click_on "更新する"
       end
+      example "userが更新される" do
+        login_user.reload
+        expect(login_user.name).to eq "pass_nil"
+      end
+    end
 
-      context "パスワードの確認のみが空の場合" do
-        before do
-          log_in_as(login_user)
-          visit edit_user_path(login_user)
-          fill_in 'user_password', :with => login_user.password = "aaaaaa"
-          fill_in 'user_password_confirmation', :with => login_user.password_confirmation = ""
-          click_on "更新する"
-        end
-        example "userが更新されない" do
-          expect(login_user.password).to eq login_user.password
-        end
-        example "エラーメッセージが表示される" do
-          expect(page).to have_content "確認とパスワードの入力が一致しません"
-        end
+    context "パスワードのみが空の場合" do
+      before do
+        log_in_as(login_user)
+        visit edit_user_path(login_user)
+        fill_in 'user_password', :with => login_user.password = ""
+        fill_in 'user_password_confirmation', :with => login_user.password_confirmation = "aaaaaa"
+        click_on "更新する"
       end
+      example "userが更新されない" do
+        expect(login_user.password).to eq login_user.password
+      end
+      example "エラーメッセージが表示される" do
+        expect(page).to have_content "パスワードを入力してください"
+      end
+    end
+
+    context "パスワードの確認のみが空の場合" do
+      before do
+        log_in_as(login_user)
+        visit edit_user_path(login_user)
+        fill_in 'user_password', :with => login_user.password = "aaaaaa"
+        fill_in 'user_password_confirmation', :with => login_user.password_confirmation = ""
+        click_on "更新する"
+      end
+      example "userが更新されない" do
+        expect(login_user.password).to eq login_user.password
+      end
+      example "エラーメッセージが表示される" do
+        expect(page).to have_content "確認とパスワードの入力が一致しません"
+      end
+    end
   end
-
+  
   describe "before", :type => :feature do
     context "有効なuserがeditにアクセスした場合" do
       before do
