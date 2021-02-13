@@ -7,7 +7,8 @@ jobs:
           - BUNDLER_VERSION: 2.2.9
           - RAILS_ENV: 'test'
       - image: circleci/mysql:8.0.23
-        environment:
+        command: mysqld --default-authentication-plugin=mysql_native_password
+        environment:gi
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_ROOT_HOST: '%'
 
@@ -37,12 +38,12 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-# rubocop
+      # rubocop
       - run:
           name: Rubocop
           command: bundle exec rubocop
 
-# rspec
+      # rspec
       - run:
           name: run tests
           command: |
