@@ -176,3 +176,11 @@ Lint/DuplicateMethods:
 # 引数名を許可する
 Lint/UnusedBlockArgument:
   Enabled: false
+
+# テキストを許可する
+Style/SymbolProc:
+  Enabled: false
+
+# 文字列連結を許可する
+Style/StringConcatenation:
+  Enabled: false
