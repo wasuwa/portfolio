@@ -41,3 +41,6 @@ yarn-debug.log*
 
 # 環境変数ファイルを無視
 /development.env
+
+# Rspec実行ファイルを無視
+/rspec.xml
