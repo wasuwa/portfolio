@@ -5,7 +5,7 @@
       <%= f.label :icon, class: "settings__icon" do %>
         <%= button_tag "×", type: "button", class: "settings__form--delete", id: "icon_delete_button" %>
         <%= render "shared/find_user_icon", user: @user %>
-        <%= f.file_field :icon, class: "settings__icon--img_select" %>
+        <%= f.file_field :icon, class: "settings__icon--img_select", accept: "image/jpg, image/jpeg, image/png, image/*" %>
         <%= f.hidden_field :icon, name: "", id: "icon_delete_hidden" %>
         <div class="settings__edit">
           <%= image_tag "profile_edit.png", class: "settings__edit--img" %>

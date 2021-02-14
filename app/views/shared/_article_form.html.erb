@@ -9,7 +9,7 @@
     <%= f.hidden_field :image, name: "", id: "delete_hidden" %>
     <%= f.label :image do %>
       <%= f.label :image, "アイキャッチ画像", class: "article_posting__form--label" %>
-      <%= f.file_field :image, class: "article_posting__form--img_select" %>
+      <%= f.file_field :image, class: "article_posting__form--img_select", accept: "image/jpg, image/jpeg, image/png, image/*" %>
       <% if @article.image? %>
         <%= image_tag @article.image.url, class: "article_posting__form--img" %>
       <% else %>
