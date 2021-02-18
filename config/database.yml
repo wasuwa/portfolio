@@ -29,5 +29,4 @@ production:
   <<: *default
   database: hssb
   username: root
-  password: <%= ENV["PRODUCTION_PASSWORD"] %>
-  socket: /var/lib/mysql/mysql.sock
+  password: <%= ENV["PRODUCTION_SQL_PASSWORD"] %>
