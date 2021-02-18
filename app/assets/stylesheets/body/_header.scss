@@ -1,0 +1,100 @@
+.header {
+    background: white;
+    height: 70px;
+    border-bottom: 1px solid #ddd;
+    &__wrapper {
+        max-width: 1080px;
+        height: 100%;
+        padding: 0 60px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        background: white;
+        position: relative;
+        .header__ul {
+            display: flex;
+            margin-left: 70px;
+            &--list:nth-of-type(n+2) {
+                margin-left: 30px;
+            }
+            &--list {
+                &_link {
+                    &:hover {
+                        color: #a3a3a3;
+                        transition: all .3s;
+                    }
+                }
+            }
+        }
+        .header__profile {
+            @include profile_icon;
+            margin: 0 12px 0 auto;
+        }
+        .header__triangle {
+            width: 0;
+            height: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 7px solid #D8D8D8;
+            cursor: pointer;
+        }
+        .header__click_menu {
+            max-width: 250px;
+            height: 152px;
+            background: white;
+            z-index: 50;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all .1s;
+            position: absolute;
+            top: 71px;
+            right: 30px;
+            &--link {
+                display: block;
+                width: 100%;
+                border-bottom: 1px solid #ddd;
+                padding: 15px 65px;
+                box-sizing: border-box;
+                text-align: center;
+                &:hover {
+                    background-color: #eee;
+                }
+            }
+            &--logout {
+                border: none;
+                color: #E25959;
+            }
+        }
+        .open_menu {
+            opacity: 1;
+            visibility: inherit;
+        }
+    }
+}
+
+@include bp_md {
+    .header {
+        &__wrapper {
+            .header__ul {
+                display: none;
+            }
+            .header__profile {
+                display: none;
+            }
+            .header__triangle {
+                display: none;
+            }
+        }
+    }
+}
+
+@include bp_sm {
+    .header {
+        height: 50px;
+        &__wrapper {
+            padding: 0 30px;
+        }
+    }
+}

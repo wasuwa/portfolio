@@ -1,0 +1,24 @@
+.flash {
+    display: block;
+    width: 100%;
+    height: 50px;
+    color: white;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.flash_success {
+    background: $main_blue;
+}
+
+.flash_danger {
+    background: rgba(226, 89, 89, 0.95);
+}
+
+@include bp_sm {
+    .flash {
+        height: 40px;
+        line-height: 40px;
+    }
+}

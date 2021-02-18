@@ -1,0 +1,31 @@
+.sns_share {
+    background: white;
+    margin-bottom: 50px;
+    font-size: 35px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    .fa-twitter {
+        color: #1da1f2;
+    }
+    .fa-facebook-f {
+        color: #1877f2;
+    }
+    .article_items__wrapper--star {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@include bp_sm {
+    .sns_share {
+        margin-bottom: 30px;
+        font-size: 30px;
+        padding: 10px;
+        .article_items__wrapper--star {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}

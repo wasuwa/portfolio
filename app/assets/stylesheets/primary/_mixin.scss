@@ -1,0 +1,165 @@
+@mixin swiper_arrow {
+    width: 80px;
+    height: 100%;
+    top: 22px;
+    background: #000;
+    opacity: .4;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    cursor:pointer;    
+    &::after {
+        color: white;
+    }
+    @include bp_sm {
+        width: 50px;
+    }
+}
+
+@mixin button($background: $main_blue,  $width: 400px, $radius: 25px, $height: 60px, $color: white) {
+    width: $width;
+    height: $height;
+    border: none;
+    background: $background;
+    border-radius: $radius;
+    color: $color;
+    letter-spacing: 1px;
+    display: block;
+    margin: 0 auto;
+}
+
+@mixin line_title($width: 100px, $margin: 0 35px) {
+    &__title {
+        display: flex;
+        justify-content: center;
+        &--text {
+            font-size: 24px;
+            line-height: 24px;
+            margin: $margin;
+        }
+        &--line {
+            width: $width;
+            height: 1px;
+            background: $main_blue;
+            display: block;
+            align-self: center;
+        }
+    }
+    @include bp_sm {
+        &__title {
+            &--text {
+                font-size: 20px;
+                line-height: 20px;
+                margin: 0 20px;
+            }
+        }
+    }
+}
+
+@mixin article($width: 500px, $height: 200px, $image_width: 40%, $text_width: 60%, $title_size: 14px, $title_line: 20px, $title_mg: 15px, $overview_size: 12px, $overview_mg: 15px, $line: 17px, $name_size: 12px, $text_padding: 30px 20px, $icon_size: 35px) {
+    max-width: $width;
+    height: $height;
+    display: flex;
+    background: white;
+    .article_items__wrapper {
+        width: $image_width;
+        position: relative;
+        height: 100%;
+        &--time {
+            font-size: 12px;
+            color: white;
+            background: $sub_blue;
+            padding: 2px 10px 4px;
+            border-radius: 0px 0px 5px 0px;
+            position: absolute;
+            top: 0;
+        }
+        &--star {
+            width: $icon_size;
+            height: $icon_size;
+            position: absolute;
+            bottom: 20px;
+            left: 15px;
+        }
+        &--img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__text {
+        width: $text_width;
+        padding: $text_padding;
+        box-sizing: border-box;
+        position: relative;
+        &--title {
+            margin-bottom: $title_mg;
+            font-size: $title_size;
+            line-height: $title_line;
+            word-break: break-all;
+        }
+        &--title_hover {
+            &:hover {
+                color: $main_blue;
+                transition: all .3s;
+            }
+        }
+        &--overview {
+            font-size: $overview_size;
+            color: #aeaeae;
+            line-height: $line;
+            margin-bottom: $overview_mg;
+            word-break: break-all;
+        }
+        &--name {
+            font-size: $name_size;
+            color: $main_blue;
+            line-height: $line;
+        }
+        &--grade {
+            display: inline;
+        }
+        .article_items__favorite_count {
+            position: absolute;
+            right: 30px;
+            bottom: 20px;
+            font-size: 16px;
+            color: $main_blue;
+            &--like {
+                font-size: 14px;
+                color: $text_color;
+            }
+        }
+    }
+    @include bp_sm {
+        &__text {
+            &--grade {
+                display: none;
+            }
+        }
+    }
+    @include bp_md {
+        &__text {
+            .article_items__favorite_count {
+                position: absolute;
+                right: 20px;
+                bottom: 20px;
+                font-size: 14px;
+                &--like {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+@mixin profile_icon($width: 32px) {
+    width: $width;
+    height: $width;
+    border: 4px solid $main_blue;
+    border-radius: 50%;
+    &--img {
+        width: $width;
+        height: $width;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}

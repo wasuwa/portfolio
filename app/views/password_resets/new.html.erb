@@ -1,0 +1,13 @@
+<!-- パスワード再設定メール -->
+<section class="settings">
+  <div class="settings__wrapper">
+  <div class="settings__icon">
+    <%= image_tag "default_icon.jpg", class: "settings__icon--img" %>
+  </div>
+  <h2 class="settings__wrapper--title">パスワードの再設定</h2>
+  <%= form_with(url: password_resets_path, scope: :password_reset, class: 'settings__form settings__form_margin') do |f| %>
+    <%= f.label :email, "現在のメールアドレス", class: "settings__form--label" %>
+    <%= f.email_field :email, class: "settings__form--input" %>
+    <%= f.submit "送信する", class: "settings__form--button", data: { disable_with: '送信中...'} %>
+  <% end %>
+</section>

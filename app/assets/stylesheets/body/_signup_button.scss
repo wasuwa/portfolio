@@ -1,0 +1,40 @@
+.signup_button {
+    display: flex;
+    margin-left: auto;
+    &__white {
+        @include button($background: white,  $width: 120px, $radius: 15px, $height: 50px, $color: $text_color);
+        border: 1px solid #bfbfbf;
+    }
+    &__blue {
+        @include button($width: 120px, $radius: 15px, $height: 50px);
+        margin-left: 20px;
+    }
+}
+
+@include bp_md {
+    .signup_button {
+        font-size: 13px;
+        &__white {
+            @include button($background: white,  $width: 100px, $radius: 15px, $height: 40px, $color: $text_color);
+            border: 1px solid #bfbfbf;
+        }
+        &__blue {
+            @include button($width: 100px, $radius: 15px, $height: 40px);
+            margin-left: 15px;
+        }
+    }
+}
+
+@include bp_sm {
+    .signup_button {
+        font-size: 12px;
+        &__white {
+            @include button($background: white,  $width: 80px, $radius: 15px, $height: 30px, $color: $text_color);
+            border: 1px solid #bfbfbf;
+        }
+        &__blue {
+            @include button($width: 80px, $radius: 15px, $height: 30px);
+            margin-left: 10px;
+        }
+    }
+}

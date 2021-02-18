@@ -1,0 +1,11 @@
+// ブレイクポイント
+@mixin bp_sm {
+  @media (max-width: 500px) {
+    @content;
+  }
+}
+@mixin bp_md {
+  @media (max-width: 800px) {
+    @content;
+  }
+}

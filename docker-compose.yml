@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8.0.23
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_native_password
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: hssb_development
+      MYSQL_ROOT_PASSWORD: ${SQL_ROOT_PASSWORD}
+      TZ: Asia/Tokyo
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/workspace
+    env_file: development.env
+
+volumes:
+  mysql-data:

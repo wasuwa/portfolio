@@ -1,0 +1,34 @@
+<!-- アカウント設定 -->
+<section class="settings">
+  <div class="settings__wrapper">
+    <%= form_with(model: @user, class: "settings__form settings__form_margin") do |f| %>
+      <%= f.label :icon, class: "settings__icon" do %>
+        <%= button_tag "×", type: "button", class: "settings__form--delete", id: "icon_delete_button" %>
+        <%= render "shared/find_user_icon", user: @user %>
+        <%= f.file_field :icon, class: "settings__icon--img_select", accept: "image/jpg, image/jpeg, image/png, image/*" %>
+        <%= f.hidden_field :icon, name: "", id: "icon_delete_hidden" %>
+        <div class="settings__edit">
+          <%= image_tag "profile_edit.png", class: "settings__edit--img" %>
+        </div>
+      <% end %>
+      <h2 class="settings__wrapper--title">アカウントの設定</h2>
+      <%= render "error/name_error", user: @user %>
+      <%= f.label :name, "名前", class: "settings__form--label" %>
+      <%= f.text_field :name, class: "settings__form--input" %>
+      <%= f.label :grade, "高校の学年", class: "settings__form--label" %>
+      <%= f.select :grade, [ ["秘密", nil], [1, 1], [2, 2], [3, 3] ], {prompt: "学年を選択してください"}, {class: "settings__form--input settings__form--input_select"} %>
+      <%= render "error/email_error", user: @user %>
+      <%= f.label :email, "メールアドレス", class: "settings__form--label" %>
+      <%= f.email_field :email, class: "settings__form--input" %>
+      <%= render "error/password_error", user: @user %>
+      <%= f.label :password, "パスワード", class: "settings__form--label" %>
+      <%= f.password_field :password, class: "settings__form--input" %>
+      <%= render "error/password_confirmation_error", user: @user %>
+      <%= f.label :password_confirmation, "パスワードの確認", class: "settings__form--label" %>
+      <%= f.password_field :password_confirmation, class: "settings__form--input" %>
+      <%= f.submit "更新する", class: "settings__form--button", data: { disable_with: '送信中...'} %>
+    <% end %>
+  </div>
+</section>
+<!-- js -->
+<%= javascript_pack_tag 'user_js/application' %>

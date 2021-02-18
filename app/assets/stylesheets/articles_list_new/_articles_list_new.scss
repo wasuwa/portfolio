@@ -1,0 +1,23 @@
+.articles_list_new {
+    margin-top: 100px;
+    .articles_list__title {
+        justify-content: center;
+    }
+}
+
+@include bp_md {
+    .articles_list_new {
+        margin-top: 50px;
+        .articles_list__title {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+@include bp_sm {
+    .articles_list_new {
+      .articles_list__title {
+            margin-bottom: 30px;
+        }
+    }
+}

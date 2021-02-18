@@ -1,0 +1,2 @@
+document.getElementById('favorite_<%= @get_article.id %>').innerHTML = '<%= j(render "shared/favorite", article: @get_article) %>'
+document.getElementById('favorite_count_<%= @get_article.id %>').innerHTML = '<%= j(render "shared/favorite_count", article: @get_article) %>'

@@ -1,0 +1,23 @@
+.footer {
+    height: 70px;
+    background: #454545;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    .main_logo {
+        margin-left: auto;
+        &__hssb {
+            color: white;
+        }
+        &__sub {
+            color: white;
+        }
+    }
+}
+
+@include bp_md {
+    .footer {
+        height: 50px;
+        padding: 0 30px;
+    }
+}

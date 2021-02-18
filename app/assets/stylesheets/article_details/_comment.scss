@@ -1,0 +1,159 @@
+.comment {
+    margin-top: 100px;
+    &__wrapper {
+        background: white;
+        padding: 50px 30px;
+        margin-bottom: 100px;
+        &--title {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .comment__form {
+            width: 100%;
+            .comment__area {
+                margin: 0 auto 30px;
+                max-width: 500px;
+                &--text_area {
+                    width: 100%;
+                    padding: 20px 30px;
+                    height: 100px;
+                    resize: none;
+                    border: 1px solid #ddd;
+                    display: block;
+                    box-sizing: border-box;
+                    letter-spacing: 1px;
+                }
+            }
+            &--button {
+                @include button($width: 200px, $radius: 5px, $height: 50px);
+            }
+        }
+    }
+    .comment__heading {
+        text-align: center;
+        margin-bottom: 30px;
+        &--title {
+            display: inline;
+            font-size: 20px;
+        }
+        &--count {
+            padding-left: 5px;
+        }
+    }
+    .comment__items {
+        max-width: 650px;
+        display: flex;
+        margin: 0 auto 30px;
+        .comment__circle {
+            @include profile_icon($width: 60px);
+            margin-right: 20px;
+        }
+        .comment__contents {
+            width: 100%;
+            background: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 15px;
+            position: relative;
+            &--name {
+                color: $main_blue;
+                word-break: break-all;
+                font-weight: 500;
+            }
+            &--text {
+                display: block;
+                margin-top: 10px;
+                word-wrap: break-word;
+            }
+            &--delete {
+                text-align: center;
+                width: 50px;
+                color: #F64C44;
+                display: block;
+                cursor: pointer;
+                position: absolute;
+                top: 19px;
+                right: 15px;
+            }
+        }
+    }
+    &__no_text {
+        padding-top: 10px;
+        font-size: 16px;
+        display: block;
+        text-align: center;
+    }
+}
+
+@include bp_md {
+    .comment {
+        margin-top: 50px;
+        &__wrapper {
+            margin-bottom: 50px;
+            .comment__form {
+                width: 100%;
+                .comment__area {
+                    &--text_area {
+                        padding: 20px;
+                    }
+                }
+            }
+        }
+        &__no_text {
+            padding-top: 0px;
+            font-size: 14px;
+        }
+    }
+}
+
+@include bp_sm {
+    .comment {
+        &__wrapper {
+            margin-bottom: 50px;
+            padding: 40px 30px;
+            &--title {
+                font-size: 17px;
+                margin-bottom: 20px;
+            }
+            .comment__form {
+                .comment__area {
+                    &--text_area {
+                        padding: 10px;
+                    }
+                }
+                &--button {
+                    @include button($width: 150px, $radius: 5px, $height: 40px);
+                }
+            }
+        }
+        .comment__heading {
+            &--title {
+                font-size: 17px;
+            }
+            &--count {
+                font-size: 13px;
+            }
+        }
+        .comment__items {
+            margin-bottom: 20px;
+            .comment__circle {
+                @include profile_icon($width: 40px);
+            }
+            .comment__contents {
+                padding: 15px;
+                &--name_grade {
+                    display: none;
+                }
+                &--text {
+                    margin-top: 5px;
+                }
+                &--delete {
+                    top: 15px;
+                    right: 10px;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}

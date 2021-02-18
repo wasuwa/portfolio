@@ -1,0 +1,103 @@
+.article_posting {
+    max-width: 880px;
+    margin: 60px auto 100px;
+    padding: 0 30px;
+    &__form {
+        &--label {
+            display: block;
+            font-size: 16px;
+            line-height: 18px;
+            margin-bottom: 15px;
+            &:nth-of-type(2) {
+                display: inline;
+            }
+        }
+        &--title {
+            width: 100%;
+            height: 50px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            box-sizing: border-box;
+            margin-bottom: 50px;
+        }
+        &--img_select {
+            display: none;
+        }
+        &--img {
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+            margin-bottom: 50px;
+        }
+        &--img_delete {
+            color: #F64C44;
+            background: white;
+            padding: 3px 18px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 0 0 -28px auto;
+            display: block;
+            cursor: pointer;
+        }
+        &--textarea {
+            width: 100%;
+            height: auto;
+            min-height: 260px;
+            border: 1px solid #ddd;
+            padding: 30px;
+            box-sizing: border-box;
+            font-size: 16px;
+            line-height: 20px;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+        &--button {
+            @include button;
+        }
+    }
+}
+
+@include bp_md {
+    .article_posting {
+        margin: 50px auto;
+        &__form {
+            &--img {
+                height: 400px;
+            }
+            &--textarea {
+                padding: 20px;
+            }
+        }
+    }
+}
+
+@include bp_sm {
+    .article_posting {
+        &__form {
+            &--label {
+                font-size: 14px;
+                display: block;
+                margin-bottom: 10px;
+            }
+            &--title {
+                margin-bottom: 40px;
+            }
+            &--img {
+                height: 250px;
+                margin-bottom: 40px;
+            }
+            &--img_delete {
+                font-size: 13px;
+                padding: 2px 15px;
+                margin: 0 0 -26px auto;
+            }
+            &--textarea {
+                margin-bottom: 30px;
+            }
+            &--button {
+                @include button($width: 250px, $height: 50px);
+            }
+        }
+    }
+}

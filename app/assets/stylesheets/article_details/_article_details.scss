@@ -1,0 +1,115 @@
+.article_details {
+    max-width: 880px;
+    margin: 40px auto 160px;
+    padding: 0 30px;
+    &__wrapper {
+        background: white;
+        margin-bottom: 30px;
+        .article_details__main {
+            padding: 30px 30px 50px;
+            position: relative;
+            &--time {
+                background: $sub_blue;
+                color: white;
+                padding: 3px 20px;
+                border-radius: 5px;
+                margin-right: 20px;
+            }
+            &--name {
+                color: $main_blue;
+            }
+            &--title {
+                margin-top: 20px;
+                font-size: 20px;
+                line-height: 25px;
+                word-wrap: break-word;
+            }
+            .article_items__favorite_count {
+                position: absolute;
+                top: 28px;
+                right: 30px;
+                font-size: 16px;
+                color: $main_blue;
+                &--like {
+                    font-size: 14px;
+                    color: $text_color;
+                }
+            }
+        }
+        &--img {
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+        }
+        .article_details__text_area {
+            padding: 50px 30px;
+            font-size: 16px;
+            word-wrap: break-word;
+        }
+    }
+    &__button {
+        @include button;
+    }
+}
+
+@include bp_md {
+    .article_details {
+        margin: 40px auto 110px;
+        &__wrapper {
+            .article_details__main {
+                padding: 30px;
+            }
+            &--img {
+                height: 400px;
+            }
+            .article_details__text_area {
+                padding: 30px;
+            }
+        }
+    }
+}
+
+@include bp_sm {
+    .article_details {
+        margin: 30px auto 110px;
+        &__wrapper {
+            .article_details__main {
+                padding: 20px;
+                &--time {
+                    font-size: 12px;
+                    padding: 3px 10px;
+                    margin-right: 10px;
+                }
+                &--name {
+                    font-size: 12px;
+                }
+                &--name-none {
+                    display: none;
+                }
+                &--title {
+                    font-size: 17px;
+                    line-height: 23px;
+                    margin-top: 15px;
+                }
+                .article_items__favorite_count {
+                    top: 20px;
+                    right: 20px;
+                    font-size: 14px;
+                    &--like {
+                        font-size: 12px;
+                    }
+                }
+            }
+            &--img {
+                height: 250px;
+            }
+            .article_details__text_area {
+                padding: 30px 20px;
+                font-size: 14px;
+            }
+        }
+        &__button {
+            @include button($width: 250px, $height: 50px);
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<!-- 新規登録 -->
+<section class="settings">
+  <div class="settings__wrapper">
+    <%= image_tag "elephant_icon.jpg", class: "settings__img" %>
+    <h2 class="settings__wrapper--title">ブログ生活をスタートしよう</h2>
+    <%= form_with(model: @user, class: "settings__form") do |f| %>
+      <%= render "error/name_error", user: @user %>
+      <%= f.text_field :name, class: "settings__form--input_sign",
+          placeholder: "お名前" %>
+      <%= render "error/email_error", user: @user %>
+      <%= f.email_field :email, class: "settings__form--input_sign", placeholder: "メールアドレス" %>
+      <%= render "error/password_error", user: @user %>
+      <%= f.password_field :password, class: "settings__form--input_sign", placeholder: "パスワード（6文字以上）" %>
+      <%= render "error/password_confirmation_error", user: @user %>
+      <%= f.password_field :password_confirmation, class: "settings__form--input_sign", placeholder: "パスワードの確認" %>
+      <%= f.submit "新規登録", class: "settings__form--button_sign", data: { disable_with: '送信中...'} %>
+    <% end %>
+    <%= link_to login_path, class: "settings__link" do %>
+        すでに登録済みの方は<span class="settings__link--blue">こちら</span>
+    <% end %>
+  </div>
+</section>

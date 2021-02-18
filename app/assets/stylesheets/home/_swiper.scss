@@ -1,0 +1,198 @@
+.swiper-container {
+    width: 100%;
+    height: 350px;
+    margin: 10px auto 50px;
+    .swiper-slide {
+        text-align: center;
+        background: #000000;
+        position: relative;
+        &__wrapper {
+            padding: 0 60px;
+            height: 100%;
+            &--background {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                right: 0;
+                object-fit: cover;
+                display: block;
+                opacity: .9;
+            }
+            &--name {
+                font-size: 18px;
+                line-height: 18px;
+                margin: 80px 0 20px;
+                color: white;
+                z-index: 1;
+                position: relative;
+            }
+            .swiper-slide__rank {
+                position: absolute;
+                top: 15px;
+                right: 10px;
+                padding: 15px;
+                font-size: 18px;
+                color: white;
+                font-weight: 600;
+                background: $sub_blue;
+                border-radius: 50%;
+                line-height: 16px;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    left: 1px;
+                    bottom: -1px;
+                    border-right: 20px solid $sub_blue;
+                    border-top: 10px solid transparent;
+                    border-bottom: 10px solid transparent;
+                    transform: rotate(-45deg);
+                }
+                &--like {
+                    font-size: 12px;
+                }
+                &--grade {
+                    font-size: 14px;
+                }
+            }
+            &--title {
+                font-size: 22px;
+                line-height: 30px;
+                word-break: break-all;
+                color: white;
+                z-index: 1;
+                position: relative;
+                font-weight: 500;
+            }
+            &--button {
+                @include button($width: 200px, $height: 50px, $radius: 5px);
+                position: absolute;
+                bottom: 60px;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+        }
+    }
+    .swiper-button-next {
+        @include swiper_arrow;
+        right: 0;
+    }
+    .swiper-button-prev {
+        @include swiper_arrow;
+        left: 0;
+    }
+}
+.swiper-pagination {
+    width: 100%;
+    height: 40px;
+    margin-top: -40px;
+    background: white;
+    &-bullet {
+        margin-top: 15px;
+        width: 10px;
+        height: 10px;
+        background: #ddd;
+        opacity: 1;
+        &:nth-of-type(2) {
+            margin: 0 30px;
+        }
+    }
+    &-bullet-active {
+        background: $main_blue;
+    }
+}
+@include bp_md {
+    .swiper-container {
+        height: 330px;
+        .swiper-slide {
+            &__wrapper {
+                padding: 0 40px;
+                .swiper-slide__rank {
+                    top: 10px;
+                    right: 5px;
+                    padding: 13px;
+                }
+                &--name {
+                    margin-top: 60px;
+                    font-size: 15px;
+                }
+                &--title {
+                    font-size: 18px;
+                    line-height: 26px;
+                }
+                &--button {
+                    @include button($width: 150px, $height: 50px, $radius: 5px);
+                }
+            }
+        }
+    }
+}
+
+@include bp_sm {
+    .swiper-container {
+        height: 200px;
+        margin-bottom: 40px;
+        .swiper-slide {
+            &__wrapper {
+                padding: 0 10px;
+                .swiper-slide__rank {
+                    top: 5px;
+                    right: 3px;
+                    padding: 6px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 12px;
+                    &::before {
+                        left: 1px;
+                        bottom: -1px;
+                        border-right: 10px solid $sub_blue;
+                        border-top: 5px solid transparent;
+                        border-bottom: 5px solid transparent;
+                    }
+                    &--like {
+                        font-size: 10px;
+                    }
+                    &--grade {
+                        font-size: 10px;
+                    }
+                }
+                &--name {
+                    font-size: 10px;
+                    line-height: 17px;
+                    margin: 25px 0 10px;
+                }
+                &--title {
+                    font-size: 13px;
+                    line-height: 20px;
+                }
+                &--button {
+                    @include button($width: 110px, $height: 30px, $radius: 5px);
+                    font-size: 11px;
+                    bottom: 25px;
+                }
+            }
+        }
+    }
+    .swiper-pagination {
+        height: 30px;
+        margin-top: -30px;
+        background: white;
+        &-bullet {
+            margin-top: 11.5px;
+            width: 7px;
+            height: 7px;
+            background: #ddd;
+            opacity: 1;
+            &:nth-of-type(2) {
+                margin: 0 20px;
+            }
+        }
+        &-bullet-active {
+            background: $main_blue;
+        }
+    }
+}
