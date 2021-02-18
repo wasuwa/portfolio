@@ -1,24 +1,31 @@
-jobs = 2
-timeout = 30
-app_dir = "/var/www/rails/portfolio"
-listen  = File.expand_path 'tmp/sockets/.unicorn.sock', app_dir
-pid = File.expand_path 'tmp/pids/unicorn.pid', app_dir
-std_log = File.expand_path 'log/unicorn.log', app_dir
-worker_processes  jobs
-working_directory app_dir
-stderr_path std_log
-stdout_path std_log
-timeout timeout
-listen  listen
-pid pid
+app_path = File.expand_path('..', __dir__)
+
+worker_processes 1
+
+working_directory app_path
+
+pid "#{app_path}/tmp/pids/unicorn.pid"
+
+listen 3000
+
+stderr_path "#{app_path}/log/unicorn.stderr.log"
+stdout_path "#{app_path}/log/unicorn.stdout.log"
+
+timeout 60
+
 preload_app true
+
+check_client_connection false
+
 run_once = true
 
 before_fork do |server, worker|
   defined?(ActiveRecord::Base) && ActiveRecord::Base.connection.disconnect!
+
   if run_once
     run_once = false
   end
+
   old_pid = "#{server.config[:pid]}.oldbin"
   if File.exist?(old_pid) && server.pid != old_pid
     begin
@@ -30,6 +37,6 @@ before_fork do |server, worker|
   end
 end
 
-after_fork do |server, worker|
-  defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
+after_fork do |_server, _worker|
+  defined?(ActiveRecord::Base) && ActiveRecord::Base.establish_connection
 end
