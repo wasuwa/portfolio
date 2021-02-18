@@ -44,3 +44,6 @@ yarn-debug.log*
 
 # Rspec実行ファイルを無視
 /rspec.xml
+
+# gemファイルを無視
+/vendor/bundle
