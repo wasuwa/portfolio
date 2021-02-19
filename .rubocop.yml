@@ -184,3 +184,7 @@ Style/SymbolProc:
 # 文字列連結を許可する
 Style/StringConcatenation:
   Enabled: false
+
+# __dir__書き換えを無効にする
+Style/ExpandPathArguments:
+  Enabled: false
