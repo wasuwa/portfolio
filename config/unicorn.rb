@@ -1,8 +1,8 @@
-app_path = File.expand_path('../', __dir__)
+app_path = File.expand_path('../../', __dir__)
 
 worker_processes 1
 
-pid "#{app_path}/tmp/pids/unicorn.pid"
+pid "#{app_path}/portfolio/tmp/pids/unicorn.pid"
 
 listen 3000
 
