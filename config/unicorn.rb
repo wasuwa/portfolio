@@ -6,9 +6,9 @@ pid "#{app_path}/portfolio/tmp/pids/unicorn.pid"
 
 listen 3000
 
-stderr_path "#{app_path}/log/unicorn.stderr.log"
+stderr_path "#{app_path}/portfolio/log/unicorn.stderr.log"
 
-stdout_path "#{app_path}/log/unicorn.stdout.log"
+stdout_path "#{app_path}/portfolio/log/unicorn.stdout.log"
 
 timeout 60
 
