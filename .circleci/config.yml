@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:3.0.0-node-browsers
+      - image: circleci/ruby:2.7.2-node-browsers
         environment:
           - BUNDLER_VERSION: 2.2.9
           - RAILS_ENV: 'test'
