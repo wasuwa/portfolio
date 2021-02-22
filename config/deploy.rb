@@ -2,7 +2,7 @@ lock '3.4.0'
 
 set :application, 'portfolio'
 
-set :repo_url, 'git@github.com/baru-web-production/portfolio.git'
+set :repo_url, 'https://github.com/baru-web-production/portfolio.git'
 
 set :deploy_to, '/var/www/rails/portfolio'
 
