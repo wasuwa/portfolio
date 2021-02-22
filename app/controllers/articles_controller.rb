@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
       render 'new'
     end
   end
-  
+
   def show
     @article = Article.find(params[:id])
     @user = @article.user
@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
     @comments = @article.comments.all.includes(:user)
     @not_current_articles = @user.articles.includes(:favorites).reject { |article| article == @article }
   end
-  
+
   def edit
     @article = Article.find(params[:id])
   end
@@ -53,12 +53,12 @@ class ArticlesController < ApplicationController
 
   private
 
-    def article_params
-      params.require(:article).permit(:content, :title, :image)
-    end
+  def article_params
+    params.require(:article).permit(:content, :title, :image)
+  end
 
-    def correct_user
-      @article = current_user.articles.find_by(:id => params[:id])
-      redirect_to @user if @article.nil?
-    end
+  def correct_user
+    @article = current_user.articles.find_by(:id => params[:id])
+    redirect_to @user if @article.nil?
+  end
 end

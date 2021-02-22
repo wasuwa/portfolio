@@ -1,4 +1,4 @@
-FROM ruby:3.0
+FROM ruby:2.7.2
 
 RUN apt-get update && apt-get install -y curl apt-transport-https wget && \
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
@@ -17,7 +17,7 @@ WORKDIR /workspace
 COPY Gemfile /workspace/Gemfile
 COPY Gemfile.lock /workspace/Gemfile.lock
 
-RUN gem install bundler
+RUN gem install bundler:2.2.9
 RUN bundle install
 RUN yarn install --check-files
 

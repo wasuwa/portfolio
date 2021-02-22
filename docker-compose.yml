@@ -10,7 +10,7 @@ services:
       - mysql-data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: hssb_development
-      MYSQL_ROOT_PASSWORD: ${SQL_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: password
       TZ: Asia/Tokyo
 
   web:
@@ -26,7 +26,6 @@ services:
       - "3000:3000"
     volumes:
       - .:/workspace
-    env_file: development.env
 
 volumes:
   mysql-data:

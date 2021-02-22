@@ -37,25 +37,25 @@ class PasswordResetsController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:password, :password_confirmation)
-    end
-  
-    def get_user
-      @user = User.find_by(:email => params[:email])
-    end
+  def user_params
+    params.require(:user).permit(:password, :password_confirmation)
+  end
 
-    def valid_user
-      unless(@user &.authenticated?(:reset, params[:id]))
-        flash[:danger] = "無効なリンクです"
-        redirect_to root_url
-      end
-    end
+  def get_user
+    @user = User.find_by(:email => params[:email])
+  end
 
-    def check_expiration
-      if @user.password_reset_expired?
-        flash[:danger] = "URLの有効期限が切れています"
-        redirect_to password_resets_url
-      end
+  def valid_user
+    unless @user&.authenticated?(:reset, params[:id])
+      flash[:danger] = "無効なリンクです"
+      redirect_to root_url
     end
+  end
+
+  def check_expiration
+    if @user.password_reset_expired?
+      flash[:danger] = "URLの有効期限が切れています"
+      redirect_to password_resets_url
+    end
+  end
 end

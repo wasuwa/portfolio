@@ -13,7 +13,7 @@ RSpec.describe "PasswordResets", :type => :feature do
         expect(current_path).to eq email_path
       end
     end
-    
+
     context "userから無効なパラメータが送信された場合" do
       before do
         visit password_resets_path
@@ -109,7 +109,7 @@ RSpec.describe "PasswordResets", :type => :feature do
         expect(page).to have_content '確認とパスワードの入力が一致しません'
       end
     end
-    
+
     context "パスワードが無効の場合" do
       example "エラーメッセージが表示される" do
         fill_in 'user_password', :with => 'aaa'
@@ -124,7 +124,7 @@ RSpec.describe "PasswordResets", :type => :feature do
   describe "before" do
     context "トークンが無効の場合" do
       before do
-        visit edit_password_reset_url('aaa', :email => user.email)     
+        visit edit_password_reset_url('aaa', :email => user.email)
       end
       example "TOPページにリダイレクトされる" do
         expect(current_url).to eq root_url
@@ -136,7 +136,7 @@ RSpec.describe "PasswordResets", :type => :feature do
 
     context "emailが無効の場合" do
       before do
-        visit edit_password_reset_url(user.reset_token, :email => 'aaa@aaa.com') 
+        visit edit_password_reset_url(user.reset_token, :email => 'aaa@aaa.com')
       end
       example "TOPページにリダイレクトされる" do
         expect(current_url).to eq root_url

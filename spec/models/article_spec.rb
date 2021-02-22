@@ -33,11 +33,11 @@ RSpec.describe Article, :type => :model do
 
   context "articleのcontentは30,000文字以下に制限される" do
     example "バリデーションが通る" do
-      article.content = "a" * 30000
+      article.content = "a" * 30_000
       expect(article).to be_valid
     end
     example "バリデーションが通らない" do
-      article.content = "a" * 30001
+      article.content = "a" * 30_001
       expect(article).to be_invalid
     end
   end
@@ -55,7 +55,7 @@ RSpec.describe Article, :type => :model do
 
   describe "articleの並び順" do
     let!(:day_before_yesterday) { create(:article, :day_before_yesterday) }
-    let!(:now) { create(:article, :now) }  
+    let!(:now) { create(:article, :now) }
     let!(:yesterday) { create(:article, :yesterday) }
 
     context "articleの並び順は降順になる" do
@@ -64,12 +64,12 @@ RSpec.describe Article, :type => :model do
       end
     end
   end
-  
+
   describe 'dependent: :destroy' do
     before do
       user.articles.create!(:content => 'これはテストです', :title => "これはテストです")
     end
-    
+
     context 'userを削除した場合' do
       example 'userと同時にarticleも削除される' do
         expect do

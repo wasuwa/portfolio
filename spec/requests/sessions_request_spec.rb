@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Sessions", :type => :request do
-
   let(:user) { create(:user) }
 
   describe 'new' do
@@ -14,7 +13,7 @@ RSpec.describe "Sessions", :type => :request do
   end
 
   describe "create", :type => :feature do
-    let(:user_invalid) { User.create() }
+    let(:user_invalid) { User.create }
 
     context "有効なパラメータが送信された場合" do
       before do
@@ -27,7 +26,7 @@ RSpec.describe "Sessions", :type => :request do
         expect(current_path).to eq user_path(user)
       end
     end
-    
+
     context "無効なパラメータが送信された場合" do
       before do
         visit login_path
