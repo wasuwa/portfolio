@@ -74,3 +74,9 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "44:dd:9b:4b:85:5e:6c:93:c6:29:c7:f0:5d:70:23:e5"
+
+      # EC2にデプロイ
+      - deploy:
+          name: Capistrano deploy
+          command:
+            bundle exec cap production deploy
