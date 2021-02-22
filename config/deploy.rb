@@ -18,10 +18,10 @@ set :rbenv_ruby, '2.7.2'
 set :ssh_options, keys: '~/.ssh/portfolio_key_rsa'
 
 # プロセス番号を記載したファイル
-set :unicorn_pid, -> { "#{app_path}/tmp/pids/unicorn.pid" }
+set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 
 # Unicornの設定ファイル
-set :unicorn_config_path, -> { "#{app_path}/config/unicorn.rb" }
+set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
 # Unicornを再起動
