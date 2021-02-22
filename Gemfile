@@ -47,6 +47,11 @@ group :development, :test do
   gem 'factory_bot_rails'
   # CircleCI
   gem 'rspec_junit_formatter'
+  # Capistrano
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -74,7 +79,6 @@ group :test do
 end
 
 group :production do
-  gem 'unicorn', '5.4.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
