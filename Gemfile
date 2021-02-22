@@ -48,10 +48,13 @@ group :development, :test do
   # CircleCI
   gem 'rspec_junit_formatter'
   # Capistrano
+  gem 'bcrypt_pbkdf'
   gem 'capistrano', '3.4.0'
+  gem 'capistrano3-unicorn'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+  gem 'ed25519'
 end
 
 group :development do
