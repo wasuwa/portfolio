@@ -78,8 +78,5 @@ jobs:
       # EC2にデプロイ
       - deploy:
           name: Capistrano deploy
-          command: |
-            if [ "${CIRCLE_BRANCH}" != "master" ]; then
-              exit 0
-            fi
+          command:
             bundle exec cap production deploy
