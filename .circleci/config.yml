@@ -73,7 +73,7 @@ jobs:
       # SSH認証
       - add_ssh_keys:
           fingerprints:
-            - "44:dd:9b:4b:85:5e:6c:93:c6:29:c7:f0:5d:70:23:e5"
+            - "54:7d:73:7c:a3:dd:34:ba:70:01:34:34:6b:b8:2a:b8"
 
       # EC2にデプロイ
       - deploy:
