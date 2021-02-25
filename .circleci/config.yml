@@ -11,8 +11,6 @@ jobs:
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_ROOT_HOST: '%'
-      - image: circleci/python:3.6-jessie
-      - image: buildpack-deps:trusty
 
     working_directory: ~/repo
 
@@ -71,24 +69,12 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
-      
-      # AWS
-      - run: sudo pip install awscli
-      - run:
-          name: "authorize-security-group-ingress"
-          command: |
-            IP=`curl -s ifconfig.me`
-            echo "#!/bin/bash" > ./sg.sh
-            echo "aws configure set region ap-northeast-1" >> ./sg.sh
-            echo "aws ec2 authorize-security-group-ingress --group-id sg-060d2046c8a3930ba --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
-            bash ./sg.sh
+
       # SSH認証
       - add_ssh_keys:
           fingerprints:
             - "81:c5:68:da:f6:10:62:d4:2a:c8:1b:d3:50:8b:78:7c"
-      - run:
-          name: deploy
-          command: ssh -oStrictHostKeyChecking=no circleci@18.181.158.76 "bash /home/circleci/script/deploy.sh"
+
       # CircleCI
       - deploy:
           name: Capistrano deploy
@@ -97,11 +83,3 @@ jobs:
               exit 0
             fi
             bundle exec cap production deploy
-      - run:
-          name: "revoke-security-group-ingress"
-          command: |
-            IP=`curl -s ifconfig.me`
-            echo "#!/bin/bash" > ./sg.sh
-            echo "aws configure set region ap-northeast-1" >> ./sg.sh
-            echo "aws ec2 revoke-security-group-ingress --group-id sg-060d2046c8a3930ba --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
-            bash ./sg.sh
