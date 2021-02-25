@@ -11,6 +11,8 @@ jobs:
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_ROOT_HOST: '%'
+      - image: circleci/python:3.6-jessie
+      - image: buildpack-deps:trusty
 
     working_directory: ~/repo
 
@@ -70,13 +72,7 @@ jobs:
           path: /tmp/test-results
           destination: test-results
       
-  # AWS
-  deploy:
-    docker:
-      - image: circleci/python:3.6-jessie
-      - image: buildpack-deps:trusty
-    working_directory: ~/
-    steps:
+      # AWS
       - run: sudo pip install awscli
       - run:
           name: "authorize-security-group-ingress"
