@@ -14,12 +14,6 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :rbenv_type, :user
 set :rbenv_ruby, '2.7.2'
 
-# 利用する公開鍵
-set :ssh_options, auth_methods: ['publickey'], keys: ['~/.ssh/portfolio_key.pem']
-
-# master.keyを読み込ませる
-set :linked_files, fetch(:linked_files, []).push("config/master.key")
-
 # プロセス番号を記載したファイル
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 
