@@ -78,7 +78,7 @@ jobs:
       # CircleCI
       - deploy:
           name: Capistrano deploy
-          command:
+          command: |
             if [ "${CIRCLE_BRANCH}" != "master" ]; then
               exit 0
             fi
