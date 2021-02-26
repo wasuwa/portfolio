@@ -15,7 +15,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.7.2'
 
 # 利用する公開鍵
-set :ssh_options, auth_methods: ['publickey'], keys: ['~/.ssh/portfolio_key.pem']
+set :ssh_options, auth_methods: ['publickey'], keys: ['~/.ssh/github_rsa']
 
 # master.keyを読み込ませる
 # set :linked_files, fetch(:linked_files, []).push("config/master.key")

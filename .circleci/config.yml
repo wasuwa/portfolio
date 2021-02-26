@@ -73,7 +73,7 @@ jobs:
       # SSH認証
       - add_ssh_keys:
           fingerprints:
-            - "f4:1b:83:1e:fa:9d:b6:c1:c8:85:4b:cb:9d:e3:31:1d"
+            - "33:2e:96:a4:b1:d5:59:60:37:60:56:6d:ac:7d:31:e2"
 
       # CircleCI
       - deploy:
