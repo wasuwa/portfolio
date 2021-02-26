@@ -3,7 +3,7 @@ lock '3.4.0'
 
 # ログの表示
 set :application, 'hssb'
-set :deploy_to, '/var/www/rails/portfolio'
+set :deploy_to, '/var/www/portfolio'
 
 # pullするリポジトリ
 set :repo_url, 'git@github.com:baru-web-production/portfolio.git'
