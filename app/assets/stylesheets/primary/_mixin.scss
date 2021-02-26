@@ -24,6 +24,7 @@
     letter-spacing: 1px;
     display: block;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 @mixin line_title($width: 100px, $margin: 0 35px) {
