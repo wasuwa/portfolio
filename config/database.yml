@@ -27,6 +27,7 @@ test:
 
 production:
   <<: *default
-  database: hssb
-  username: root
+  database: <%= ENV["PRODUCTION_SQL_DATABASE"] %>
+  username: <%= ENV["PRODUCTION_SQL_USERNAME"] %>
   password: <%= ENV["PRODUCTION_SQL_PASSWORD"] %>
+  host: <%= ENV["PRODUCTION_SQL_HOST"] %>
