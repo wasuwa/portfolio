@@ -33,7 +33,7 @@ gem 'rails-i18n'
 gem 'kaminari'
 # 画像アップロード
 gem 'carrierwave'
-gem 'fog'
+gem 'fog-aws'
 # 画像のリサイズ
 gem 'rmagick'
 

@@ -11,5 +11,7 @@ unless Rails.env.development? || Rails.env.test?
     config.cache_storage = :fog
     # アクセスを許可する
     config.fog_public = false
+    # fog-awsを使う
+    config.fog_provider = 'fog-aws'
   end
 end
