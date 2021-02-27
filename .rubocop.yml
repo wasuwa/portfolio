@@ -169,10 +169,6 @@ Style/IdenticalConditionalBranches:
 Style/RedundantCondition:
   Enabled: false
 
-# 重複を許可する
-Lint/DuplicateMethods:
-  Enabled: false
-
 # 引数名を許可する
 Lint/UnusedBlockArgument:
   Enabled: false
