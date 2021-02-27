@@ -59,3 +59,21 @@ img {
   border: none;
   vertical-align: bottom;
 }
+
+/* iOSでのデフォルトスタイルをリセット */
+input[type="submit"],
+input[type="button"] {
+  -webkit-appearance: button;
+  appearance: button;
+  border: none;
+    &::-webkit-search-decoration {
+      display: none;
+    }
+    &:focus {
+      outline-offset: -2px;
+    }
+}
+
+input,textarea {
+  -webkit-appearance: none;
+}
