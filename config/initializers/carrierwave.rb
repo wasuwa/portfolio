@@ -1,10 +1,15 @@
-unless Rails.env.development? || Rails.env.test?
+require 'carrierwave/storage/abstract'
+require 'carrierwave/storage/file'
+require 'carrierwave/storage/fog'
+
+if Rails.env.production?
   CarrierWave.configure do |config|
     config.fog_credentials = {
       provider: 'AWS',
       aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
       aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-      region: 'ap-northeast-1'
+      region: 'ap-northeast-1',
+      path_style: true
     }
 
     config.fog_directory = 'hssb-portfolio-s3'
@@ -12,6 +17,6 @@ unless Rails.env.development? || Rails.env.test?
     # アクセスを許可する
     config.fog_public = false
     # fog-awsを使う
-    config.fog_provider = 'fog-aws'
+    config.fog_provider = 'fog/aws'
   end
 end
