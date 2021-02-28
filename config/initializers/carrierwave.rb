@@ -12,6 +12,8 @@ if Rails.env.production?
       path_style: true
     }
 
+    config.storage = :fog
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/hssb-portfolio-s3/'
     config.fog_directory = 'hssb-portfolio-s3'
     config.cache_storage = :fog
     # アクセスを許可する
