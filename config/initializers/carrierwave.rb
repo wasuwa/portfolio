@@ -1,4 +1,4 @@
-unless Rails.env.development? || Rails.env.test?
+if Rails.env.production?
   CarrierWave.configure do |config|
     config.fog_credentials = {
       provider: 'AWS',
@@ -12,6 +12,6 @@ unless Rails.env.development? || Rails.env.test?
     # アクセスを許可する
     config.fog_public = false
     # fog-awsを使う
-    config.fog_provider = 'fog-aws'
+    config.fog_provider = 'fog/aws'
   end
 end
