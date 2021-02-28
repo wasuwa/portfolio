@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_204_110_144) do
+ActiveRecord::Schema.define(version: 2021_02_04_110144) do
+
   create_table "articles", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
