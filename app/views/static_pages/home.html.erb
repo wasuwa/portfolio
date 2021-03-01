@@ -18,7 +18,7 @@
         <div class="swiper-slide">
           <article class="swiper-slide__wrapper">
             <% if article.image? %>
-              <%= image_tag article.image.url, class: "swiper-slide__wrapper--background" %>
+              <%= image_tag article.image.thumb.url, class: "swiper-slide__wrapper--background" %>
             <% else %>
               <%= image_tag "article_details_no_img.jpg", class: "swiper-slide__wrapper--background" %>
             <% end %>
@@ -27,8 +27,8 @@
             </p>
             <div class="swiper-slide__rank">
               <p>
-                  <span class="swiper-slide__rank--like">いいね</span><br>
-                  <%= rank %><span class="swiper-slide__rank--grade">位</span>
+                <span class="swiper-slide__rank--like">いいね</span><br>
+                <%= rank %><span class="swiper-slide__rank--grade">位</span>
               </p>
             </div>
             <h2 class="swiper-slide__wrapper--title">
