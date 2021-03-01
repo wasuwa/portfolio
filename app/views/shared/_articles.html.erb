@@ -4,7 +4,7 @@
       <%= time_ago_in_words(article.created_at)+"前" %>
     </time>
     <% if article.image? %>
-      <%= image_tag article.image.url, class: "article_items__wrapper--img" %>
+      <%= image_tag article.image.thumb.url, class: "article_items__wrapper--img" %>
     <% else %>
       <%= image_tag "article_details_no_img.jpg", class: "article_items__wrapper--img" %>
     <% end %>
