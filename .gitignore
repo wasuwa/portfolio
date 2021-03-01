@@ -50,3 +50,6 @@ yarn-debug.log*
 
 # pipファイルを無視
 /get-pip.py
+
+# uploadsを無視
+/public/uploads/
