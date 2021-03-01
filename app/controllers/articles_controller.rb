@@ -65,11 +65,10 @@ class ArticlesController < ApplicationController
 
   def not_article
     @url = request.url
-    @url_Numbers = File.basename(@url)
-    unless Article.find_by(id: @url_Numbers).present?
-      flash[:danger] = "この記事は存在しません"
-      redirect_to root_path
-      return
+    @end_of_url = File.basename(@url)
+    unless Article.find_by(id: @end_of_url).present?
+      flash[:danger] = "この記事は削除されました"
+      redirect_to root_url
     end
   end
 end
