@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :logged_in_user, :only => [:create, :destroy, :new, :update, :edit]
   before_action :correct_user, :only => :destroy
+  before_action :not_article, :only => :show
 
   def index
     @articles = Article.all.includes(:user, :favorites).page(params[:page])
@@ -60,5 +61,14 @@ class ArticlesController < ApplicationController
   def correct_user
     @article = current_user.articles.find_by(:id => params[:id])
     redirect_to @user if @article.nil?
+  end
+
+  def not_article
+    @url = request.url
+    @end_of_url = File.basename(@url)
+    unless Article.find_by(id: @end_of_url).present?
+      flash[:danger] = "この記事は削除されました"
+      redirect_to root_url
+    end
   end
 end

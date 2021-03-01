@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, :only => [:edit, :update]
   before_action :correct_user, :only => [:edit, :update]
+  before_action :not_user, :only => [:show]
 
   def new
     @user = User.new
@@ -49,6 +50,15 @@ class UsersController < ApplicationController
     unless current_user?
       flash[:danger] = "他のユーザーのプロフィールは編集できません"
       redirect_to(root_url)
+    end
+  end
+
+  def not_user
+    @url = request.url
+    @end_of_url = File.basename(@url)
+    unless User.find_by(id: @end_of_url).present?
+      flash[:danger] = "そのユーザーは存在しません"
+      redirect_to root_url
     end
   end
 end
