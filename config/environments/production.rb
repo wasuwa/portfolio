@@ -118,7 +118,19 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  # hostの設定（後でやる）
-  # host = 'samplehost'
-  # Rails.application.routes.default_url_options[:host] = host
+  # mailer
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :port => 587,
+    :address => 'smtp.gmail.com',
+    :domain => 'smtp.gmail.com',
+    :user_name => ENV["GMAIL_NAME"],
+    :password => ENV["GMAIL_PASSWORD"],
+    :authentication => 'login',
+    :enable_starttls_auto => true
+  }
+  # hostの設定
+  host = 'high-school-students-blog.com'
+  Rails.application.routes.default_url_options[:host] = host
 end
