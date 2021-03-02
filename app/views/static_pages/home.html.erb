@@ -2,7 +2,7 @@
 <!-- テストログイン -->
 <% if current_user.nil? %>
   <div class="test_login">
-    <p class="test_login__text">\\ サービス閲覧はこちら //</p>
+    <p class="test_login__text">\\ サービスの閲覧はこちら //</p>
     <%= form_with(url: login_path, scope: :session, local: true, class: "test_login__form") do |f| %>
       <%= f.hidden_field :email, value: "baru@baru.com" %>
       <%= f.hidden_field :password, value: "aaaaaa" %>
