@@ -152,3 +152,9 @@ SNSが大流行している現状を見れば明らかです。
 たとえば、CircleCIからの自動デプロイ、RSpecやRubocopの自動実行です。
 
 まだまだ興味がつきないので、今後も学習を続けながら技術への理解を深めていきたいと思っています。
+
+## About me
+
+今年高校を卒業した18歳です。  
+Webエンジニアを目指して日々勉強しています。  
+<a href="https://twitter.com/Baru_blog" target="_blank" rel="noopener">Twitter</a>
