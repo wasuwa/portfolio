@@ -19,6 +19,6 @@ class FavoritesController < ApplicationController
   end
 
   def get_article
-    @get_article = Article.find_by(:id => params[:article_id])
+    @get_article = Article.find(params[:id])
   end
 end
