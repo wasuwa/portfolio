@@ -15,3 +15,7 @@ pmOnFail: error
 
 # pnpm runまたはpnpm execの前に依存関係を検証し、node_modulesが未更新ならエラーにする
 verifyDepsBeforeRun: error
+
+# インストールスクリプトの実行許可リスト
+allowBuilds:
+  esbuild: true
