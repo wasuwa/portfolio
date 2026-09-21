@@ -1,0 +1,17 @@
+# 公開から7日未満の依存パッケージを解決対象から除外する
+minimumReleaseAge: 10080
+
+# 先に公開されたリリースより信頼レベルが低いバージョンを拒否する
+trustPolicy: no-downgrade
+
+# 推移的依存関係の取得元をレジストリなどの信頼できるソースに限定する
+blockExoticSubdeps: true
+
+# 現在のNode.jsに非対応と宣言された依存パッケージのインストールを拒否する
+engineStrict: true
+
+# 実行中のpnpmがプロジェクト指定のバージョンと異なる場合は、自動取得せずエラーにする
+pmOnFail: error
+
+# pnpm runまたはpnpm execの前に依存関係を検証し、node_modulesが未更新ならエラーにする
+verifyDepsBeforeRun: error
