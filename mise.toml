@@ -1,0 +1,7 @@
+[settings]
+minimum_release_age = "7d"
+lockfile = true
+
+[tools]
+node = "26.8.2"
+pnpm = "12.4.1"
